@@ -1,0 +1,195 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: gray;
+  font-size: 1.6rem;
+  font-family: Verdana, Geneva, Tahoma, "Meiryo", sans-serif;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0.4rem;
+  height: 100%;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+#calendar, #weather, #transite, #news {
+  background-color: white;
+  height: 32.5%;
+  overflow: hidden;
+}
+
+#calendar #calendar-today {
+  height: 98%;
+}
+
+#calendar #calendar-year-month {
+  position: absolute;
+  top: 0.4rem;
+  left: 0.4rem;
+  font-size: 3rem;
+}
+
+#calendar #calendar-wareki {
+  position: absolute;
+  top: 4rem;
+  left: 0.4rem;
+  font-size: 2.4rem;
+}
+
+#calendar #calendar-date {
+  position: relative;
+  top: 4.0rem;
+  padding: 0 auto;
+  font-size: 12rem;
+  font-weight: bold;
+  font-family: Tahoma, "Meiryo", sans-serif;
+}
+
+#calendar .calendar-day-of-week {
+  position: relative;
+  top: 0.8rem;
+  font-size: 3.5rem;
+}
+
+#calendar #calendar-today-event {
+  position: relative;
+  top: 0.4rem;
+  padding: 0 auto;
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+#calendar .calendar-month {
+  width: 100%;
+  font-size: 1.9rem;
+  caption-side: top;
+  margin: 0.4rem 0 0 0;
+}
+
+#calendar .calendar-month tr,
+#calendar .calendar-month td {
+  text-align: center;
+}
+
+#calendar caption {
+  background-color: #333;
+  color: white;
+  padding: 0 0.4rem;
+}
+
+#calendar .calendar-today {
+  border: solid 3px #333;
+  font-weight: bold;
+}
+
+#calendar .calendar-holiday {
+  border-radius: 50%;
+  background-color: #C41A41;
+  color: white;
+}
+
+#calendar .calendar-empty {
+  color: lightgray;
+}
+
+#weather #weather-now {
+  height: 98%;
+}
+
+#weather #weather-icon {
+  height: 16rem;
+  margin: 0 auto;
+}
+
+#weather #weather-title {
+  position: absolute;
+  top: 17rem;
+  font-size: 2.5rem;
+}
+
+#weather #weather-temp {
+  position: absolute;
+  top: 19rem;
+  right: 0.8rem;
+  font-size: 2.8rem;
+}
+
+#weather #weather-temp-value {
+  font-size: 5rem;
+}
+
+#weather #weather-humidity {
+  position: absolute;
+  top: 22rem;
+  font-size: 2.5rem;
+  background-image: url('/assets/images/weather/humidity00.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 2.3rem;
+  background-size: 2.2rem 2.2rem ;
+}
+
+#weather .weather-time {
+  font-size: 1.5rem;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+#weather .weather-hourly-icon {
+  margin-top: 0.4rem;
+  height: 4rem;
+  text-align: center;
+}
+
+#weather .weather-hourly-icon img {
+  height: 5rem;
+}
+
+#weather .weather-daily-icon {
+  margin-top: 0.4rem;
+  height: 5rem;
+  text-align: center;
+}
+
+#weather .weather-daily-icon img {
+  height: 5rem;
+}
+
+#weather .weather-title, #weather .weather-temp, #weather .weather-wind {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#news #transite-delayed-lines {
+  font-size: 3rem;
+  margin-left: 0.8rem;
+}
+
+#news #news-headline-image {
+  max-height: 21rem;
+  max-width: 21rem;
+  float: right;
+}
+
+#news #news-headline {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 0.8rem;
+}
+
+#news #news-headline li {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 2.2rem;
+}
+
+#status {
+  background-color: lightgray;
+  padding: 0.2rem 0.6rem;
+  margin: 0;
+}
