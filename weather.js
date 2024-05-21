@@ -19,6 +19,8 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
           pressure: w.pressure,
           humidity: w.humidity,
           wind: w.wind_speed,
+          pop: w.pop,
+          rain: w.rain ? w.rain : undefined,
           icon: getIconUrl(w.weather[0].icon),
           title: w.weather[0].main,
           description: w.weather[0].description,

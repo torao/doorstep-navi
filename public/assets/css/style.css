@@ -139,29 +139,24 @@ body {
   text-align: center;
 }
 
-#weather .weather-hourly-icon {
-  margin-top: 0.4rem;
-  height: 4rem;
+#weather .weather-hourly-icon, #weather .weather-daily-icon {
+  margin: 0.4rem auto;
   text-align: center;
 }
 
-#weather .weather-hourly-icon img {
+#weather .weather-hourly-icon img, #weather .weather-daily-icon img {
   height: 5rem;
 }
 
-#weather .weather-daily-icon {
-  margin-top: 0.4rem;
-  height: 5rem;
+#weather .weather-pop, #weather .weather-temp {
+  font-size: 1.8rem;
   text-align: center;
+  line-height: 120%;
+  white-space: nowrap;
 }
 
-#weather .weather-daily-icon img {
-  height: 5rem;
-}
-
-#weather .weather-title, #weather .weather-temp, #weather .weather-wind {
-  font-size: 1.5rem;
-  text-align: center;
+#weather .weather-temp {
+  margin-bottom: 1rem;
 }
 
 #news #transite-delayed-lines {

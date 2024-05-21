@@ -24,6 +24,14 @@
     return week[date.getDay()];
   }
 
+  function getEto(year) {
+    const tenkan = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
+    const junishi = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+    const tenkanIndex = (year - 4) % 10;
+    const junishiIndex = (year - 4) % 12;
+    return tenkan[tenkanIndex] + junishi[junishiIndex];
+  }
+
   function getWind(wind) {
     if (wind >= 30) {
       return "猛烈な風";
@@ -49,6 +57,7 @@
     $.getElementById("calendar-date").textContent = date;
     $.getElementById("calendar-day-of-week").textContent = getDayOfWeek(now);
     $.getElementById("calendar-today-event").textContent = holiday !== undefined ? holiday : "";
+    $.getElementById("calendar-wareki").textContent = "令和" + (year - 2018) + "年 " + getEto(year);
 
     function setCalendar(year, month, target) {
       generateCalendar(year, month).forEach((week, i) => {
@@ -117,18 +126,36 @@
       $.getElementById("weather-humidity").style.backgroundImage = "url('/assets/images/weather/humidity60.png')";
     }
 
+    function rainSymbol(pop, rain) {
+      return pop >= 0.5 || rain >= 2 ? "☔" : "";
+    }
+
     for (var j = 1; j <= 6; j++) {
-      const h = w.weather.hourly[j * 3 + 1];
+      const index = j * 3 + 1;
+      const h = w.weather.hourly[index];
       const time = new Date(h.time * 1000);
       const ampm = time.getHours() < 12 ? "am" : "pm";
-      $.getElementById("weather-time-h" + j).textContent = (time.getHours() % 12) + ampm;
+      $.getElementById("weather-time-h" + j).textContent = "~" + (time.getHours() % 12) + ampm;
       $.getElementById("weather-icon-h" + j).setAttribute("src", h.icon);
       $.getElementById("weather-icon-h" + j).setAttribute("alt", h.description);
-      $.getElementById("weather-title-h" + j).textContent = h.description;
       $.getElementById("weather-temp-h" + j).textContent = h.temperature.toFixed(0) + "℃";
 
+      // 3時間前までの降水確率の最大値を取得
+      let maxPop = h.pop;
+      let maxRain = h.rain;
+      for (var k = index - 1; k > index - 3 && k >= 0; k--) {
+        maxPop = Math.max(maxPop, w.weather.hourly[k].pop);
+        if (maxRain === undefined) {
+          maxRain = w.weather.hourly[k].rain;
+        } else if (w.weather.hourly[k].rain !== undefined) {
+          maxRain = Math.max(maxRain, w.weather.hourly[k].rain);
+        }
+      }
+      const rain = rainSymbol(maxPop, maxRain);
+      $.getElementById("weather-pop-h" + j).textContent = rain + (maxPop * 100).toFixed(0) + "%";
+
       // 風速による表記変更
-      $.getElementById("weather-wind-h" + j).textContent = getWind(h.wind);
+      // $.getElementById("weather-wind-h" + j).textContent = getWind(h.wind);
     }
 
     for (var j = 1; j <= 4; j++) {
@@ -147,12 +174,14 @@
 
       $.getElementById("weather-icon-d" + j).setAttribute("src", d.icon);
       $.getElementById("weather-icon-d" + j).setAttribute("alt", d.description);
-      $.getElementById("weather-title-d" + j).textContent = d.description;
       $.getElementById("weather-temp-d" + j).textContent =
-        d.temperature.min.toFixed(0) + "℃ / " + d.temperature.max.toFixed(0) + "℃";
+        d.temperature.min.toFixed(0) + "℃/" + d.temperature.max.toFixed(0) + "℃";
+
+      const rain = rainSymbol(d.pop, d.rain);
+      $.getElementById("weather-pop-d" + j).textContent = rain + (d.pop * 100).toFixed(0) + "%";
 
       // 風速による表記変更
-      $.getElementById("weather-wind-d" + j).textContent = getWind(d.wind);
+      // $.getElementById("weather-wind-d" + j).textContent = getWind(d.wind);
     }
   }
 
