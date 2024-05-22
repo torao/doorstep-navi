@@ -25,8 +25,8 @@
   }
 
   function getEto(year) {
-    const tenkan = ['甲', '乙', '丙', '丁', '戊', '己', '庚', '辛', '壬', '癸'];
-    const junishi = ['子', '丑', '寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥'];
+    const tenkan = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+    const junishi = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
     const tenkanIndex = (year - 4) % 10;
     const junishiIndex = (year - 4) % 12;
     return tenkan[tenkanIndex] + junishi[junishiIndex];
@@ -92,13 +92,15 @@
     setCalendar(year, month, "calendar-this-month");
     setCalendar(year, month + 1, "calendar-next-month");
 
+    // スケジュールの表示
     calendar.events.forEach((event) => {
       const start = $.createElement("span");
       start.classList.add("calendar-event-start");
+      const prefix = getDateDiffName(now, new Date(event.start));
       if (event.start === undefined || event.start.length === 10) {
-        start.textContent = "終日";
+        start.textContent = prefix + "終日";
       } else {
-        start.textContent = event.start.slice(11, 16);
+        start.textContent = prefix + event.start.slice(11, 16);
       }
       const li = $.createElement("li");
       li.appendChild(start);
@@ -131,10 +133,42 @@
 
   function getJapaneseMonthName(date) {
     const japaneseMonths = [
-      '睦月', '如月', '弥生', '卯月', '皐月', '水無月',
-      '文月', '葉月', '長月', '神無月', '霜月', '師走'
+      "睦月",
+      "如月",
+      "弥生",
+      "卯月",
+      "皐月",
+      "水無月",
+      "文月",
+      "葉月",
+      "長月",
+      "神無月",
+      "霜月",
+      "師走",
     ];
     return japaneseMonths[date.getMonth()];
+  }
+
+  function getDateDiffName(t0, t1) {
+    const mover = new Date(t0);
+    mover.setHours(23, 59, 59, 999);
+    const end = new Date(t1);
+    end.setHours(23, 59, 59, 999);
+    let diff = 0;
+    while (mover.getTime() < end.getTime()) {
+      mover.setDate(mover.getDate() + 1);
+      diff++;
+    }
+    switch (diff) {
+      case 0:
+        return "";
+      case 1:
+        return "明日";
+      case 2:
+        return "明後日";
+      default:
+        return diff + "日後";
+    }
   }
 
   function updateWeather(w) {

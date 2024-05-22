@@ -27,8 +27,14 @@ async function readOrFetchHolidays(path) {
 }
 
 async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
+  if(apiKey === undefined || calendarId === undefined) {
+    return [];
+  }
   const startOfDay = today.toISOString();
-  const endOfDay = new Date(today.setHours(23, 59, 59, 999)).toISOString();
+  const end = new Date(today);
+  end.setDate(end.getDate() + 6);
+  end.setHours(23, 59, 59, 999);
+  const endOfDay = end.toISOString();
   try {
     const calendar = google.calendar({
       version: "v3", auth: new google.auth.JWT(
