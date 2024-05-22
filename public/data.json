@@ -80,8 +80,8 @@
     "weather": {
       "hourly": [
         {
-          "time": 1716366220,
-          "temperature": 23.06,
+          "time": 1716366779,
+          "temperature": 23.01,
           "pressure": 1016,
           "humidity": 62,
           "wind": 4.63,
@@ -91,9 +91,9 @@
         },
         {
           "time": 1716364800,
-          "temperature": 23.06,
+          "temperature": 22.85,
           "pressure": 1016,
-          "humidity": 62,
+          "humidity": 60,
           "wind": 5.85,
           "pop": 0,
           "icon": "/assets/images/weather/04.png",
@@ -102,9 +102,9 @@
         },
         {
           "time": 1716368400,
-          "temperature": 22.73,
-          "pressure": 1017,
-          "humidity": 61,
+          "temperature": 23.01,
+          "pressure": 1016,
+          "humidity": 62,
           "wind": 5.7,
           "pop": 0,
           "icon": "/assets/images/weather/04.png",
@@ -113,7 +113,7 @@
         },
         {
           "time": 1716372000,
-          "temperature": 22.11,
+          "temperature": 22.54,
           "pressure": 1017,
           "humidity": 63,
           "wind": 5.24,
@@ -124,20 +124,20 @@
         },
         {
           "time": 1716375600,
-          "temperature": 21.26,
-          "pressure": 1018,
-          "humidity": 65,
+          "temperature": 21.83,
+          "pressure": 1017,
+          "humidity": 64,
           "wind": 5.35,
           "pop": 0,
           "icon": "/assets/images/weather/04.png",
           "title": "Clouds",
-          "description": "厚い雲"
+          "description": "曇りがち"
         },
         {
           "time": 1716379200,
-          "temperature": 20.29,
+          "temperature": 20.96,
           "pressure": 1018,
-          "humidity": 68,
+          "humidity": 67,
           "wind": 5.1,
           "pop": 0,
           "icon": "/assets/images/weather/04.png",
@@ -146,9 +146,9 @@
         },
         {
           "time": 1716382800,
-          "temperature": 19.33,
-          "pressure": 1019,
-          "humidity": 72,
+          "temperature": 20.07,
+          "pressure": 1018,
+          "humidity": 70,
           "wind": 4.7,
           "pop": 0,
           "icon": "/assets/images/weather/04.png",
@@ -624,9 +624,9 @@
           "temperature": {
             "day": 21.87,
             "min": 18.4,
-            "max": 23.53,
+            "max": 23.68,
             "night": 19.25,
-            "eve": 23.06,
+            "eve": 22.85,
             "morn": 18.98
           },
           "pressure": 1021,
