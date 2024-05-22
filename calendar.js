@@ -19,7 +19,7 @@ async function readOrFetchHolidays(path) {
   if (!fs.existsSync(path)) {
     console.log("Fetching holidays...");
     const data = await fetchHolidays();
-    fs.writeFile(path, JSON.stringify(data, null, 2), "utf8", () => {});
+    fs.writeFileSync(path, JSON.stringify(data, null, 2), "utf8");
   }
 
   return {
