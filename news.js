@@ -6,7 +6,7 @@ const url = `https://newsapi.org/v2/top-headlines?country=jp&category=general&ap
 
 export async function getNews() {
   const response = await axios.get(url);
-  const articles = response.data.articles.map((article) => {
+  const articles = response.data.articles.filter((article) => article.title !== null).map((article) => {
     return {
       title: toHalfWidth(article.title),
       description: toHalfWidth(article.description),
@@ -118,6 +118,9 @@ function toHalfWidth(str) {
     "g"
   );
 
+  if (str === null) {
+    return "";
+  }
   return str
     .replace(/[！-～]/g, (char) => {
       // 全角英数字・記号を半角に変換

@@ -2,6 +2,8 @@
   "dependencies": {
     "axios": "^1.6.8",
     "express": "^4.19.2",
+    "googleapi": "^1.0.2",
+    "googleapis": "^137.1.0",
     "jimp": "^0.22.12",
     "node-scp": "^0.0.23",
     "puppeteer": "^22.9.0"

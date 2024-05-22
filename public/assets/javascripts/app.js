@@ -86,11 +86,25 @@
         $.getElementById(target).appendChild(tr);
       });
       const caption = $.createElement("caption");
-      caption.textContent = year + "年" + month + "月";
+      caption.textContent = year + "年" + month + "月 " + getJapaneseMonthName(new Date(year, month - 1, 1));
       $.getElementById(target).appendChild(caption);
     }
     setCalendar(year, month, "calendar-this-month");
     setCalendar(year, month + 1, "calendar-next-month");
+
+    calendar.events.forEach((event) => {
+      const start = $.createElement("span");
+      start.classList.add("calendar-event-start");
+      if (event.start === undefined || event.start.length === 10) {
+        start.textContent = "終日";
+      } else {
+        start.textContent = event.start.slice(11, 16);
+      }
+      const li = $.createElement("li");
+      li.appendChild(start);
+      li.appendChild($.createTextNode(" " + event.summary));
+      $.getElementById("calendar-events").appendChild(li);
+    });
   }
 
   function generateCalendar(year, month) {
@@ -115,6 +129,14 @@
     return calendar;
   }
 
+  function getJapaneseMonthName(date) {
+    const japaneseMonths = [
+      '睦月', '如月', '弥生', '卯月', '皐月', '水無月',
+      '文月', '葉月', '長月', '神無月', '霜月', '師走'
+    ];
+    return japaneseMonths[date.getMonth()];
+  }
+
   function updateWeather(w) {
     const current = w.weather.hourly[0];
     $.getElementById("weather-icon").setAttribute("src", current.icon);
@@ -134,8 +156,7 @@
       const index = j * 3 + 1;
       const h = w.weather.hourly[index];
       const time = new Date(h.time * 1000);
-      const ampm = time.getHours() < 12 ? "am" : "pm";
-      $.getElementById("weather-time-h" + j).textContent = "~" + (time.getHours() % 12) + ampm;
+      $.getElementById("weather-time-h" + j).textContent = "~" + time.getHours() + "h";
       $.getElementById("weather-icon-h" + j).setAttribute("src", h.icon);
       $.getElementById("weather-icon-h" + j).setAttribute("alt", h.description);
       $.getElementById("weather-temp-h" + j).textContent = h.temperature.toFixed(0) + "℃";

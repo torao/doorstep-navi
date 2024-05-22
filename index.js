@@ -14,8 +14,12 @@ const secrets = await readJsonFile("secrets.json");
 const config = await readJsonFile("config.json");
 
 // カレンダー情報を取得
-const now = new Date();
-const calendar = getCalendar(now);
+const calendar = (() => {
+  const now = new Date();
+  const apiKey = secrets["api-keys"]["google-calendar"];
+  const calendarId = config["calendar"]["google-calendar-id"];
+  return getCalendar(now, apiKey, calendarId);
+})();
 
 // 天気情報を取得
 const weather = (() => {

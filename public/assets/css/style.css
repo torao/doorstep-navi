@@ -15,7 +15,10 @@ body {
   font-size: 1.5rem;
 }
 
-#calendar, #weather, #transite, #news {
+#calendar,
+#weather,
+#transite,
+#news {
   background-color: white;
   height: 32.5%;
   overflow: hidden;
@@ -95,6 +98,25 @@ body {
   color: lightgray;
 }
 
+#calendar #calendar-events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#calendar #calendar-events li {
+  display: inline;
+  margin-right: 1rem;
+  font-size: 1.8rem;
+}
+
+#calendar #calendar-events .calendar-event-start {
+  background-color: #333;
+  color: white;
+  padding: 0 0.6rem;
+  border-radius: 0.3rem;
+}
+
 #weather #weather-now {
   height: 98%;
 }
@@ -129,7 +151,7 @@ body {
   background-repeat: no-repeat;
   background-position: left center;
   padding-left: 2.3rem;
-  background-size: 2.2rem 2.2rem ;
+  background-size: 2.2rem 2.2rem;
 }
 
 #weather .weather-time {
@@ -139,16 +161,19 @@ body {
   text-align: center;
 }
 
-#weather .weather-hourly-icon, #weather .weather-daily-icon {
+#weather .weather-hourly-icon,
+#weather .weather-daily-icon {
   margin: 0.4rem auto;
   text-align: center;
 }
 
-#weather .weather-hourly-icon img, #weather .weather-daily-icon img {
+#weather .weather-hourly-icon img,
+#weather .weather-daily-icon img {
   height: 5rem;
 }
 
-#weather .weather-pop, #weather .weather-temp {
+#weather .weather-pop,
+#weather .weather-temp {
   font-size: 1.8rem;
   text-align: center;
   line-height: 120%;
