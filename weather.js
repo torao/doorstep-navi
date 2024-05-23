@@ -188,7 +188,7 @@ async function getWeatherFromTenkiJp() {
 
   function addWeatherIcon(list) {
     return list.map((h) => {
-      h["icon"] = getWeatherIcon(h.description);
+      h["icon"] = getWeatherIcon(h.description, new Date(h.time));
       return h;
     })
   }
@@ -198,11 +198,11 @@ async function getWeatherFromTenkiJp() {
   };
 }
 
-function getWeatherIcon(desc) {
+function getWeatherIcon(desc, tm) {
   const file = (() => {
     switch (desc) {
       case "晴れ":
-        return "01.png";
+        return (tm.getHours() >= 4 && tm.getHours() <= 18) ? "01.png" : "01n.png";
       case "晴時々曇":
       case "曇時々晴":
       case "曇のち晴":
