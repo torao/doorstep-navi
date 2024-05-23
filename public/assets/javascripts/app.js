@@ -32,19 +32,6 @@
     return tenkan[tenkanIndex] + junishi[junishiIndex];
   }
 
-  function getWind(wind) {
-    if (wind >= 30) {
-      return "猛烈な風";
-    } else if (wind >= 20) {
-      return "非常に強い風";
-    } else if (wind >= 15) {
-      return "強い風";
-    } else if (wind >= 10) {
-      return "やや強い風";
-    }
-    return "---";
-  }
-
   function updateCalendar(calendar) {
     const now = new Date();
     const year = now.getFullYear();
@@ -149,7 +136,7 @@
     return japaneseMonths[date.getMonth()];
   }
 
-  function getDateDiffName(t0, t1) {
+  function getDateDiff(t0, t1) {
     const mover = new Date(t0);
     mover.setHours(23, 59, 59, 999);
     const end = new Date(t1);
@@ -159,6 +146,11 @@
       mover.setDate(mover.getDate() + 1);
       diff++;
     }
+    return diff;
+  }
+
+  function getDateDiffName(t0, t1) {
+    const diff = getDateDiff(t0, t1);
     switch (diff) {
       case 0:
         return "";
@@ -171,11 +163,45 @@
     }
   }
 
+  function getDateName(today, date) {
+    const diff = getDateDiff(today, date);
+    let name;
+    switch (diff) {
+      case 0:
+        name = "きょう";
+        break;
+      case 1:
+        name = "あす";
+        break;
+      case 2:
+        name = "明後日";
+        break;
+      default:
+        name = ((date.getDate() === 1) ? ((date.getMonth() + 1) + "月") : "") + date.getDate() + "日";
+    }
+    return name + "(" + getDayOfWeek(date) + ")"
+  }
+
   function updateWeather(w) {
     const current = w.weather.hourly[0];
+
+    // 風速による表記変更
+    const wind = ((wind) => {
+      if (wind >= 30) {
+        return "・猛烈な風";
+      } else if (wind >= 20) {
+        return "・非常に強い風";
+      } else if (wind >= 15) {
+        return "・強い風";
+      } else if (wind >= 10) {
+        return "・やや強い風";
+      }
+      return "";
+    })(current.wind);
+
     $.getElementById("weather-icon").setAttribute("src", current.icon);
     $.getElementById("weather-icon").setAttribute("alt", current.description);
-    $.getElementById("weather-title").textContent = current.description;
+    $.getElementById("weather-title").textContent = current.description + wind;
     $.getElementById("weather-temp-value").textContent = current.temperature.toFixed();
     $.getElementById("weather-humidity-value").textContent = current.humidity.toFixed();
     if (current.humidity >= 60) {
@@ -186,11 +212,16 @@
       return pop >= 0.5 || rain >= 2 ? "☔" : "";
     }
 
+    // 0, 3, 6, 9, 12, 15, 18, 21 時の天気を表示する
+    let dateIndex = 1;
+    while (dateIndex < w.weather.hourly.length && new Date(w.weather.hourly[dateIndex].time * 1000).getHours() % 3 !== 0) {
+      dateIndex++;
+    }
     for (var j = 1; j <= 6; j++) {
-      const index = j * 3 + 1;
+      const index = dateIndex + (j - 1) * 3;
       const h = w.weather.hourly[index];
       const time = new Date(h.time * 1000);
-      $.getElementById("weather-time-h" + j).textContent = "~" + time.getHours() + "h";
+      $.getElementById("weather-time-h" + j).textContent = time.getHours() + ":00";
       $.getElementById("weather-icon-h" + j).setAttribute("src", h.icon);
       $.getElementById("weather-icon-h" + j).setAttribute("alt", h.description);
       $.getElementById("weather-temp-h" + j).textContent = h.temperature.toFixed(0) + "℃";
@@ -198,7 +229,7 @@
       // 3時間前までの降水確率の最大値を取得
       let maxPop = h.pop;
       let maxRain = h.rain;
-      for (var k = index - 1; k > index - 3 && k >= 0; k--) {
+      for (var k = index - 1; k > index - 3 && k >= 1; k--) {
         maxPop = Math.max(maxPop, w.weather.hourly[k].pop);
         if (maxRain === undefined) {
           maxRain = w.weather.hourly[k].rain;
@@ -208,23 +239,13 @@
       }
       const rain = rainSymbol(maxPop, maxRain);
       $.getElementById("weather-pop-h" + j).textContent = rain + (maxPop * 100).toFixed(0) + "%";
-
-      // 風速による表記変更
-      // $.getElementById("weather-wind-h" + j).textContent = getWind(h.wind);
     }
 
+    const today = new Date(w.weather.daily[0].time * 1000);
     for (var j = 1; j <= 4; j++) {
-      const d = w.weather.daily[j - 1];
+      const d = w.weather.daily[j];
       const time = new Date(d.time * 1000);
-      let dayTitle =
-        (time.getDate() === 1 ? time.getMonth() + 1 + "月" : "") + time.getDate() + "日(" + getDayOfWeek(time) + ")";
-      if (j === 1) {
-        dayTitle = "今日(" + getDayOfWeek(time) + ")";
-      } else if (j === 2) {
-        dayTitle = "明日(" + getDayOfWeek(time) + ")";
-      } else if (j === 3) {
-        dayTitle = "明後日(" + getDayOfWeek(time) + ")";
-      }
+      const dayTitle = getDateName(today, time);
       $.getElementById("weather-time-d" + j).textContent = dayTitle;
 
       $.getElementById("weather-icon-d" + j).setAttribute("src", d.icon);
@@ -234,9 +255,6 @@
 
       const rain = rainSymbol(d.pop, d.rain);
       $.getElementById("weather-pop-d" + j).textContent = rain + (d.pop * 100).toFixed(0) + "%";
-
-      // 風速による表記変更
-      // $.getElementById("weather-wind-d" + j).textContent = getWind(d.wind);
     }
   }
 
@@ -271,14 +289,30 @@
     });
   }
 
+  let error = null;
+  function exec(f) {
+    try {
+      f();
+    } catch (e) {
+      error = (typeof e.stack !== undefined) ? e.stack : e;
+    }
+  }
+
   try {
     const data = fetchSync("/data.json");
-
-    updateCalendar(data.calendar);
-    updateWeather(data.weather);
-    updateTransite(data.transite);
-    updateNews(data.news);
+    exec(() => updateCalendar(data.calendar));
+    exec(() => updateWeather(data.weather));
+    exec(() => updateTransite(data.transite));
+    exec(() => updateNews(data.news));
   } catch (e) {
-    status("Error fetching data: " + e);
+    error = (typeof e.stack !== undefined) ? e.stack : e;
   }
+
+  if (error !== null) {
+    const err = $.createElement("pre");
+    err.setAttribute("id", "error");
+    err.textContent = error;
+    $.getElementById("main").appendChild(err);
+  }
+
 })(document);
