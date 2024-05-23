@@ -179,22 +179,20 @@
       default:
         name = ((date.getDate() === 1) ? ((date.getMonth() + 1) + "月") : "") + date.getDate() + "日";
     }
-    return name + "(" + getDayOfWeek(date) + ")"
+    return name + "(" + getDayOfWeek(date) + ")";
   }
 
   function updateWeather(w) {
-    const current = w.weather.hourly[0];
+    const current = w.current;
 
     // 風速による表記変更
     const wind = ((wind) => {
-      if (wind >= 30) {
-        return "・猛烈な風";
-      } else if (wind >= 20) {
-        return "・非常に強い風";
-      } else if (wind >= 15) {
-        return "・強い風";
-      } else if (wind >= 10) {
-        return "・やや強い風";
+      if (wind >= 24.5) {
+        return "・暴風";
+      } else if (wind >= 13.9) {
+        return "・強風";
+      } else if (wind >= 8.0) {
+        return "・風";
       }
       return "";
     })(current.wind);
@@ -207,54 +205,36 @@
     if (current.humidity >= 60) {
       $.getElementById("weather-humidity").style.backgroundImage = "url('/assets/images/weather/humidity60.png')";
     }
+    status(new Date(current.time));
 
     function rainSymbol(pop, rain) {
-      return pop >= 0.5 || rain >= 2 ? "☔" : "";
+      return pop >= 50 || rain >= 2 ? "☔" : "";
     }
 
     // 0, 3, 6, 9, 12, 15, 18, 21 時の天気を表示する
-    let dateIndex = 1;
-    while (dateIndex < w.weather.hourly.length && new Date(w.weather.hourly[dateIndex].time * 1000).getHours() % 3 !== 0) {
-      dateIndex++;
-    }
     for (var j = 1; j <= 6; j++) {
-      const index = dateIndex + (j - 1) * 3;
-      const h = w.weather.hourly[index];
-      const time = new Date(h.time * 1000);
+      const h = w["3-hourly"][j - 1];
+      const time = new Date(h.time);
+      const rain = rainSymbol(h.pop, h.rain);
       $.getElementById("weather-time-h" + j).textContent = time.getHours() + ":00";
       $.getElementById("weather-icon-h" + j).setAttribute("src", h.icon);
       $.getElementById("weather-icon-h" + j).setAttribute("alt", h.description);
       $.getElementById("weather-temp-h" + j).textContent = h.temperature.toFixed(0) + "℃";
-
-      // 3時間前までの降水確率の最大値を取得
-      let maxPop = h.pop;
-      let maxRain = h.rain;
-      for (var k = index - 1; k > index - 3 && k >= 1; k--) {
-        maxPop = Math.max(maxPop, w.weather.hourly[k].pop);
-        if (maxRain === undefined) {
-          maxRain = w.weather.hourly[k].rain;
-        } else if (w.weather.hourly[k].rain !== undefined) {
-          maxRain = Math.max(maxRain, w.weather.hourly[k].rain);
-        }
-      }
-      const rain = rainSymbol(maxPop, maxRain);
-      $.getElementById("weather-pop-h" + j).textContent = rain + (maxPop * 100).toFixed(0) + "%";
+      $.getElementById("weather-pop-h" + j).textContent = rain + h.pop.toFixed(0) + "%";
     }
 
-    const today = new Date(w.weather.daily[0].time * 1000);
+    const today = new Date(w.current.time);
     for (var j = 1; j <= 4; j++) {
-      const d = w.weather.daily[j];
-      const time = new Date(d.time * 1000);
+      const d = w.daily[j - 1];
+      const time = new Date(d.time);
       const dayTitle = getDateName(today, time);
+      const rain = rainSymbol(d.pop, d.rain);
       $.getElementById("weather-time-d" + j).textContent = dayTitle;
-
       $.getElementById("weather-icon-d" + j).setAttribute("src", d.icon);
       $.getElementById("weather-icon-d" + j).setAttribute("alt", d.description);
       $.getElementById("weather-temp-d" + j).textContent =
         d.temperature.min.toFixed(0) + "℃/" + d.temperature.max.toFixed(0) + "℃";
-
-      const rain = rainSymbol(d.pop, d.rain);
-      $.getElementById("weather-pop-d" + j).textContent = rain + (d.pop * 100).toFixed(0) + "%";
+      $.getElementById("weather-pop-d" + j).textContent = rain + d.pop.toFixed(0) + "%";
     }
   }
 
@@ -294,7 +274,9 @@
     try {
       f();
     } catch (e) {
-      error = (typeof e.stack !== undefined) ? e.stack : e;
+      if (error !== null) {
+        error = (typeof e.stack !== undefined) ? e.stack : e;
+      }
     }
   }
 
@@ -304,6 +286,9 @@
     exec(() => updateWeather(data.weather));
     exec(() => updateTransite(data.transite));
     exec(() => updateNews(data.news));
+    if (data.error !== undefined) {
+      error = JSON.stringify(data.error);
+    }
   } catch (e) {
     error = (typeof e.stack !== undefined) ? e.stack : e;
   }
@@ -312,7 +297,7 @@
     const err = $.createElement("pre");
     err.setAttribute("id", "error");
     err.textContent = error;
-    $.getElementById("main").appendChild(err);
+    $.getElementById("news").appendChild(err);
   }
 
 })(document);
