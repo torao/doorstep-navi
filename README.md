@@ -34,3 +34,21 @@ After preparing `secrets.json`, run doorstep-navi to create the Kiosk screen.
 ```shell
 npm start
 ```
+
+
+## Linux
+
+```shell
+sudo apt-get install chromium-browser libx11-xcb1 libxcomposite1 libasound2t64 libatk1.0-0 libatk-bridge2.0-0 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 -y
+```
+
+Install Japanese fonts and refresh cache for Chrome headless browser.
+
+```shell
+sudo apt install language-pack-ja fonts-ipafont fonts-ipaexfont -y
+fc-cache -fv
+```
+
+```shell
+sudo apt install imagemagick -y
+```

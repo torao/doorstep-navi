@@ -1,7 +1,10 @@
 import puppeteer from "puppeteer";
 
 export async function getTransite() {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: 'new'
+  });
   const page = await browser.newPage();
   const url = "https://transit.yahoo.co.jp/traininfo/area/4/"; // Yahoo! Japan 路線情報(関東)のURL
 

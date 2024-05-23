@@ -7,7 +7,6 @@ import { getCalendar } from "./calendar.js";
 import { getNews } from "./news.js";
 import { getTransite } from "./transit.js";
 import fs from "fs";
-import Jimp from "jimp";
 
 const docroot = "public";
 const secrets = await readJsonFile("secrets.json");
@@ -62,7 +61,7 @@ app.use(express.static(path.join(__dirname, docroot)));
 const startServer = () => {
   return new Promise((resolve, reject) => {
     server = app.listen(port, () => {
-      console.log(`Example app listening at http://localhost:${port}`);
+      console.log(`Listening at http://localhost:${port}`);
       resolve(server);
     });
     server.on("error", reject);
@@ -78,7 +77,10 @@ const startServer = () => {
   }
 })()
   .then(async () => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: 'new'
+    });
     const page = await browser.newPage();
     await page.setViewport({ width: 1072, height: 1448 });
     await page.goto(`http://localhost:${port}/index.html`, {
@@ -89,23 +91,7 @@ const startServer = () => {
   })
   .then(() => {
     server.close();
-  })
-  .then(() => {
-    Jimp.read("output.png").then((image) => {
-      return image.greyscale().write("output.png");
-    });
   });
-/*
-().then(result => {
-    proc.exec('scp output.png root@100.64.1.114:/mnt/us');
-    const p = proc.exec('ssh root@100.64.1.114 "/usr/sbin/eips -g /mnt/us/output.png && rm /mnt/us/output.png"');
-    p.stdin.write('physica?\n');
-    p.stdin.end();
-    const q = proc.exec('rm output.png');
-    q.stdin.write('physica?\n');
-    p.stdin.end();
-})
-*/
 
 async function readJsonFile(path) {
   try {
