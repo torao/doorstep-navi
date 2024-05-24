@@ -1,6 +1,7 @@
 (($) => {
   function status(message) {
-    $.getElementById("status").textContent = message;
+    const prefix = "doorstep-navi v0.1";
+    $.getElementById("status").textContent = message !== undefined? `${prefix}: ${message}` : prefix;
   }
 
   function getHoliday(date, holidays) {
@@ -194,7 +195,7 @@
     if (current.humidity >= 60) {
       $.getElementById("weather-humidity").style.backgroundImage = "url('/assets/images/weather/humidity60.png')";
     }
-    status(new Date(current.time));
+    status(new Date(current.time).toLocaleString());
 
     function rainSymbol(pop, rain) {
       return pop >= 50 || rain >= 2 ? "☔" : "";
@@ -270,6 +271,7 @@
   }
 
   try {
+    status();
     const data = DATA;
     exec(() => updateCalendar(data.calendar));
     exec(() => updateWeather(data.weather));
