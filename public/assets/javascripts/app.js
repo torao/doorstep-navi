@@ -234,20 +234,44 @@
     }
   }
 
+  // 鉄道運行状況の更新
   function updateTransit(transite) {
     const delayedLines = transite["delayed-line"];
     const ts = $.getElementById("transit-delayed-lines");
     if (delayedLines.length === 0) {
-      ts.textContent = "鉄道の事故・遅延情報はありません";
-      return;
+      const dd = $.createElement("dd");
+      dd.textContent = "鉄道の事故・遅延情報はありません";
+      ts.appendChild(dd);
+      status("no line info");
+    } else {
+      delayedLines.forEach((line) => {
+        const dt = $.createElement("dt");
+        td.textContent = line["line-name"];
+        ts.appendChild(dt);
+        const dd = $.createElement("dd");
+        dd.textContent = line.status;
+        ts.appendChild(dd);
+        status(line["line-name"]);
+      });
     }
-    ts.innerHTML = delayedLines.map((line) => `<b>${line["line-name"]}</b>: ${line.status}`).join(" / ");
   }
 
+  // ニュースの更新
   function updateNews(news) {
+    const img = $.getElementById("news-headline-image");
+    const hl = $.getElementById("news-headline");
+
+    // エラー処理
+    if (typeof news.error !== undefined) {
+      img.setAttribute("style", "display: none;");
+      const li = $.createElement("li");
+      li.textContent = news.error;
+      hl.appendChild(li);
+      return;
+    }
+
     // ニュース画像の設定
     const article = news.articles.find((a) => a.image !== null);
-    const img = $.getElementById("news-headline-image");
     if (article !== undefined) {
       img.onerror = function (event) {
         event.target.setAttribute("style", "display: none;");
@@ -257,7 +281,7 @@
       img.setAttribute("style", "display: none;");
     }
 
-    const hl = $.getElementById("news-headline");
+    // ニュース見出しの設定
     news.articles.forEach((article) => {
       const li = $.createElement("li");
       li.textContent = article.title;

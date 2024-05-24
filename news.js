@@ -11,9 +11,19 @@ export async function getNews() {
     // ニュースデータの取得
     // 開発者アカウントでは 24h で 100req が許可されている。それを超過すると 429 レスポンスが返る。
     const data = await getCache("newsapi", async () => {
-      const response = await axios.get(url);
-      return response.data;
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (e) {
+        if (e.response.data.code === "rateLimited") {
+          return e.response.data;
+        }
+        throw e;
+      }
     }, 0, 0, 0, 0, 30);
+    if (data.status !== "ok") {
+      throw new Error(`${data.message}`);
+    }
 
     // ニュースデータを整形
     const articles = data.articles.filter((article) => article.title !== null).map((article) => {
@@ -32,7 +42,8 @@ export async function getNews() {
       articles: articles,
     };
   } catch (e) {
-    console.log("ERROR: failed to retrieve news articles.", e);
+    console.log("ERROR: failed to retrieve news articles.");
+    console.log(e);
     return {
       articles: [{
         title: `${e}`,
@@ -40,7 +51,7 @@ export async function getNews() {
         url: null,
         image: null
       }],
-      error: e
+      error: `${e}`
     };
   }
 }
