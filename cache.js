@@ -16,7 +16,7 @@ export async function getCache(cacheId, generator, year, month, date, hour, minu
     const stat = fs.statSync(file);
     const mtime = new Date(stat.mtime);
     if (now.getTime() < mtime.getTime()) {
-      console.log(`Using cache: ${file}`);
+      console.log(`Using cache: ${file}: since ${mtime.toLocaleString()}`);
       return JSON.parse(fs.readFileSync(file, "utf8"));
     }
   }

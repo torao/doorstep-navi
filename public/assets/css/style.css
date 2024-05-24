@@ -34,7 +34,8 @@ body {
   line-height: 2.5rem;
 }
 
-#calendar #calendar-year, #calendar #calendar-month {
+#calendar #calendar-year,
+#calendar #calendar-month {
   font-size: 3rem;
 }
 

@@ -6,26 +6,43 @@ const apiKey = "691484240de04b8685fbda1970760cac";
 const url = `https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=${apiKey}`;
 
 export async function getNews() {
+  try {
 
-  // ニュースデータの取得
-  const data = await getCache("newsapi", async () => {
-    const response = await axios.get(url);
-    return response.data;
-  }, 0, 0, 0, 0, 5);
+    // ニュースデータの取得
+    // 開発者アカウントでは 24h で 100req が許可されている。それを超過すると 429 レスポンスが返る。
+    const data = await getCache("newsapi", async () => {
+      const response = await axios.get(url);
+      return response.data;
+    }, 0, 0, 0, 0, 30);
 
-  // ニュースデータを整形
-  const articles = data.articles.filter((article) => article.title !== null).map((article) => {
+    // ニュースデータを整形
+    const articles = data.articles.filter((article) => article.title !== null).map((article) => {
+      return {
+        title: toHalfWidth(article.title),
+        description: toHalfWidth(article.description),
+        url: article.url,
+        image: article.urlToImage,
+      };
+    });
+
+    // ニュースをランダムにシャッフル
+    articles.sort(() => Math.random() - 0.5);
+
     return {
-      title: toHalfWidth(article.title),
-      description: toHalfWidth(article.description),
-      url: article.url,
-      image: article.urlToImage,
+      articles: articles,
     };
-  });
-
-  return {
-    articles: articles,
-  };
+  } catch (e) {
+    console.log("ERROR: failed to retrieve news articles.", e);
+    return {
+      articles: [{
+        title: `${e}`,
+        description: "",
+        url: null,
+        image: null
+      }],
+      error: e
+    };
+  }
 }
 
 function toHalfWidth(str) {
