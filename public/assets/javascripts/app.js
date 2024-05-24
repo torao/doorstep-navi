@@ -1,7 +1,7 @@
 (($) => {
   function status(message) {
     const prefix = "doorstep-navi v0.1";
-    $.getElementById("status").textContent = message !== undefined? `${prefix}: ${message}` : prefix;
+    $.getElementById("status").textContent = message !== undefined ? `${prefix}: ${message}` : prefix;
   }
 
   function getHoliday(date, holidays) {
@@ -34,8 +34,8 @@
     $.getElementById("calendar-date").textContent = date;
     $.getElementById("calendar-day-of-week").textContent = getDayOfWeek(now);
     $.getElementById("calendar-wareki").textContent = "令和" + (year - 2018) + "年 " + getEto(year);
-    $.getElementById("calendar-today-event").textContent = holiday !== undefined? holiday: "平日";
-    if(holiday !== undefined || now.getDay() === 0) {
+    $.getElementById("calendar-today-event").textContent = holiday !== undefined ? holiday : "";
+    if (holiday !== undefined || now.getDay() === 0) {
       $.getElementById("calendar-date-holiday").classList.add("holiday");
     }
 
@@ -76,7 +76,7 @@
     calendar.events.forEach((event) => {
       const start = $.createElement("span");
       start.classList.add("calendar-event-start");
-      if(new Date(event.start).getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
+      if (new Date(event.start).getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
         start.classList.add("alert");
       }
       const prefix = getDateDiffName(now, new Date(event.start));
