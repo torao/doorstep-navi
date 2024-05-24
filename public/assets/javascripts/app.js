@@ -225,7 +225,7 @@
 
     const today = new Date(w.current.time);
     for (var j = 1; j <= 4; j++) {
-      const d = w.daily[j - 1];
+      const d = w.daily[j];
       const time = new Date(d.time);
       const dayTitle = getDateName(today, time);
       const rain = rainSymbol(d.pop, d.rain);

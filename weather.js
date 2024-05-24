@@ -202,7 +202,7 @@ function getWeatherIcon(desc, tm) {
   const file = (() => {
     switch (desc) {
       case "晴れ":
-        return (tm.getHours() >= 4 && tm.getHours() <= 18) ? "01.png" : "01n.png";
+        return (tm.getHours() >= 4 && tm.getHours() <= 16) ? "01.png" : "01n.png";
       case "晴時々曇":
       case "曇時々晴":
       case "曇のち晴":
@@ -218,6 +218,7 @@ function getWeatherIcon(desc, tm) {
         return "09.png";
       case "雨":
       case "雨時々曇":
+      case "曇のち雨":
         return "10.png";
       case "雷":
         return "11.png";
