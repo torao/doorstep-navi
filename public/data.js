@@ -79,46 +79,31 @@ const DATA = {
         "rise": 1716578963,
         "set": 1716630380
       },
-      "time": 1716571920000,
-      "date": "5/25/2024, 2:32:00 AM",
-      "temperature": 22.2,
-      "humidity": 68,
-      "wind": 5.66,
+      "time": 1716573604000,
+      "date": "5/25/2024, 3:00:04 AM",
+      "temperature": 21.88,
+      "humidity": 69,
+      "wind": 6.69,
       "pressure": 1006,
       "uvi": 0,
-      "clouds": 0,
+      "clouds": 75,
       "visibility": 10000,
-      "icon": "assets/images/weather/01n.png",
-      "description": "晴天"
+      "icon": "assets/images/weather/04.png",
+      "description": "曇りがち"
     },
     "3-hourly": [
       {
         "wind": 2,
-        "pressure": 1006,
-        "uvi": 0,
-        "clouds": 0,
-        "visibility": 10000,
-        "time": 1716573600000,
-        "date": "5/25/2024, 3:00:00 AM",
-        "pop": 10,
-        "rain": 0,
-        "temperature": 19.8,
-        "humidity": 67,
-        "description": "晴れ",
-        "icon": "assets/images/weather/01n.png"
-      },
-      {
-        "wind": 2,
         "pressure": 1009,
         "uvi": 0.08,
-        "clouds": 41,
+        "clouds": 71,
         "visibility": 10000,
         "time": 1716584400000,
         "date": "5/25/2024, 6:00:00 AM",
         "pop": 20,
         "rain": 0,
-        "temperature": 19,
-        "humidity": 59,
+        "temperature": 19.1,
+        "humidity": 57,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -132,7 +117,7 @@ const DATA = {
         "date": "5/25/2024, 9:00:00 AM",
         "pop": 10,
         "rain": 0,
-        "temperature": 21.3,
+        "temperature": 21.6,
         "humidity": 48,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
@@ -147,7 +132,7 @@ const DATA = {
         "date": "5/25/2024, 12:00:00 PM",
         "pop": 10,
         "rain": 0,
-        "temperature": 24,
+        "temperature": 24.1,
         "humidity": 43,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
@@ -162,7 +147,7 @@ const DATA = {
         "date": "5/25/2024, 3:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 24,
+        "temperature": 24.9,
         "humidity": 47,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
@@ -177,7 +162,7 @@ const DATA = {
         "date": "5/25/2024, 6:00:00 PM",
         "pop": 20,
         "rain": 0,
-        "temperature": 20.6,
+        "temperature": 20.7,
         "humidity": 55,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
@@ -193,7 +178,7 @@ const DATA = {
         "pop": 20,
         "rain": 0,
         "temperature": 18.7,
-        "humidity": 62,
+        "humidity": 63,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -222,8 +207,8 @@ const DATA = {
         "date": "5/26/2024, 3:00:00 AM",
         "pop": 30,
         "rain": 0,
-        "temperature": 17.4,
-        "humidity": 67,
+        "temperature": 17.5,
+        "humidity": 68,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -237,7 +222,7 @@ const DATA = {
         "date": "5/26/2024, 6:00:00 AM",
         "pop": 30,
         "rain": 0,
-        "temperature": 18.6,
+        "temperature": 18.7,
         "humidity": 69,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
@@ -267,8 +252,8 @@ const DATA = {
         "date": "5/26/2024, 12:00:00 PM",
         "pop": 20,
         "rain": 0,
-        "temperature": 24.4,
-        "humidity": 53,
+        "temperature": 23.2,
+        "humidity": 54,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -282,8 +267,8 @@ const DATA = {
         "date": "5/26/2024, 3:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 24,
-        "humidity": 53,
+        "temperature": 24.9,
+        "humidity": 54,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -298,7 +283,7 @@ const DATA = {
         "pop": 0,
         "rain": 0,
         "temperature": 22.1,
-        "humidity": 63,
+        "humidity": 64,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
       },
@@ -312,7 +297,7 @@ const DATA = {
         "date": "5/26/2024, 9:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 20.9,
+        "temperature": 21,
         "humidity": 76,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
@@ -327,10 +312,10 @@ const DATA = {
         "date": "5/27/2024, 12:00:00 AM",
         "pop": 20,
         "rain": 0,
-        "temperature": 20.4,
-        "humidity": 85,
-        "description": "曇り",
-        "icon": "assets/images/weather/03.png"
+        "temperature": 20.2,
+        "humidity": 82,
+        "description": "晴れ",
+        "icon": "assets/images/weather/01n.png"
       }
     ],
     "daily": [
@@ -341,7 +326,7 @@ const DATA = {
         "rain": 0,
         "temperature": {
           "min": 19,
-          "max": 25
+          "max": 26
         },
         "description": "晴のち曇",
         "icon": "assets/images/weather/02.png"
@@ -362,22 +347,22 @@ const DATA = {
         "time": 1716735600000,
         "date": "5/27/2024, 12:00:00 AM",
         "pop": 60,
-        "rain": 3,
+        "rain": 2,
         "temperature": {
           "min": 20,
-          "max": 25
+          "max": 26
         },
-        "description": "曇のち雨",
-        "icon": "assets/images/weather/10.png"
+        "description": "曇一時雨",
+        "icon": "assets/images/weather/09.png"
       },
       {
         "time": 1716822000000,
         "date": "5/28/2024, 12:00:00 AM",
-        "pop": 70,
-        "rain": 6,
+        "pop": 90,
+        "rain": 14,
         "temperature": {
           "min": 22,
-          "max": 25
+          "max": 26
         },
         "description": "曇のち雨",
         "icon": "assets/images/weather/10.png"
@@ -386,10 +371,10 @@ const DATA = {
         "time": 1716908400000,
         "date": "5/29/2024, 12:00:00 AM",
         "pop": 90,
-        "rain": 36,
+        "rain": 38,
         "temperature": {
           "min": 17,
-          "max": 23
+          "max": 24
         },
         "description": "雨のち晴",
         "icon": "assets/images/weather/10.png"
@@ -400,7 +385,7 @@ const DATA = {
         "pop": 20,
         "rain": 0,
         "temperature": {
-          "min": 16,
+          "min": 17,
           "max": 26
         },
         "description": "晴時々曇",
@@ -410,10 +395,10 @@ const DATA = {
         "time": 1717081200000,
         "date": "5/31/2024, 12:00:00 AM",
         "pop": 90,
-        "rain": 27,
+        "rain": 26,
         "temperature": {
           "min": 18,
-          "max": 24
+          "max": 23
         },
         "description": "曇時々雨",
         "icon": "assets/images/weather/09.png"
@@ -421,11 +406,11 @@ const DATA = {
       {
         "time": 1717167600000,
         "date": "6/1/2024, 12:00:00 AM",
-        "pop": 60,
-        "rain": 8,
+        "pop": 80,
+        "rain": 7,
         "temperature": {
-          "min": 17,
-          "max": 25
+          "min": 18,
+          "max": 24
         },
         "description": "曇時々雨",
         "icon": "assets/images/weather/09.png"
@@ -437,7 +422,7 @@ const DATA = {
         "rain": 5,
         "temperature": {
           "min": 18,
-          "max": 26
+          "max": 25
         },
         "description": "曇時々雨",
         "icon": "assets/images/weather/09.png"
@@ -445,14 +430,14 @@ const DATA = {
       {
         "time": 1717340400000,
         "date": "6/3/2024, 12:00:00 AM",
-        "pop": 40,
-        "rain": 0,
+        "pop": 50,
+        "rain": 1,
         "temperature": {
           "min": 16,
           "max": 24
         },
-        "description": "晴時々曇",
-        "icon": "assets/images/weather/02.png"
+        "description": "曇時々雨",
+        "icon": "assets/images/weather/09.png"
       },
       {
         "time": 1717426800000,

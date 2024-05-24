@@ -207,7 +207,7 @@
     $.getElementById("weather-temp-value").textContent = current.temperature.toFixed();
     $.getElementById("weather-humidity-value").textContent = current.humidity.toFixed();
     if (current.humidity >= 60) {
-      $.getElementById("weather-humidity").style.backgroundImage = "url('/assets/images/weather/humidity60.png')";
+      $.getElementById("weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
     }
     status(new Date(current.time).toLocaleString());
 
