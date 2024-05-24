@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import { getCache } from "./cache.js";
 
-export async function getTransite() {
+export async function getTransit() {
   const delayedLines = getCache("yahoo-transit", async () => {
     return await fetch();
   }, 0, 0, 0, 0, 5);

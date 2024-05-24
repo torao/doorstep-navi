@@ -234,9 +234,9 @@
     }
   }
 
-  function updateTransite(transite) {
+  function updateTransit(transite) {
     const delayedLines = transite["delayed-line"];
-    const ts = $.getElementById("transite-delayed-lines");
+    const ts = $.getElementById("transit-delayed-lines");
     if (delayedLines.length === 0) {
       ts.textContent = "鉄道の事故・遅延情報はありません";
       return;
@@ -281,7 +281,7 @@
     const data = DATA;
     exec(() => updateCalendar(data.calendar));
     exec(() => updateWeather(data.weather));
-    exec(() => updateTransite(data.transite));
+    exec(() => updateTransit(data.transite));
     exec(() => updateNews(data.news));
     if (data.error !== undefined) {
       error = JSON.stringify(data.error);

@@ -4,7 +4,7 @@ import { pathToFileURL } from "url";
 import { getWeatherForecast } from "./weather.js";
 import { getCalendar } from "./calendar.js";
 import { getNews } from "./news.js";
-import { getTransite } from "./transit.js";
+import { getTransit } from "./transit.js";
 import fs from "fs";
 
 const docroot = "public";
@@ -12,7 +12,7 @@ const docroot = "public";
 async function update() {
   const secrets = await readJsonFile("secrets.json");
   const config = await readJsonFile("config.json");
-  
+
   // カレンダー情報を取得
   const calendar = (() => {
     const now = new Date();
@@ -20,7 +20,7 @@ async function update() {
     const calendarId = config["calendar"]["google-calendar-id"];
     return getCalendar(now, apiKey, calendarId);
   })();
-  
+
   // 天気情報を取得
   const weather = (() => {
     const apiKey = secrets["api-keys"].openweather;
@@ -29,14 +29,13 @@ async function update() {
     const language = config.weather.language;
     return getWeatherForecast(apiKey, latitude, longitude, language);
   })();
-  
+
   // ニュースを取得
   const news = getNews();
-  
+
   // 乗り換えを取得
-  // const lines = ["中央総武線(各停)", "横須賀線", "東京メトロ半蔵門線"];
-  const transite = getTransite();
-  
+  const transite = getTransit();
+
   // 収集したデータを保存
   const data = JSON.stringify(
     {

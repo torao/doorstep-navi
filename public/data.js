@@ -79,30 +79,27 @@ const DATA = {
         "rise": 1716492595,
         "set": 1716543936
       },
-      "time": 1716539586000,
-      "date": "2024/5/24 17:33:06",
-      "temperature": 26.56,
-      "humidity": 55,
+      "time": 1716540099000,
+      "date": "5/24/2024, 5:41:39 PM",
+      "temperature": 26.33,
+      "humidity": 56,
       "wind": 7.72,
-      "rain": {
-        "1h": 0.6
-      },
-      "pressure": 1002,
+      "pressure": 1001,
       "uvi": 0.17,
       "clouds": 0,
       "visibility": 10000,
-      "icon": "assets/images/weather/10.png",
-      "description": "小雨"
+      "icon": "assets/images/weather/01.png",
+      "description": "晴天"
     },
     "3-hourly": [
       {
         "wind": 3,
-        "pressure": 1002,
+        "pressure": 1001,
         "uvi": 0.17,
         "clouds": 0,
         "visibility": 10000,
         "time": 1716541200000,
-        "date": "2024/5/24 18:00:00",
+        "date": "5/24/2024, 6:00:00 PM",
         "pop": 20,
         "rain": 0,
         "temperature": 25,
@@ -117,7 +114,7 @@ const DATA = {
         "clouds": 59,
         "visibility": 10000,
         "time": 1716552000000,
-        "date": "2024/5/24 21:00:00",
+        "date": "5/24/2024, 9:00:00 PM",
         "pop": 0,
         "rain": 0,
         "temperature": 22.8,
@@ -132,7 +129,7 @@ const DATA = {
         "clouds": 95,
         "visibility": 10000,
         "time": 1716562800000,
-        "date": "2024/5/25 0:00:00",
+        "date": "5/25/2024, 12:00:00 AM",
         "pop": 10,
         "rain": 0,
         "temperature": 21.5,
@@ -147,7 +144,7 @@ const DATA = {
         "clouds": 68,
         "visibility": 10000,
         "time": 1716573600000,
-        "date": "2024/5/25 3:00:00",
+        "date": "5/25/2024, 3:00:00 AM",
         "pop": 20,
         "rain": 0,
         "temperature": 19.8,
@@ -162,7 +159,7 @@ const DATA = {
         "clouds": 68,
         "visibility": 10000,
         "time": 1716584400000,
-        "date": "2024/5/25 6:00:00",
+        "date": "5/25/2024, 6:00:00 AM",
         "pop": 20,
         "rain": 0,
         "temperature": 18.6,
@@ -177,7 +174,7 @@ const DATA = {
         "clouds": 82,
         "visibility": 10000,
         "time": 1716595200000,
-        "date": "2024/5/25 9:00:00",
+        "date": "5/25/2024, 9:00:00 AM",
         "pop": 20,
         "rain": 0,
         "temperature": 20.7,
@@ -192,7 +189,7 @@ const DATA = {
         "clouds": 100,
         "visibility": 10000,
         "time": 1716606000000,
-        "date": "2024/5/25 12:00:00",
+        "date": "5/25/2024, 12:00:00 PM",
         "pop": 10,
         "rain": 0,
         "temperature": 24.1,
@@ -207,7 +204,7 @@ const DATA = {
         "clouds": 77,
         "visibility": 10000,
         "time": 1716616800000,
-        "date": "2024/5/25 15:00:00",
+        "date": "5/25/2024, 3:00:00 PM",
         "pop": 10,
         "rain": 0,
         "temperature": 23.5,
@@ -222,7 +219,7 @@ const DATA = {
         "clouds": 18,
         "visibility": 10000,
         "time": 1716627600000,
-        "date": "2024/5/25 18:00:00",
+        "date": "5/25/2024, 6:00:00 PM",
         "pop": 20,
         "rain": 0,
         "temperature": 20.6,
@@ -237,7 +234,7 @@ const DATA = {
         "clouds": 38,
         "visibility": 10000,
         "time": 1716638400000,
-        "date": "2024/5/25 21:00:00",
+        "date": "5/25/2024, 9:00:00 PM",
         "pop": 30,
         "rain": 0,
         "temperature": 18.7,
@@ -252,7 +249,7 @@ const DATA = {
         "clouds": 100,
         "visibility": 10000,
         "time": 1716649200000,
-        "date": "2024/5/26 0:00:00",
+        "date": "5/26/2024, 12:00:00 AM",
         "pop": 30,
         "rain": 0,
         "temperature": 18.1,
@@ -264,7 +261,7 @@ const DATA = {
     "daily": [
       {
         "time": 1716476400000,
-        "date": "2024/5/24 0:00:00",
+        "date": "5/24/2024, 12:00:00 AM",
         "pop": 20,
         "rain": 0,
         "temperature": {
@@ -276,7 +273,7 @@ const DATA = {
       },
       {
         "time": 1716562800000,
-        "date": "2024/5/25 0:00:00",
+        "date": "5/25/2024, 12:00:00 AM",
         "pop": 30,
         "rain": 0,
         "temperature": {
@@ -288,7 +285,7 @@ const DATA = {
       },
       {
         "time": 1716649200000,
-        "date": "2024/5/26 0:00:00",
+        "date": "5/26/2024, 12:00:00 AM",
         "pop": 30,
         "rain": 0,
         "temperature": {
@@ -300,7 +297,7 @@ const DATA = {
       },
       {
         "time": 1716735600000,
-        "date": "2024/5/27 0:00:00",
+        "date": "5/27/2024, 12:00:00 AM",
         "pop": 60,
         "rain": 4,
         "temperature": {
@@ -312,7 +309,7 @@ const DATA = {
       },
       {
         "time": 1716822000000,
-        "date": "2024/5/28 0:00:00",
+        "date": "5/28/2024, 12:00:00 AM",
         "pop": 80,
         "rain": 6,
         "temperature": {
@@ -324,7 +321,7 @@ const DATA = {
       },
       {
         "time": 1716908400000,
-        "date": "2024/5/29 0:00:00",
+        "date": "5/29/2024, 12:00:00 AM",
         "pop": 90,
         "rain": 19,
         "temperature": {
@@ -336,7 +333,7 @@ const DATA = {
       },
       {
         "time": 1716994800000,
-        "date": "2024/5/30 0:00:00",
+        "date": "5/30/2024, 12:00:00 AM",
         "pop": 40,
         "rain": 0,
         "temperature": {
@@ -348,7 +345,7 @@ const DATA = {
       },
       {
         "time": 1717081200000,
-        "date": "2024/5/31 0:00:00",
+        "date": "5/31/2024, 12:00:00 AM",
         "pop": 70,
         "rain": 2,
         "temperature": {
@@ -360,7 +357,7 @@ const DATA = {
       },
       {
         "time": 1717167600000,
-        "date": "2024/6/1 0:00:00",
+        "date": "6/1/2024, 12:00:00 AM",
         "pop": 80,
         "rain": 8,
         "temperature": {
@@ -372,7 +369,7 @@ const DATA = {
       },
       {
         "time": 1717254000000,
-        "date": "2024/6/2 0:00:00",
+        "date": "6/2/2024, 12:00:00 AM",
         "pop": 90,
         "rain": 19,
         "temperature": {
@@ -384,7 +381,7 @@ const DATA = {
       },
       {
         "time": 1717340400000,
-        "date": "2024/6/3 0:00:00",
+        "date": "6/3/2024, 12:00:00 AM",
         "pop": 40,
         "rain": 0,
         "temperature": {
@@ -399,13 +396,8 @@ const DATA = {
   "transite": {
     "delayed-line": [
       {
-        "line-name": "青梅線[立川～青梅]",
-        "status": "列車遅延",
-        "description": "立川〜西立川駅間での車両点検の影..."
-      },
-      {
         "line-name": "総武本線[千葉～銚子]",
-        "status": "列車遅延",
+        "status": "運転状況",
         "description": "千葉駅での車両点検の影響で、一部..."
       },
       {
