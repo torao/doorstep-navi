@@ -33,8 +33,11 @@
     $.getElementById("calendar-month").textContent = month;
     $.getElementById("calendar-date").textContent = date;
     $.getElementById("calendar-day-of-week").textContent = getDayOfWeek(now);
-    $.getElementById("calendar-today-event").textContent = holiday !== undefined ? holiday : "";
     $.getElementById("calendar-wareki").textContent = "令和" + (year - 2018) + "年 " + getEto(year);
+    $.getElementById("calendar-today-event").textContent = holiday !== undefined? holiday: "平日";
+    if(holiday !== undefined || now.getDay() === 0) {
+      $.getElementById("calendar-date-holiday").classList.add("holiday");
+    }
 
     function setCalendar(year, month, target) {
       generateCalendar(year, month).forEach((week, i) => {
@@ -73,6 +76,9 @@
     calendar.events.forEach((event) => {
       const start = $.createElement("span");
       start.classList.add("calendar-event-start");
+      if(new Date(event.start).getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
+        start.classList.add("alert");
+      }
       const prefix = getDateDiffName(now, new Date(event.start));
       if (event.start === undefined || event.start.length === 10) {
         start.textContent = prefix + "終日";
