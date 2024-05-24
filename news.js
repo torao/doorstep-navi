@@ -1,12 +1,20 @@
 import axios from "axios";
+import { getCache } from "./cache.js";
 
 // News API キー
 const apiKey = "691484240de04b8685fbda1970760cac";
 const url = `https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=${apiKey}`;
 
 export async function getNews() {
-  const response = await axios.get(url);
-  const articles = response.data.articles.filter((article) => article.title !== null).map((article) => {
+
+  // ニュースデータの取得
+  const data = await getCache("newsapi", async () => {
+    const response = await axios.get(url);
+    return response.data;
+  }, 0, 0, 0, 0, 5);
+
+  // ニュースデータを整形
+  const articles = data.articles.filter((article) => article.title !== null).map((article) => {
     return {
       title: toHalfWidth(article.title),
       description: toHalfWidth(article.description),
@@ -14,6 +22,7 @@ export async function getNews() {
       image: article.urlToImage,
     };
   });
+
   return {
     articles: articles,
   };

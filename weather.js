@@ -1,11 +1,16 @@
 import axios from "axios";
 import fs from "fs";
 import puppeteer from "puppeteer";
+import { getCache } from "./cache.js";
 
 // 天気予報を取得する関数
 export async function getWeatherForecast(apiKey, latitude, longitude) {
-  const openWeather = await getWeatherFromOpenWeather(apiKey, latitude, longitude);
-  const tenkiJp = await getWeatherFromTenkiJp();
+  const openWeather = await getCache("openweather", async () => {
+    return await getWeatherFromOpenWeather(apiKey, latitude, longitude);
+  }, 0, 0, 0, 0, 10);
+  const tenkiJp = await getCache("tenkijp", async () => {
+    return await getWeatherFromTenkiJp();
+  }, 0, 0, 0, 0, 10);
 
   // OpenWether と tenki.jp の情報を統合する
   const timeToWeather = {};

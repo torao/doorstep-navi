@@ -1,30 +1,5 @@
-import fs from "fs";
-import path from "path";
 import { google } from "googleapis";
-
-const url = "https://holidays-jp.github.io/api/v1/datetime.json";
-
-async function fetchHolidays() {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Network response was not ok: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Failed to fetch holidays:", error);
-  }
-}
-
-async function readOrFetchHolidays(path) {
-  if (!fs.existsSync(path)) {
-    console.log("Fetching holidays...");
-    const data = await fetchHolidays();
-    fs.writeFileSync(path, JSON.stringify(data, null, 2), "utf8");
-  }
-
-  return JSON.parse(fs.readFileSync(path, "utf8"));
-}
+import { getCache } from "./cache.js"
 
 async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
   if(apiKey === undefined || calendarId === undefined) {
@@ -65,19 +40,33 @@ async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
 }
 
 export async function getCalendar(date, apiKey, calendarId) {
-  const year = date.getFullYear();
-  const dir = "cache";
-  const cache = path.join(dir, `holidays-${year}.json`);
 
   try {
-    fs.mkdirSync(dir, { recursive: true });
-    const holidays = readOrFetchHolidays(cache);
+      // 日本の祝日を取得する
+    const holidays = getCache("holidays", async () => {
+      const url = "https://holidays-jp.github.io/api/v1/datetime.json";
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return await response.json();
+    }, 0, 1);
+
+    // Google Calendar からイベントを取得する
+    const events = getCache("google-calendar-events", async () => {
+      return await fetchGoogleCalendarEvents(apiKey, calendarId, date);
+    }, 0, 0, 0, 0, 10);
+
     return {
       holidays: await holidays,
-      events: await fetchGoogleCalendarEvents(apiKey, calendarId, date)
+      events: await events
     };
   } catch (e) {
     console.error("Failed to get calendar:", e);
-    return {};
+    return {
+      holidays: {},
+      events: [],
+      error: (typeof e.stack !== undefined) ? e.stack : e
+    };
   }
 }

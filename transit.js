@@ -1,6 +1,14 @@
 import puppeteer from "puppeteer";
+import { getCache } from "./cache.js";
 
 export async function getTransite() {
+  const delayedLines = getCache("yahoo-transit", async () => {
+    return await fetch();
+  }, 0, 0, 0, 0, 5);
+  return { "delayed-line": await delayedLines };
+}
+
+async function fetch() {
   const browser = await puppeteer.launch({
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
     headless: 'new'
@@ -33,5 +41,5 @@ export async function getTransite() {
   });
 
   await browser.close();
-  return { "delayed-line": delayedLines };
+  return delayedLines;
 }
