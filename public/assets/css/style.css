@@ -214,6 +214,34 @@ body {
   margin-left: 0.8rem;
 }
 
+#news #transit-delayed-lines dt {
+  display: inline;
+}
+
+#news #transit-delayed-lines dt .transit-section {
+  font-weight: normal;
+  font-size: 2.2rem;
+}
+
+#news #transit-delayed-lines dt .transit-section::before {
+  content: "[";
+}
+
+#news #transit-delayed-lines dt .transit-section::after {
+  content: "]";
+}
+
+#news #transit-delayed-lines dt:not(:first-child)::before {
+  padding-left: 1rem;
+  content: "/ ";
+}
+
+#news #transit-delayed-lines dd {
+  display: inline;
+  font-size: 2.2rem;
+  padding-left: 0.8rem;
+}
+
 #news #news-headline-image {
   max-height: 21rem;
   max-width: 21rem;
@@ -237,6 +265,8 @@ body {
   background-color: lightgray;
   padding: 0.2rem 0.6rem;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #error {

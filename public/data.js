@@ -79,24 +79,24 @@ const DATA = {
         "rise": 1716578963,
         "set": 1716630380
       },
-      "time": 1716567602000,
-      "date": "5/25/2024, 1:20:02 AM",
-      "temperature": 22.84,
-      "humidity": 61,
-      "wind": 5.14,
-      "pressure": 1005,
+      "time": 1716571920000,
+      "date": "5/25/2024, 2:32:00 AM",
+      "temperature": 22.2,
+      "humidity": 68,
+      "wind": 5.66,
+      "pressure": 1006,
       "uvi": 0,
       "clouds": 0,
       "visibility": 10000,
-      "icon": "assets/images/weather/01.png",
+      "icon": "assets/images/weather/01n.png",
       "description": "晴天"
     },
     "3-hourly": [
       {
         "wind": 2,
-        "pressure": 1007,
+        "pressure": 1006,
         "uvi": 0,
-        "clouds": 27,
+        "clouds": 0,
         "visibility": 10000,
         "time": 1716573600000,
         "date": "5/25/2024, 3:00:00 AM",
@@ -109,9 +109,9 @@ const DATA = {
       },
       {
         "wind": 2,
-        "pressure": 1011,
+        "pressure": 1009,
         "uvi": 0.08,
-        "clouds": 68,
+        "clouds": 41,
         "visibility": 10000,
         "time": 1716584400000,
         "date": "5/25/2024, 6:00:00 AM",
@@ -392,7 +392,7 @@ const DATA = {
           "max": 23
         },
         "description": "雨のち晴",
-        "icon": "assets/images/weather/雨のち晴.png"
+        "icon": "assets/images/weather/10.png"
       },
       {
         "time": 1716994800000,
@@ -469,28 +469,7 @@ const DATA = {
     ]
   },
   "transite": {
-    "delayed-line": [
-      {
-        "line-name": "常磐線(快速)[品川～取手]",
-        "status": "列車遅延",
-        "description": "松戸〜柏駅間での線路内点検の影響..."
-      },
-      {
-        "line-name": "常磐線(各停)",
-        "status": "列車遅延",
-        "description": "常磐線(快速)内での線路内点検の..."
-      },
-      {
-        "line-name": "常磐線[品川～水戸]",
-        "status": "列車遅延",
-        "description": "松戸〜柏駅間での線路内点検の影響..."
-      },
-      {
-        "line-name": "西武池袋線・秩父線",
-        "status": "運転状況",
-        "description": "19:44頃、東長崎駅で発生した..."
-      }
-    ]
+    "delayed-line": []
   },
   "news": {
     "articles": [

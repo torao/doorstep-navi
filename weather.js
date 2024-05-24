@@ -5,12 +5,49 @@ import { getCache } from "./cache.js";
 
 // 天気予報を取得する関数
 export async function getWeatherForecast(apiKey, latitude, longitude) {
-  const openWeather = await getCache("openweather", async () => {
-    return await getWeatherFromOpenWeather(apiKey, latitude, longitude);
+
+  // OpenWeather の情報を取得
+  // 仕様: https://openweathermap.org/api/one-call-3
+  const data = await getCache("openweather", async () => {
+    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&lang=ja&units=metric`;
+    const response = await axios.get(url);
+    return response.data;
   }, 0, 0, 0, 0, 10);
+
+  // tenki.jp の情報を取得
   const tenkiJp = await getCache("tenkijp", async () => {
     return await getWeatherFromTenkiJp();
   }, 0, 0, 0, 0, 10);
+
+  // OpenWeatherMap API のレスポンスを doorstep-navi 互換形式に変換
+  function openWeatherToDoorStepNavi(point) {
+    return {
+      "time": point.dt * 1000,
+      "date": new Date(point.dt * 1000).toLocaleString(),
+      "temperature": point.temp,
+      "humidity": point.humidity,
+      "wind": point.wind_speed,
+      "pop": point.pop ? point.pop * 100 : undefined,
+      "rain": point.rain ? point.rain : undefined,
+      "pressure": point.pressure,
+      "uvi": point.uvi,
+      "clouds": point.clouds,
+      "visibility": point.visibility,
+      "icon": getWeatherIcon(point.weather[0].icon, new Date(point.dt * 1000)),
+      "description": point.weather[0].description
+    };
+  }
+  const openWeather = {
+    "location": `${data.lat}/${data.lon}`,
+    "current": {
+      "sun": {
+        "rise": data.current.sunrise,
+        "set": data.current.sunset,
+      },
+      ...openWeatherToDoorStepNavi(data.current)
+    },
+    "hourly": data.hourly.filter((h) => h.dt > data.current.dt).map((h) => openWeatherToDoorStepNavi(h))
+  };
 
   // OpenWether と tenki.jp の情報を統合する
   const timeToWeather = {};
@@ -34,59 +71,6 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
   });
 
   return { ...openWeather, ...tenkiJp };
-}
-
-// OpenWeatherMap API を用いて天気情報を取得する。
-// 仕様: https://openweathermap.org/api/one-call-3
-async function getWeatherFromOpenWeather(apiKey, latitude, longitude) {
-
-  // OpenWeatherMap API から天気情報を取得する
-  const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&lang=ja&units=metric`;
-  const response = await axios.get(url);
-  const data = response.data;
-  fs.writeFileSync("openweather-onecall.json", JSON.stringify(data, null, 2));
-
-  function openWeatherToDoorStepNavi(point) {
-
-    // 天気アイコン URL の決定
-    const supported = ["01", "02", "03", "04", "09", "10", "11", "13"];
-    let i = point.weather[0].icon.substring(0, point.weather[0].icon.length - 1);
-    if (i === "50") {
-      i = "04";
-    }
-    let iconUrl = `assets/images/weather/${i}.png`;
-    if (!supported.includes(i)) {
-      iconUrl = `https://openweathermap.org/img/wn/${point.weather[0].icon}@2x.png`;
-    }
-
-    return {
-      "time": point.dt * 1000,
-      "date": new Date(point.dt * 1000).toLocaleString(),
-      "temperature": point.temp,
-      "humidity": point.humidity,
-      "wind": point.wind_speed,
-      "pop": point.pop ? point.pop * 100 : undefined,
-      "rain": point.rain ? point.rain : undefined,
-      "pressure": point.pressure,
-      "uvi": point.uvi,
-      "clouds": point.clouds,
-      "visibility": point.visibility,
-      "icon": iconUrl,
-      "description": point.weather[0].description
-    };
-  }
-
-  return {
-    "location": `${data.lat}/${data.lon}`,
-    "current": {
-      "sun": {
-        "rise": data.current.sunrise,
-        "set": data.current.sunset,
-      },
-      ...openWeatherToDoorStepNavi(data.current)
-    },
-    "hourly": data.hourly.filter((h) => h.dt > data.current.dt).map((h) => openWeatherToDoorStepNavi(h))
-  };
 }
 
 async function getWeatherFromTenkiJp() {
@@ -206,27 +190,49 @@ function isDaytime(tm) {
 function getWeatherIcon(desc, tm) {
   const file = (() => {
     switch (desc) {
+      case "01d":
+      case "01n":
       case "晴れ":
         return isDaytime(tm) ? "01.png" : "01n.png";
+      case "02d":
+      case "02n":
       case "晴時々曇":
       case "曇時々晴":
       case "曇のち晴":
       case "晴のち曇":
         return "02.png";
+      case "03d":
+      case "03n":
       case "曇り":
       case "曇":
         return "03.png";
+      case "04d":
+      case "04n":
+      case "05d":
+      case "05n":
       case "厚い曇":
         return "04.png";
+      case "09d":
+      case "09n":
       case "曇一時雨":
       case "曇時々雨":
         return "09.png";
+      case "10d":
+      case "10n":
       case "雨":
+      case "雨のち曇":
       case "雨時々曇":
       case "曇のち雨":
+      case "曇時々雨":
+      case "雨のち晴":
+      case "雨時々晴":
         return "10.png";
+      case "11d":
+      case "11n":
       case "雷":
         return "11.png";
+      case "13d":
+      case "13n":
       case "雪":
         return "13.png";
       default:

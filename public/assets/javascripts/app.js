@@ -22,6 +22,14 @@
     return tenkan[tenkanIndex] + junishi[junishiIndex];
   }
 
+  function getJapaneseYear(year) {
+    let jpy = year - 2018;
+    if (jpy === 1) {
+      jpy = "元"
+    }
+    return `令和${jpy}年`;
+  }
+
   function updateCalendar(calendar) {
     const now = new Date();
     const year = now.getFullYear();
@@ -33,7 +41,7 @@
     $.getElementById("calendar-month").textContent = month;
     $.getElementById("calendar-date").textContent = date;
     $.getElementById("calendar-day-of-week").textContent = getDayOfWeek(now);
-    $.getElementById("calendar-wareki").textContent = "令和" + (year - 2018) + "年 " + getEto(year);
+    $.getElementById("calendar-wareki").textContent = getJapaneseYear(year) + " " + getEto(year);
     $.getElementById("calendar-today-event").textContent = holiday !== undefined ? holiday : "";
     if (holiday !== undefined || now.getDay() === 0) {
       $.getElementById("calendar-date-holiday").classList.add("holiday");
@@ -242,16 +250,37 @@
       const dd = $.createElement("dd");
       dd.textContent = "鉄道の事故・遅延情報はありません";
       ts.appendChild(dd);
-      status("no line info");
     } else {
       delayedLines.forEach((line) => {
-        const dt = $.createElement("dt");
-        td.textContent = line["line-name"];
-        ts.appendChild(dt);
-        const dd = $.createElement("dd");
-        dd.textContent = line.status;
-        ts.appendChild(dd);
-        status(line["line-name"]);
+
+        // 路線と区間を分離
+        const m = line["line-name"].match(/(.*)\[(.*?)\]/);
+        let lineText = null;
+        let sectionText = null;
+        if (m) {
+          lineText = m[1].trim();
+          sectionText = m[2].trim().replace(" ~ ", "-");
+        } else {
+          lineText = line["line-name"].trim();
+        }
+
+        // 路線
+        const lineNameNode = $.createElement("dt");
+        lineNameNode.appendChild($.createTextNode(lineText))
+        ts.appendChild(lineNameNode);
+
+        // 区間
+        if (sectionText !== null) {
+          const sectionNode = $.createElement("span");
+          sectionNode.setAttribute("class", "transit-section");
+          sectionNode.textContent = sectionText;
+          lineNameNode.appendChild(sectionNode);
+        }
+
+        // 運行状況
+        const statusNode = $.createElement("dd");
+        statusNode.textContent = line.status;
+        ts.appendChild(statusNode);
       });
     }
   }
