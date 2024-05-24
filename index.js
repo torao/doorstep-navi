@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import path from "path";
-import express from "express";
-import { fileURLToPath } from "url";
+import { pathToFileURL } from "url";
 import { getWeatherForecast } from "./weather.js";
 import { getCalendar } from "./calendar.js";
 import { getNews } from "./news.js";
@@ -47,51 +46,21 @@ const data = JSON.stringify(
   null,
   2
 );
-fs.writeFileSync(`${docroot}/data.json`, data);
-
-const app = express();
-const port = 3000;
-
-let server;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, docroot)));
-
-const startServer = () => {
-  return new Promise((resolve, reject) => {
-    server = app.listen(port, () => {
-      console.log(`Listening at http://localhost:${port}`);
-      resolve(server);
-    });
-    server.on("error", reject);
-  });
-};
+fs.writeFileSync(`${docroot}/data.js`, `const DATA = ${data};`);
 
 (async () => {
-  try {
-    await startServer();
-    console.log("Server started successfully");
-  } catch (err) {
-    console.error("Failed to start server", err);
-  }
-})()
-  .then(async () => {
-    const browser = await puppeteer.launch({
-      args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      headless: 'new'
-    });
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1072, height: 1448 });
-    await page.goto(`http://localhost:${port}/index.html`, {
-      waitUntil: "networkidle2",
-    });
-    await page.screenshot({ path: "output.png" });
-    await browser.close();
-  })
-  .then(() => {
-    server.close();
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    headless: 'new'
   });
+  const page = await browser.newPage();
+  await page.setViewport({ width: 1072, height: 1448 });
+  await page.goto(pathToFileURL(path.resolve("public/index.html")), {
+    waitUntil: "networkidle2",
+  });
+  await page.screenshot({ path: "output.png" });
+  await browser.close();
+})()
 
 async function readJsonFile(path) {
   try {

@@ -1,7 +1,6 @@
 import axios from "axios";
-import { defaultMaxListeners } from "events";
 import fs from "fs";
-import puppeteer, { ConsoleMessage } from "puppeteer";
+import puppeteer from "puppeteer";
 
 // 天気予報を取得する関数
 export async function getWeatherForecast(apiKey, latitude, longitude) {
@@ -50,7 +49,7 @@ async function getWeatherFromOpenWeather(apiKey, latitude, longitude) {
     if (i === "50") {
       i = "04";
     }
-    let iconUrl = `/assets/images/weather/${i}.png`;
+    let iconUrl = `assets/images/weather/${i}.png`;
     if (!supported.includes(i)) {
       iconUrl = `https://openweathermap.org/img/wn/${point.weather[0].icon}@2x.png`;
     }
@@ -229,5 +228,5 @@ function getWeatherIcon(desc, tm) {
         return `${desc}.png`;
     }
   })();
-  return `/assets/images/weather/${file}`;
+  return `assets/images/weather/${file}`;
 }

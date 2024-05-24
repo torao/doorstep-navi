@@ -3,17 +3,6 @@
     $.getElementById("status").textContent = message;
   }
 
-  function fetchSync(url) {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", url, false);
-    xhr.send(null);
-    if (xhr.status === 200) {
-      return JSON.parse(xhr.responseText);
-    } else {
-      throw new Error(`Failed to fetch data: ${xhr.status}`);
-    }
-  }
-
   function getHoliday(date, holidays) {
     const tm = date.getTime() / 1000;
     return holidays[String(tm)];
@@ -281,7 +270,7 @@
   }
 
   try {
-    const data = fetchSync("/data.json");
+    const data = DATA;
     exec(() => updateCalendar(data.calendar));
     exec(() => updateWeather(data.weather));
     exec(() => updateTransite(data.transite));
