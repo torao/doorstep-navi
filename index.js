@@ -62,6 +62,7 @@ async function update() {
     waitUntil: "networkidle2",
   });
   await page.screenshot({ path: "output.png" });
+  console.log("output image generated");
   await browser.close();
 })()
 

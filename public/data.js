@@ -79,11 +79,11 @@ const DATA = {
         "rise": 1716578963,
         "set": 1716630380
       },
-      "time": 1716564603000,
-      "date": "5/25/2024, 12:30:03 AM",
-      "temperature": 23.22,
-      "humidity": 64,
-      "wind": 4.12,
+      "time": 1716567602000,
+      "date": "5/25/2024, 1:20:02 AM",
+      "temperature": 22.84,
+      "humidity": 61,
+      "wind": 5.14,
       "pressure": 1005,
       "uvi": 0,
       "clouds": 0,
@@ -102,7 +102,7 @@ const DATA = {
         "date": "5/25/2024, 3:00:00 AM",
         "pop": 10,
         "rain": 0,
-        "temperature": 19.9,
+        "temperature": 19.8,
         "humidity": 67,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
@@ -117,8 +117,8 @@ const DATA = {
         "date": "5/25/2024, 6:00:00 AM",
         "pop": 20,
         "rain": 0,
-        "temperature": 18.8,
-        "humidity": 61,
+        "temperature": 19,
+        "humidity": 59,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -130,10 +130,10 @@ const DATA = {
         "visibility": 10000,
         "time": 1716595200000,
         "date": "5/25/2024, 9:00:00 AM",
-        "pop": 20,
+        "pop": 10,
         "rain": 0,
-        "temperature": 21.4,
-        "humidity": 49,
+        "temperature": 21.3,
+        "humidity": 48,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -147,8 +147,8 @@ const DATA = {
         "date": "5/25/2024, 12:00:00 PM",
         "pop": 10,
         "rain": 0,
-        "temperature": 23.9,
-        "humidity": 45,
+        "temperature": 24,
+        "humidity": 43,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -162,8 +162,8 @@ const DATA = {
         "date": "5/25/2024, 3:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 24.8,
-        "humidity": 48,
+        "temperature": 24,
+        "humidity": 47,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -193,7 +193,7 @@ const DATA = {
         "pop": 20,
         "rain": 0,
         "temperature": 18.7,
-        "humidity": 63,
+        "humidity": 62,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -208,7 +208,7 @@ const DATA = {
         "pop": 30,
         "rain": 0,
         "temperature": 18.2,
-        "humidity": 65,
+        "humidity": 64,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -223,7 +223,7 @@ const DATA = {
         "pop": 30,
         "rain": 0,
         "temperature": 17.4,
-        "humidity": 68,
+        "humidity": 67,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -235,9 +235,9 @@ const DATA = {
         "visibility": 10000,
         "time": 1716670800000,
         "date": "5/26/2024, 6:00:00 AM",
-        "pop": 20,
+        "pop": 30,
         "rain": 0,
-        "temperature": 18.5,
+        "temperature": 18.6,
         "humidity": 69,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
@@ -252,7 +252,7 @@ const DATA = {
         "date": "5/26/2024, 9:00:00 AM",
         "pop": 20,
         "rain": 0,
-        "temperature": 21.2,
+        "temperature": 21.1,
         "humidity": 61,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
@@ -267,8 +267,8 @@ const DATA = {
         "date": "5/26/2024, 12:00:00 PM",
         "pop": 20,
         "rain": 0,
-        "temperature": 24.3,
-        "humidity": 54,
+        "temperature": 24.4,
+        "humidity": 53,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -282,8 +282,8 @@ const DATA = {
         "date": "5/26/2024, 3:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 23.9,
-        "humidity": 54,
+        "temperature": 24,
+        "humidity": 53,
         "description": "晴れ",
         "icon": "assets/images/weather/01.png"
       },
@@ -297,7 +297,7 @@ const DATA = {
         "date": "5/26/2024, 6:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 22,
+        "temperature": 22.1,
         "humidity": 63,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
@@ -312,19 +312,23 @@ const DATA = {
         "date": "5/26/2024, 9:00:00 PM",
         "pop": 0,
         "rain": 0,
-        "temperature": 21,
+        "temperature": 20.9,
         "humidity": 76,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
       },
       {
+        "wind": 3,
+        "pressure": 1012,
+        "uvi": 0,
+        "clouds": 98,
+        "visibility": 10000,
         "time": 1716735600000,
         "date": "5/27/2024, 12:00:00 AM",
         "pop": 20,
         "rain": 0,
-        "temperature": 20.5,
-        "humidity": 84,
-        "wind": 3,
+        "temperature": 20.4,
+        "humidity": 85,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       }
@@ -357,10 +361,10 @@ const DATA = {
       {
         "time": 1716735600000,
         "date": "5/27/2024, 12:00:00 AM",
-        "pop": 90,
-        "rain": 6,
+        "pop": 60,
+        "rain": 3,
         "temperature": {
-          "min": 19,
+          "min": 20,
           "max": 25
         },
         "description": "曇のち雨",
@@ -387,8 +391,8 @@ const DATA = {
           "min": 17,
           "max": 23
         },
-        "description": "晴時々雨",
-        "icon": "assets/images/weather/晴時々雨.png"
+        "description": "雨のち晴",
+        "icon": "assets/images/weather/雨のち晴.png"
       },
       {
         "time": 1716994800000,
@@ -449,6 +453,18 @@ const DATA = {
         },
         "description": "晴時々曇",
         "icon": "assets/images/weather/02.png"
+      },
+      {
+        "time": 1717426800000,
+        "date": "6/4/2024, 12:00:00 AM",
+        "pop": 40,
+        "rain": 0,
+        "temperature": {
+          "min": 16,
+          "max": 25
+        },
+        "description": "曇時々晴",
+        "icon": "assets/images/weather/02.png"
       }
     ]
   },
@@ -479,48 +495,12 @@ const DATA = {
   "news": {
     "articles": [
       {
-        "title": "AxiosError: Request failed with status code 429",
+        "title": "Error: You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests.",
         "description": "",
         "url": null,
         "image": null
       }
     ],
-    "error": {
-      "message": "Request failed with status code 429",
-      "name": "AxiosError",
-      "stack": "AxiosError: Request failed with status code 429\n    at settle (file:///home/torao/git/doorstep-navi/node_modules/axios/lib/core/settle.js:19:12)\n    at IncomingMessage.handleStreamEnd (file:///home/torao/git/doorstep-navi/node_modules/axios/lib/adapters/http.js:589:11)\n    at IncomingMessage.emit (node:events:531:35)\n    at endReadableNT (node:internal/streams/readable:1696:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)\n    at Axios.request (file:///home/torao/git/doorstep-navi/node_modules/axios/lib/core/Axios.js:45:41)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async file:///home/torao/git/doorstep-navi/news.js:14:24\n    at async getCache (file:///home/torao/git/doorstep-navi/cache.js:25:16)\n    at async getNews (file:///home/torao/git/doorstep-navi/news.js:13:18)",
-      "config": {
-        "transitional": {
-          "silentJSONParsing": true,
-          "forcedJSONParsing": true,
-          "clarifyTimeoutError": false
-        },
-        "adapter": [
-          "xhr",
-          "http"
-        ],
-        "transformRequest": [
-          null
-        ],
-        "transformResponse": [
-          null
-        ],
-        "timeout": 0,
-        "xsrfCookieName": "XSRF-TOKEN",
-        "xsrfHeaderName": "X-XSRF-TOKEN",
-        "maxContentLength": -1,
-        "maxBodyLength": -1,
-        "env": {},
-        "headers": {
-          "Accept": "application/json, text/plain, */*",
-          "User-Agent": "axios/1.6.8",
-          "Accept-Encoding": "gzip, compress, deflate, br"
-        },
-        "method": "get",
-        "url": "https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=691484240de04b8685fbda1970760cac"
-      },
-      "code": "ERR_BAD_REQUEST",
-      "status": 429
-    }
+    "error": "Error: You have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours). Please upgrade to a paid plan if you need more requests."
   }
 };

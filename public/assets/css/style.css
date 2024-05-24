@@ -17,8 +17,8 @@ body {
 
 #calendar,
 #weather,
-#transite,
-#news {
+#news,
+#status {
   background-color: white;
   height: 32.5%;
   overflow: hidden;
