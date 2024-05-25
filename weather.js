@@ -70,6 +70,24 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
     return h;
   });
 
+  // OpenWeather の current に存在しない情報を tenki.jp から取得
+  const now = openWeather.current.time;
+  const includeCurrent = tenkiJp["3-hourly"].find(h => {
+    const end = new Date(h.time);
+    end.setHours(end.getHours() + 3);
+    return h.time <= now && now < end.getTime();
+  });
+  if (includeCurrent !== null) {
+    if (openWeather.current.rain === undefined) {
+      openWeather.current.rain = includeCurrent.rain;
+    }
+    if (openWeather.current.pop === undefined) {
+      openWeather.current.pop = includeCurrent.pop;
+    }
+  }
+
+  tenkiJp["3-hourly"] = tenkiJp["3-hourly"].filter((h) => h.time >= now);
+
   return { ...openWeather, ...tenkiJp };
 }
 
@@ -121,7 +139,6 @@ async function getWeatherFromTenkiJp() {
     const now = new Date().getTime();
     return (await getByThreeHours("forecast-point-3h-today", today))
       .concat(await getByThreeHours("forecast-point-3h-tomorrow", tomorrow))
-      .filter((d) => d.time >= now);
   })();
 
   // tenki.jp 墨田区 2週間天気
@@ -150,7 +167,7 @@ async function getWeatherFromTenkiJp() {
       const highTemp = parseFloat(/(\d+)℃/.exec(dd.querySelector(".high-temp").textContent.trim())[1])
       const lowTemp = parseFloat(/(\d+)℃/.exec(dd.querySelector(".low-temp").textContent.trim())[1])
       const pop = parseFloat(/(\d+)%/.exec(dd.querySelector(".prob-precip").textContent.trim())[1]);
-      const rain = parseFloat(/(\d+)mm/.exec(dd.querySelector(".precip").textContent.trim())[1]);
+      const rain = parseFloat(/(\d+)(mm)?/.exec(dd.querySelector(".precip").textContent.trim())[1]);
 
       daily.push({
         "time": dateTime.getTime(),               // 時刻

@@ -187,44 +187,85 @@
   }
 
   function updateWeather(w) {
-    const current = w.current;
 
-    // 風速による表記変更
-    const wind = ((wind) => {
-      if (wind >= 24.5) {
-        return "・暴風";
-      } else if (wind >= 13.9) {
-        return "・強風";
-      } else if (wind >= 8.0) {
-        return "・風";
+    function addAmbrellaIfRain(div, pop, rain) {
+      if (rain !== undefined && rain >= 2.0 && (typeof pop !== "number" || pop >= 30)) {
+        const img = $.createElement("img");
+        img.setAttribute("src", "assets/images/weather/ambrella.png");
+        img.setAttribute("class", "weather-icon-ambrella");
+        img.setAttribute("alt", "☔");
+        div.querySelector(".weather-icon-container").appendChild(img);
       }
-      return "";
-    })(current.wind);
-
-    $.getElementById("weather-icon").setAttribute("src", current.icon);
-    $.getElementById("weather-icon").setAttribute("alt", current.description);
-    $.getElementById("weather-title").textContent = current.description + wind;
-    $.getElementById("weather-temp-value").textContent = current.temperature.toFixed();
-    $.getElementById("weather-humidity-value").textContent = current.humidity.toFixed();
-    if (current.humidity >= 60) {
-      $.getElementById("weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
     }
-    status(new Date(current.time).toLocaleString());
 
-    function rainSymbol(pop, rain) {
-      return pop >= 50 || rain >= 2 ? "☔" : "";
+    function addSungrassesIfUVI(div, uvi) {
+      if (uvi !== undefined && uvi >= 6.0) {
+        const img = $.createElement("img");
+        img.setAttribute("src", "assets/images/weather/sungrasses.png");
+        img.setAttribute("class", "weather-icon-uv");
+        img.setAttribute("alt", "UV");
+        div.querySelector(".weather-icon-container").appendChild(img);
+      }
     }
+
+    function addThermometerIfExtremelyHotDay(div, temp) {
+      if (temp !== undefined && temp >= 35.0) {
+        const img = $.createElement("img");
+        img.setAttribute("src", "assets/images/weather/thermometer.png");
+        img.setAttribute("class", "weather-extremely-hot-day");
+        img.setAttribute("alt", "Extremely Hot Day");
+        const t = div.querySelector(".weather-temp");
+        if (t !== null) {
+          t.appendChild(img);
+        } else {
+          div.querySelector(".weather-temp-high").appendChild(img);
+        }
+      }
+    }
+
+    // 現在の天候
+    (() => {
+      const current = w.current;
+
+      // 風速による表記変更
+      const wind = ((wind) => {
+        if (wind >= 24.5) {
+          return "・暴風";
+        } else if (wind >= 13.9) {
+          return "・強風";
+        } else if (wind >= 8.0) {
+          return "・風";
+        }
+        return "";
+      })(current.wind);
+
+      const div = $.getElementById("weather-now");
+      $.getElementById("weather-icon").setAttribute("src", current.icon);
+      $.getElementById("weather-icon").setAttribute("alt", current.description);
+      $.getElementById("weather-title").textContent = current.description + wind;
+      $.getElementById("weather-temp-value").textContent = current.temperature.toFixed();
+      $.getElementById("weather-humidity-value").textContent = current.humidity.toFixed();
+      if (current.humidity >= 60) {
+        $.getElementById("weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
+      }
+      addSungrassesIfUVI(div, current.uvi);
+      addAmbrellaIfRain(div, current.pop, current.rain);
+      status(new Date(current.time).toLocaleString());
+    })();
 
     // 0, 3, 6, 9, 12, 15, 18, 21 時の天気を表示する
     for (var j = 1; j <= 6; j++) {
       const h = w["3-hourly"][j - 1];
       const time = new Date(h.time);
-      const rain = rainSymbol(h.pop, h.rain);
-      $.getElementById("weather-time-h" + j).textContent = time.getHours() + ":00";
-      $.getElementById("weather-icon-h" + j).setAttribute("src", h.icon);
-      $.getElementById("weather-icon-h" + j).setAttribute("alt", h.description);
-      $.getElementById("weather-temp-h" + j).textContent = h.temperature.toFixed(0) + "℃";
-      $.getElementById("weather-pop-h" + j).textContent = rain + h.pop.toFixed(0) + "%";
+      const div = $.getElementById(`weather-h${j}`);
+      div.querySelector(".weather-time").textContent = time.getHours() + ":00"
+      div.querySelector(".weather-icon").setAttribute("src", h.icon);
+      div.querySelector(".weather-icon").setAttribute("alt", h.description);
+      div.querySelector(".weather-pop").textContent = h.pop.toFixed(0) + "%";
+      div.querySelector(".weather-temp").textContent = h.temperature.toFixed(0) + "℃";
+      addSungrassesIfUVI(div, h.uvi);
+      addAmbrellaIfRain(div, h.pop, h.rain);
+      addThermometerIfExtremelyHotDay(div, h.temperature);
     }
 
     const today = new Date(w.current.time);
@@ -232,13 +273,16 @@
       const d = w.daily[j];
       const time = new Date(d.time);
       const dayTitle = getDateName(today, time);
-      const rain = rainSymbol(d.pop, d.rain);
-      $.getElementById("weather-time-d" + j).textContent = dayTitle;
-      $.getElementById("weather-icon-d" + j).setAttribute("src", d.icon);
-      $.getElementById("weather-icon-d" + j).setAttribute("alt", d.description);
-      $.getElementById("weather-temp-d" + j).textContent =
-        d.temperature.min.toFixed(0) + "℃/" + d.temperature.max.toFixed(0) + "℃";
-      $.getElementById("weather-pop-d" + j).textContent = rain + d.pop.toFixed(0) + "%";
+      const div = $.getElementById(`weather-d${j}`);
+      div.querySelector(".weather-time").textContent = dayTitle;
+      div.querySelector(".weather-icon").setAttribute("src", d.icon);
+      div.querySelector(".weather-icon").setAttribute("alt", d.description);
+      div.querySelector(".weather-pop").textContent = d.pop.toFixed(0) + "%";
+      div.querySelector(".weather-temp-high").textContent = d.temperature.max.toFixed(0) + "℃";
+      div.querySelector(".weather-temp-low").textContent = d.temperature.min.toFixed(0) + "℃";
+      addSungrassesIfUVI(div, d.uvi);
+      addAmbrellaIfRain(div, d.pop, d.rain);
+      addThermometerIfExtremelyHotDay(div, d.temperature.max);
     }
   }
 
@@ -323,7 +367,8 @@
     try {
       f();
     } catch (e) {
-      if (error !== null) {
+      status(e);
+      if (error === null) {
         error = (typeof e.stack !== undefined) ? e.stack : e;
       }
     }
