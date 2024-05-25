@@ -259,7 +259,7 @@
         let sectionText = null;
         if (m) {
           lineText = m[1].trim();
-          sectionText = m[2].trim().replace(" ~ ", "-");
+          sectionText = m[2].trim().replace("～", "-");
         } else {
           lineText = line["line-name"].trim();
         }
@@ -291,7 +291,7 @@
     const hl = $.getElementById("news-headline");
 
     // エラー処理
-    if (typeof news.error !== undefined) {
+    if (news.error !== undefined) {
       img.setAttribute("style", "display: none;");
       const li = $.createElement("li");
       li.textContent = news.error;
