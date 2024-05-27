@@ -188,39 +188,43 @@
 
   function updateWeather(w) {
 
+    function addSubIcon(div, image, clazz, alt, selectors) {
+      const img = $.createElement("img");
+      img.setAttribute("src", `assets/images/weather/${image}.png`);
+      img.setAttribute("class", clazz);
+      img.setAttribute("alt", alt);
+      for (var i = 0; i < selectors.length; i++) {
+        const container = div.querySelector(selectors[i]);
+        if (container !== null) {
+          container.appendChild(img);
+          break;
+        }
+      }
+    }
+
     function addAmbrellaIfRain(div, pop, rain) {
       if (rain !== undefined && rain >= 2.0 && (typeof pop !== "number" || pop >= 30)) {
-        const img = $.createElement("img");
-        img.setAttribute("src", "assets/images/weather/ambrella.png");
-        img.setAttribute("class", "weather-icon-ambrella");
-        img.setAttribute("alt", "☔");
-        div.querySelector(".weather-icon-container").appendChild(img);
+        addSubIcon(div, "ambrella", "weather-icon-ambrella", "☔", [".weather-icon-container"]);
       }
     }
 
     function addSungrassesIfUVI(div, uvi) {
       if (uvi !== undefined && uvi >= 6.0) {
-        const img = $.createElement("img");
-        img.setAttribute("src", "assets/images/weather/sungrasses.png");
-        img.setAttribute("class", "weather-icon-uv");
-        img.setAttribute("alt", "UV");
-        div.querySelector(".weather-icon-container").appendChild(img);
+        addSubIcon(div, "sungrasses", "weather-icon-uv", "UV", [".weather-icon-container"]);
       }
     }
 
     function addThermometerIfExtremelyHotDay(div, temp) {
       if (temp !== undefined && temp >= 35.0) {
-        const img = $.createElement("img");
-        img.setAttribute("src", "assets/images/weather/thermometer.png");
-        img.setAttribute("class", "weather-extremely-hot-day");
-        img.setAttribute("alt", "Extremely Hot Day");
-        const t = div.querySelector(".weather-temp");
-        if (t !== null) {
-          t.appendChild(img);
-        } else {
-          div.querySelector(".weather-temp-high").appendChild(img);
-        }
+        addSubIcon(div, "thermometer", "weather-extremely-hot-day", "Extremely Hot Day", [".weather-temp", ".weather-temp-high"]);
       }
+    }
+
+    function num(value) {
+      if (value === null || value === undefined) {
+        return "---";
+      }
+      return value.toFixed();
     }
 
     // 現在の天候
@@ -243,8 +247,8 @@
       $.getElementById("weather-icon").setAttribute("src", current.icon);
       $.getElementById("weather-icon").setAttribute("alt", current.description);
       $.getElementById("weather-title").textContent = current.description + wind;
-      $.getElementById("weather-temp-value").textContent = current.temperature.toFixed();
-      $.getElementById("weather-humidity-value").textContent = current.humidity.toFixed();
+      $.getElementById("weather-temp-value").textContent = num(current.temperature);
+      $.getElementById("weather-humidity-value").textContent = num(current.humidity);
       if (current.humidity >= 60) {
         $.getElementById("weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
       }
@@ -261,8 +265,8 @@
       div.querySelector(".weather-time").textContent = time.getHours() + ":00"
       div.querySelector(".weather-icon").setAttribute("src", h.icon);
       div.querySelector(".weather-icon").setAttribute("alt", h.description);
-      div.querySelector(".weather-pop").textContent = h.pop.toFixed(0) + "%";
-      div.querySelector(".weather-temp").textContent = h.temperature.toFixed(0) + "℃";
+      div.querySelector(".weather-pop").textContent = num(h.pop) + "%";
+      div.querySelector(".weather-temp").textContent = num(h.temperature) + "℃";
       addSungrassesIfUVI(div, h.uvi);
       addAmbrellaIfRain(div, h.pop, h.rain);
       addThermometerIfExtremelyHotDay(div, h.temperature);
@@ -277,9 +281,9 @@
       div.querySelector(".weather-time").textContent = dayTitle;
       div.querySelector(".weather-icon").setAttribute("src", d.icon);
       div.querySelector(".weather-icon").setAttribute("alt", d.description);
-      div.querySelector(".weather-pop").textContent = d.pop.toFixed(0) + "%";
-      div.querySelector(".weather-temp-high").textContent = d.temperature.max.toFixed(0) + "℃";
-      div.querySelector(".weather-temp-low").textContent = d.temperature.min.toFixed(0) + "℃";
+      div.querySelector(".weather-pop").textContent = num(d.pop) + "%";
+      div.querySelector(".weather-temp-high").textContent = num(d.temperature.max) + "℃";
+      div.querySelector(".weather-temp-low").textContent = num(d.temperature.min) + "℃";
       addSungrassesIfUVI(div, d.uvi);
       addAmbrellaIfRain(div, d.pop, d.rain);
       addThermometerIfExtremelyHotDay(div, d.temperature.max);
