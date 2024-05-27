@@ -74,50 +74,33 @@ const DATA = {
         "rise": 1716751705,
         "set": 1716803266
       },
-      "time": 1716781212000,
-      "date": "5/27/2024, 12:40:12 PM",
-      "temperature": 23.34,
-      "humidity": 77,
+      "time": 1716793299000,
+      "date": "2024/5/27 16:01:39",
+      "temperature": 22.64,
+      "humidity": 84,
       "wind": 6.17,
       "pop": null,
-      "rain": {
-        "1h": 1.78
-      },
-      "pressure": 1005,
-      "uvi": 3.07,
+      "rain": 4.21,
+      "pressure": 1003,
+      "uvi": 1.21,
       "clouds": 75,
-      "visibility": 10000,
-      "icon": "assets/images/weather/09.png",
-      "description": "弱いにわか雨"
+      "visibility": 5000,
+      "icon": "assets/images/weather/10.png",
+      "description": "強い雨"
     },
     "3-hourly": [
       {
-        "wind": 5,
-        "pressure": 1005,
-        "uvi": 3.6,
-        "clouds": 85,
-        "visibility": 10000,
-        "time": 1716789600000,
-        "date": "5/27/2024, 3:00:00 PM",
-        "pop": 30,
-        "rain": 0,
-        "temperature": 22.9,
-        "humidity": 82,
-        "description": "曇り",
-        "icon": "assets/images/weather/03.png"
-      },
-      {
         "wind": 4,
-        "pressure": 1004,
+        "pressure": 1003,
         "uvi": 0.18,
-        "clouds": 97,
+        "clouds": 84,
         "visibility": 10000,
         "time": 1716800400000,
-        "date": "5/27/2024, 6:00:00 PM",
-        "pop": 20,
+        "date": "2024/5/27 18:00:00",
+        "pop": 40,
         "rain": 0,
-        "temperature": 22.3,
-        "humidity": 90,
+        "temperature": 22.8,
+        "humidity": 89,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
@@ -128,55 +111,55 @@ const DATA = {
         "clouds": 79,
         "visibility": 10000,
         "time": 1716811200000,
-        "date": "5/27/2024, 9:00:00 PM",
+        "date": "2024/5/27 21:00:00",
         "pop": 0,
         "rain": 0,
         "temperature": 22.8,
-        "humidity": 89,
+        "humidity": 88,
         "description": "晴れ",
         "icon": "assets/images/weather/01n.png"
       },
       {
-        "wind": 3,
+        "wind": 4,
         "pressure": 1003,
         "uvi": 0,
         "clouds": 100,
         "visibility": 10000,
         "time": 1716822000000,
-        "date": "5/28/2024, 12:00:00 AM",
+        "date": "2024/5/28 0:00:00",
         "pop": 20,
         "rain": 0,
-        "temperature": 22.9,
+        "temperature": 23.2,
         "humidity": 91,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
       {
-        "wind": 4,
+        "wind": 3,
         "pressure": 1004,
         "uvi": 0,
         "clouds": 100,
         "visibility": 10000,
         "time": 1716832800000,
-        "date": "5/28/2024, 3:00:00 AM",
+        "date": "2024/5/28 3:00:00",
         "pop": 20,
         "rain": 0,
-        "temperature": 23,
+        "temperature": 23.1,
         "humidity": 92,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
       {
-        "wind": 3,
+        "wind": 2,
         "pressure": 1005,
         "uvi": 0.27,
         "clouds": 100,
         "visibility": 10000,
         "time": 1716843600000,
-        "date": "5/28/2024, 6:00:00 AM",
+        "date": "2024/5/28 6:00:00",
         "pop": 50,
         "rain": 0,
-        "temperature": 23,
+        "temperature": 22.9,
         "humidity": 92,
         "description": "小雨",
         "icon": "assets/images/weather/09.png"
@@ -188,11 +171,11 @@ const DATA = {
         "clouds": 100,
         "visibility": 10000,
         "time": 1716854400000,
-        "date": "5/28/2024, 9:00:00 AM",
+        "date": "2024/5/28 9:00:00",
         "pop": 60,
         "rain": 0,
-        "temperature": 23.9,
-        "humidity": 89,
+        "temperature": 24,
+        "humidity": 88,
         "description": "小雨",
         "icon": "assets/images/weather/09.png"
       },
@@ -203,11 +186,11 @@ const DATA = {
         "clouds": 100,
         "visibility": 4945,
         "time": 1716865200000,
-        "date": "5/28/2024, 12:00:00 PM",
+        "date": "2024/5/28 12:00:00",
         "pop": 60,
         "rain": 0,
-        "temperature": 23.2,
-        "humidity": 88,
+        "temperature": 23.7,
+        "humidity": 86,
         "description": "小雨",
         "icon": "assets/images/weather/09.png"
       },
@@ -218,26 +201,26 @@ const DATA = {
         "clouds": 100,
         "visibility": 10000,
         "time": 1716876000000,
-        "date": "5/28/2024, 3:00:00 PM",
+        "date": "2024/5/28 15:00:00",
         "pop": 40,
         "rain": 0,
-        "temperature": 23.4,
-        "humidity": 88,
+        "temperature": 23.1,
+        "humidity": 87,
         "description": "曇り",
         "icon": "assets/images/weather/03.png"
       },
       {
-        "wind": 6,
+        "wind": 5,
         "pressure": 1001,
         "uvi": 0.04,
         "clouds": 100,
         "visibility": 10000,
         "time": 1716886800000,
-        "date": "5/28/2024, 6:00:00 PM",
+        "date": "2024/5/28 18:00:00",
         "pop": 70,
         "rain": 1,
-        "temperature": 23,
-        "humidity": 91,
+        "temperature": 22.9,
+        "humidity": 90,
         "description": "弱雨",
         "icon": "assets/images/weather/09.png"
       },
@@ -248,10 +231,10 @@ const DATA = {
         "clouds": 100,
         "visibility": 5759,
         "time": 1716897600000,
-        "date": "5/28/2024, 9:00:00 PM",
+        "date": "2024/5/28 21:00:00",
         "pop": 90,
         "rain": 4,
-        "temperature": 23.2,
+        "temperature": 23.3,
         "humidity": 90,
         "description": "雨",
         "icon": "assets/images/weather/10.png"
@@ -263,10 +246,10 @@ const DATA = {
         "clouds": 100,
         "visibility": 9944,
         "time": 1716908400000,
-        "date": "5/29/2024, 12:00:00 AM",
+        "date": "2024/5/29 0:00:00",
         "pop": 90,
-        "rain": 2,
-        "temperature": 22.7,
+        "rain": 3,
+        "temperature": 23.1,
         "humidity": 89,
         "description": "弱雨",
         "icon": "assets/images/weather/09.png"
@@ -275,33 +258,33 @@ const DATA = {
     "daily": [
       {
         "time": 1716735600000,
-        "date": "5/27/2024, 12:00:00 AM",
-        "pop": 70,
+        "date": "2024/5/27 0:00:00",
+        "pop": 50,
         "rain": 2,
         "temperature": {
           "min": 21,
           "max": 24
         },
-        "description": "雨時々曇",
-        "icon": "assets/images/weather/10.png"
+        "description": "曇一時雨",
+        "icon": "assets/images/weather/09.png"
       },
       {
         "time": 1716822000000,
-        "date": "5/28/2024, 12:00:00 AM",
+        "date": "2024/5/28 0:00:00",
         "pop": 90,
         "rain": 22,
         "temperature": {
           "min": 23,
-          "max": 24
+          "max": 25
         },
         "description": "雨時々曇",
         "icon": "assets/images/weather/10.png"
       },
       {
         "time": 1716908400000,
-        "date": "5/29/2024, 12:00:00 AM",
-        "pop": 70,
-        "rain": 2,
+        "date": "2024/5/29 0:00:00",
+        "pop": 100,
+        "rain": 8,
         "temperature": {
           "min": 19,
           "max": 27
@@ -311,45 +294,45 @@ const DATA = {
       },
       {
         "time": 1716994800000,
-        "date": "5/30/2024, 12:00:00 AM",
-        "pop": 50,
+        "date": "2024/5/30 0:00:00",
+        "pop": 40,
         "rain": 0,
         "temperature": {
-          "min": 17,
+          "min": 18,
           "max": 28
         },
-        "description": "晴のち雨",
-        "icon": "assets/images/weather/10.png"
+        "description": "曇時々晴",
+        "icon": "assets/images/weather/02.png"
       },
       {
         "time": 1717081200000,
-        "date": "5/31/2024, 12:00:00 AM",
+        "date": "2024/5/31 0:00:00",
         "pop": 90,
-        "rain": 47,
+        "rain": 43,
         "temperature": {
-          "min": 19,
-          "max": 22
+          "min": 17,
+          "max": 21
         },
-        "description": "雨時々曇",
+        "description": "雨のち曇",
         "icon": "assets/images/weather/10.png"
       },
       {
         "time": 1717167600000,
-        "date": "6/1/2024, 12:00:00 AM",
-        "pop": 80,
-        "rain": 5,
+        "date": "2024/6/1 0:00:00",
+        "pop": 40,
+        "rain": 0,
         "temperature": {
           "min": 17,
-          "max": 24
+          "max": 25
         },
-        "description": "曇時々雨",
-        "icon": "assets/images/weather/09.png"
+        "description": "曇",
+        "icon": "assets/images/weather/03.png"
       },
       {
         "time": 1717254000000,
-        "date": "6/2/2024, 12:00:00 AM",
-        "pop": 80,
-        "rain": 7,
+        "date": "2024/6/2 0:00:00",
+        "pop": 90,
+        "rain": 14,
         "temperature": {
           "min": 16,
           "max": 22
@@ -359,8 +342,20 @@ const DATA = {
       },
       {
         "time": 1717340400000,
-        "date": "6/3/2024, 12:00:00 AM",
-        "pop": 40,
+        "date": "2024/6/3 0:00:00",
+        "pop": 60,
+        "rain": 0,
+        "temperature": {
+          "min": 16,
+          "max": 24
+        },
+        "description": "晴時々雨",
+        "icon": "assets/images/weather/09.png"
+      },
+      {
+        "time": 1717426800000,
+        "date": "2024/6/4 0:00:00",
+        "pop": 30,
         "rain": 0,
         "temperature": {
           "min": 16,
@@ -370,39 +365,27 @@ const DATA = {
         "icon": "assets/images/weather/02.png"
       },
       {
-        "time": 1717426800000,
-        "date": "6/4/2024, 12:00:00 AM",
-        "pop": 40,
-        "rain": 0,
-        "temperature": {
-          "min": 16,
-          "max": 25
-        },
-        "description": "晴時々曇",
-        "icon": "assets/images/weather/02.png"
-      },
-      {
         "time": 1717513200000,
-        "date": "6/5/2024, 12:00:00 AM",
-        "pop": 40,
-        "rain": 0,
-        "temperature": {
-          "min": 16,
-          "max": 25
-        },
-        "description": "晴時々曇",
-        "icon": "assets/images/weather/02.png"
-      },
-      {
-        "time": 1717599600000,
-        "date": "6/6/2024, 12:00:00 AM",
+        "date": "2024/6/5 0:00:00",
         "pop": 20,
         "rain": 0,
         "temperature": {
           "min": 16,
           "max": 25
         },
-        "description": "晴時々曇",
+        "description": "曇時々晴",
+        "icon": "assets/images/weather/02.png"
+      },
+      {
+        "time": 1717599600000,
+        "date": "2024/6/6 0:00:00",
+        "pop": 20,
+        "rain": 0,
+        "temperature": {
+          "min": 15,
+          "max": 25
+        },
+        "description": "曇時々晴",
         "icon": "assets/images/weather/02.png"
       }
     ]
@@ -410,94 +393,25 @@ const DATA = {
   "transite": {
     "delayed-line": [
       {
-        "line-name": "湘南新宿ライン",
-        "status": "列車遅延",
-        "description": "08:35頃、宇都宮線内で発生し..."
-      },
-      {
-        "line-name": "東海道本線[東京～熱海]",
-        "status": "運転状況",
-        "description": "08:35頃、宇都宮線内で発生し..."
-      },
-      {
         "line-name": "中央総武線(各停)",
         "status": "運転状況",
-        "description": "新宿駅で発生した線路内立入の影響..."
-      },
-      {
-        "line-name": "宇都宮線[東京～宇都宮]",
-        "status": "運転状況",
-        "description": "08:35頃、白岡駅で発生した人..."
-      },
-      {
-        "line-name": "埼京川越線[羽沢横浜国大～川越]",
-        "status": "列車遅延",
-        "description": "新宿駅で発生した線路内立入の影響..."
-      },
-      {
-        "line-name": "上野東京ライン",
-        "status": "運転状況",
-        "description": "08:35頃、宇都宮線内で発生し..."
-      },
-      {
-        "line-name": "東武東上線",
-        "status": "運転状況",
-        "description": "08:00頃、鶴瀬〜ふじみ野駅間..."
-      },
-      {
-        "line-name": "東武伊勢崎線[久喜～伊勢崎]",
-        "status": "運転再開",
-        "description": "鷲宮〜花崎駅間で発生した踏切支障..."
-      },
-      {
-        "line-name": "東京メトロ有楽町線",
-        "status": "運転状況",
-        "description": "08:00頃、東武東上線内で発生..."
-      },
-      {
-        "line-name": "東京メトロ副都心線",
-        "status": "運転状況",
-        "description": "08:00頃、東武東上線内で発生..."
+        "description": "秋葉原駅で発生した乗務員支障の影..."
       }
     ]
   },
   "news": {
     "articles": [
       {
-        "title": "【台風1号】気象庁の進路予想､米軍とﾖｰﾛｯﾊﾟの見方は 日本への接近いつ…2024年5月26日9時時点の実況 | 社会 | 福井のﾆｭｰｽ - 福井新聞",
-        "description": "気象庁の2024年5月26日午後0時時点の実況によると､台風1号(ｲｰｳｨﾆｬ)はﾌｨﾘﾋﾟﾝにあり､ゆっくり北上｡今後､日本に近づく可能性がある｡気象庁の進路予想や日本への接近時期に加え､米軍合同台風警報ｾﾝﾀｰ(JTWC)とﾖｰﾛｯﾊﾟ中期予報ｾﾝﾀｰの見方も参考に調べた｡",
-        "url": "https://www.fukuishimbun.co.jp/articles/-/2046479",
-        "image": "https://fki.ismcdn.jp/mwimgs/e/2/-/img_e24014ec12afa89445eccc441d18df1f149652.jpg"
+        "title": "元交際相手の女ら5人逮捕 多摩川男性遺体､遺棄容疑―神奈川県警:時事ﾄﾞｯﾄｺﾑ - 時事通信ﾆｭｰｽ",
+        "description": "川崎市川崎区の多摩川で昨年12月､ｽｰﾂｹｰｽの中から原唯之さん=当時(46)=の遺体が発見された事件で､神奈川県警捜査1課などは25日､死体遺棄容疑で､原さんの元交際相手の無職西高舞容疑者(32)=大阪府高槻市岡本町=と家族ら5人を逮捕した｡原さんは首を絞められて殺害された疑いがあり､県警は死亡の経緯についても調べる｡",
+        "url": "https://www.jiji.com/jc/article?k=2024052600242&g=soc",
+        "image": "https://www.jiji.com/news2/kiji_photos/202405/20240526at13S_ogp.jpg"
       },
       {
-        "title": "岐阜 意識不明の女児を貯水池で発見 用水路に落ちたか | NHK - nhk.or.jp",
-        "description": "25日夕方､岐阜県下呂市の貯水池で4歳の女の子が見つかり､意識不明の重体となっています｡父親からは近くの用水路付近で娘を…",
-        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014460961000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014460961_2405260741_0526074145_01_02.jpg"
-      },
-      {
-        "title": "ﾄﾞｼﾞｬｰｽ 大谷翔平 三塁打でﾁｬﾝｽ作るもﾁｰﾑは4連敗 | NHK | 大谷翔平 - nhk.or.jp",
-        "description": "大ﾘｰｸﾞ､ﾄﾞｼﾞｬｰｽの大谷翔平選手は25日､ﾚｯｽﾞ戦でｽﾘｰﾍﾞｰｽﾋｯﾄを打ってﾁｬﾝｽを作りましたが打線がつながらず､…",
-        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461051000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461051_2405261141_0526114638_01_02.jpg"
-      },
-      {
-        "title": "励ましの一言 剣道の糧に - 中国新聞ﾃﾞｼﾞﾀﾙ",
-        "description": "高校生 野上菜月 17歳",
-        "url": "https://www.chugoku-np.co.jp/articles/-/469449",
-        "image": "https://chugoku-np.ismcdn.jp/mwimgs/3/f/-/img_3f3a6f2c33846b1856e991b8a4c4611495466.jpg"
-      },
-      {
-        "title": "ｱﾝｸﾞﾙ:熱波から命を守る｢最高酷暑責任者｣､世界各都市で奮闘 - ﾛｲﾀｰ (Reuters Japan)",
-        "description": "気候変動による｢地球沸騰化｣の時代を迎え､酷暑によって何万人もの死者が出るのを防ごうと､さまざまな都市で｢最高酷暑責任者(CHO)｣が奮闘している｡",
-        "url": "https://jp.reuters.com/world/europe/M7YOSZJCV5PUPFK4RHJWHYWWEY-2024-05-25/",
-        "image": "https://www.reuters.com/resizer/v2/6QLGF4T5KBNW5I3AZR7CHICYMI.jpg?auth=a7b15ecf04201ca078d7041d3f29cc9695aeed7d6ace4b85ce517d30f2e56c99&height=1005&width=1920&quality=80&smart=true"
-      },
-      {
-        "title": "今日26日(日) 日中は広く晴れ 西日本は真夏日も 夜は九州で雨や雷雨に(気象予報士 戸田 よしか 2024年05月26日) - tenki.jp",
-        "description": "今日26日(日)も広い範囲で晴れる｡最高気温は平年並みか高く､西日本では真夏日の所も｡熱中症対策を万全に｡夜は九州で雨や雷雨となり､四国も一部で雨｡",
-        "url": "https://tenki.jp/forecaster/yosh_ika/2024/05/26/28895.html",
-        "image": "https://storage.tenki.jp/storage/static-images/forecaster_diary/image/2/28/288/28895/main/20240526070551/large.jpg"
+        "title": "TBS宇内梨沙ｱﾅ､地元で挙式報告 夫婦2ｼｮｯﾄなど披露に｢お幸せに!｣｢花嫁姿にじぃぃん｣ - ｽﾎﾟｰﾂ報知",
+        "description": "TBSの宇内梨沙ｱﾅｳﾝｻｰが､26日までに､自身のｲﾝｽﾀｸﾞﾗﾑを更新｡挙式したことを報告した｡",
+        "url": "https://hochi.news/articles/20240526-OHT1T51001.html",
+        "image": "https://hochi.news/images/2024/05/26/20240526-OHT1I51001-L.jpg"
       },
       {
         "title": "自民党･木原誠二氏､定額減税｢物価の状況で来年も｣ - 日本経済新聞",
@@ -506,34 +420,22 @@ const DATA = {
         "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO4882343026052024000000-1.jpg?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&bg=FFFFFF&w=1200&h=630&fp-x=0.39&fp-y=0.33&fp-z=1&crop=focalpoint&s=5969fc0ec7794029481254b93a44d80c"
       },
       {
-        "title": "ｶﾝﾇ映画祭閉幕 ﾊﾟﾙﾑﾄﾞｰﾙは米監督の作品｢ｱﾉｰﾗ｣ | NHK | 映画 - nhk.or.jp",
-        "description": "映画監督の是枝裕和さんが審査員として参加したﾌﾗﾝｽのｶﾝﾇ映画祭は､ｱﾒﾘｶの映画監督の作品を最優秀賞に選び､閉幕しま…",
-        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461091000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461091_2405261255_0526130209_01_02.jpg"
+        "title": "【動画】｢自爆型ﾄﾞﾛｰﾝ｣がﾛｼｱ兵士に｢突撃｣する瞬間映像...ｼｬﾍﾞﾙで必死に応戦も､最後には爆発の餌食に - ﾆｭｰｽﾞｳｨｰｸ日本版",
+        "description": "<ｳｸﾗｲﾅ軍は､戦場の歩兵や装甲車両､戦車だけでなく､ﾛｼｱ国内の石油精製所などを標的にした攻撃にもﾄﾞﾛｰﾝを使用>\nIn soviet russia drone shovel you pic.tw...",
+        "url": "https://www.newsweekjapan.jp/stories/world/2024/05/post-104594.php",
+        "image": "https://www.newsweekjapan.jp/stories/assets_c/2024/05/newsweekjp_20240525102726-thumb-autox675-1196137.jpg"
       },
       {
-        "title": "ｲﾝﾄﾞの娯楽施設で大規模火災 子供を含む27人が死亡|日ﾃﾚNEWS NNN - 日ﾃﾚNEWS",
-        "description": "ｲﾝﾄﾞ西部の娯楽施設で25日､大規模な火災が発生し子供を含む27人が死亡しました｡",
-        "url": "https://news.ntv.co.jp/category/international/aa9827b4cf6d4fbf892d2a2eb2d4c7c9",
-        "image": "https://news.ntv.co.jp/gimage/n24/articles/6b78d20c1c7c482aa8cfbf0804c12e4e/20240526-121242-101-ch04-06-506ca448-1.jpg?w=1200"
+        "title": "静岡県知事選､自民の党勢左右 ｢4連敗｣なら打撃 - 産経ﾆｭｰｽ",
+        "description": "与野党対決の構図となった26日投開票の静岡県知事選は､4月の衆院3補欠選挙で全敗した自民党にとって反転攻勢につなげられるかどうかを占う選挙だ｡",
+        "url": "https://www.sankei.com/article/20240526-Z3QABFWNPFIJHKVN6EEWF32YWI/",
+        "image": "https://www.sankei.com/resizer/vUnPvfN-UG8FQa5Rm3b5xQIvCD8=/1200x630/smart/filters:quality(50)/cloudfront-ap-northeast-1.images.arcpublishing.com/sankei/XUOWQKJJ7NM3VK7BNAH5OPYCOU.jpg"
       },
       {
-        "title": "詐欺容疑で逮捕の元宝塚ﾄｯﾌﾟｽﾀｰ ｢水ﾀﾞｳ｣で｢私は嘘はつけない｣と豪語していた - ﾃﾞｲﾘｰｽﾎﾟｰﾂ",
-        "description": "ﾌｧﾝから1000万円をだまし取った容疑で逮捕された元宝塚月組ﾄｯﾌﾟｽﾀｰの光原ｴﾐｶこと､小倉輝美容疑者について､26日に放送されたTBS系｢ｻﾝﾃﾞｰｼﾞｬﾎﾟﾝ｣では､小倉容疑者が出演していた｢水曜日のﾀﾞｳﾝﾀｳﾝ｣での小倉容疑者の発言を紹...",
-        "url": "https://www.daily.co.jp/gossip/2024/05/26/0017697527.shtml",
-        "image": "https://i.daily.jp/gossip/2024/05/26/Images/f_17697528.jpg"
-      },
-      {
-        "title": "岸田首相 日中韓3か国の首脳会議出席のため韓国へ出発 | NHK - nhk.or.jp",
-        "description": "岸田総理大臣は27日韓国で開かれる日中韓3か国の首脳会議に出席するため､さきほど日本を出発しました｡これに先立って､岸田…",
-        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461081000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461081_2405261156_0526120150_01_02.jpg"
-      },
-      {
-        "title": "DeNA･萩原ﾁｰﾑ統括本部長､ﾊﾞｳｱｰのﾒｷｼｺL契約延長を受け補強示唆｢ﾈｸｽﾄに向けて動き出す｣ - ｻﾝｽﾎﾟ",
-        "description": "ﾒｷｼｺLMBのﾒｷｼｺｼﾃｨｰﾚｯﾄﾞﾃﾞﾋﾞﾙｽﾞは25日(日本時間26日)､短期契約で加入していた前DeNAのﾄﾚﾊﾞｰ･ﾊﾞｳｱｰ投手(33)と今季終了まで契約を…",
-        "url": "https://www.sanspo.com/article/20240526-DA6EGT664NILBGMKJRJMMZO6VY/",
-        "image": "https://www.sanspo.com/resizer/uxd_PNNGdkbpVGTAf-gKDuFHoeg=/1200x630/filters:focal(901x637:911x647):quality(50)/cloudfront-ap-northeast-1.images.arcpublishing.com/sankei/IGHUWQ4DFVOTTB4DWSL2X3TXNU.jpg"
+        "title": "ﾄﾞｼﾞｬｰｽ 大谷翔平 三塁打でﾁｬﾝｽ作るもﾁｰﾑは4連敗 | NHK | 大谷翔平 - nhk.or.jp",
+        "description": "大ﾘｰｸﾞ､ﾄﾞｼﾞｬｰｽの大谷翔平選手は25日､ﾚｯｽﾞ戦でｽﾘｰﾍﾞｰｽﾋｯﾄを打ってﾁｬﾝｽを作りましたが打線がつながらず､…",
+        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461051000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461051_2405261141_0526114638_01_02.jpg"
       },
       {
         "title": "週刊地震情報 2024.5.26 土曜の深夜に関東の広範囲で揺れ 茨城県南部が震源 - ｳｪｻﾞｰﾆｭｰｽ",
@@ -542,46 +444,82 @@ const DATA = {
         "image": "https://smtgvs.weathernews.jp/s/topics/img/202405/202405260085_top_img_A.png?1716685515"
       },
       {
-        "title": "【随時更新】ﾛｼｱ ｳｸﾗｲﾅに軍事侵攻(5月26日の動き) | NHK - nhk.or.jp",
-        "description": "ﾛｼｱによるｳｸﾗｲﾅに対する軍事侵攻が続いています｡ｳｸﾗｲﾅの各地でﾛｼｱ軍とｳｸﾗｲﾅ軍が戦闘を続けていて､大勢の…",
-        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014406911000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014406911_2403291703_0427082115_01_02.jpg"
+        "title": "岡山県を訪問中の天皇陛下 昭和天皇の4女で叔母の池田厚子さん宅を私的に訪問 全国植樹祭のﾎﾟｽﾀｰ入選の児童生徒と懇談|TBS NEWS DIG - TBS NEWS DIG Powered by JNN",
+        "description": "",
+        "url": "https://www.youtube.com/watch?v=ITuCQJrs-dM",
+        "image": null
       },
       {
-        "title": "ｱﾝｸﾞﾙ:ﾛｼｱ人数万人がﾄﾙｺ脱出､背景に政策見直しや物価高騰 - ﾛｲﾀｰ (Reuters Japan)",
-        "description": "ﾄﾙｺにはﾛｼｱによるｳｸﾗｲﾅ侵攻後､欧米諸国の制裁逃れや徴兵忌避などの理由で大量のﾛｼｱ人が移住した｡しかしﾄﾙｺの政策見直しや激しいｲﾝﾌﾚを背景に､この1年間に数万人のﾛｼｱ人がﾄﾙｺを離れたことが､ﾛｼｱ人への取材や統計で明らかになった｡",
-        "url": "https://jp.reuters.com/world/europe/INDEBKWYKNLCJPFEWG5YTXG2AE-2024-05-25/",
-        "image": "https://www.reuters.com/resizer/v2/BI2PJW6HNJOO3CIFN464GFYN74.jpg?auth=6ea89ab701b7957b769fb72df94d4e4fe5be44b33f1ae009332ddf4d4a5728e4&height=1005&width=1920&quality=80&smart=true"
+        "title": "ﾌｪﾙｽﾀｯﾍﾟﾝ､｢ｺﾞｰｶｰﾄのようなﾏｼﾝ｣で予選6番手｡ﾍﾟﾚｽはQ1敗退の\"大惨事\":ﾚｯﾄﾞﾌﾞﾙ/F1ﾓﾅｺGP | F1 - ｵｰﾄｽﾎﾟｰﾂweb",
+        "description": "2024年F1ﾓﾅｺGPの予選で､ﾚｯﾄﾞﾌﾞﾙのﾏｯｸｽ･ﾌｪﾙｽﾀｯﾍﾟﾝは6番手､ｾﾙｼﾞｵ･ﾍﾟﾚｽはQ1で敗退し､16番手に終わった｡\r\n\r\n ﾌｪﾙｽﾀｯﾍﾟﾝは､Q3最初のｱﾀｯｸﾗｯﾌﾟで一時3番手につけたものの､最後のﾗｯﾌﾟで体勢を崩してﾊﾞﾘｱに接触､ｱﾀｯｸを諦めざるを得ず､他のﾄﾞﾗｲﾊﾞｰたちのﾀｲﾑ更新により､6番手にﾎﾟｼﾞｼｮﾝを下げた｡",
+        "url": "https://www.as-web.jp/f1/1083515",
+        "image": "https://cdn-image.as-web.jp/2024/05/26121534/asimg_24R08MonSa-Ver-SUT1_e86652a955d7977.jpg"
       },
       {
-        "title": "静岡県知事選挙､午前11時現在の投票率12･00%…期日前投票率は16･37% - 読売新聞ｵﾝﾗｲﾝ",
-        "description": "6新人による争いとなった静岡県知事選は､26日午前7時に投票が始まった｡午前11時現在の投票率は12･00%｡  立候補しているのは､諸派で｢個人の尊厳党｣代表の横山正文氏(56)､共産党公認で党県委員長の森大介氏(5",
-        "url": "https://www.yomiuri.co.jp/election/20240526-OYT1T50038/",
-        "image": "https://www.yomiuri.co.jp/media/2024/05/20240526-OYT1I50039-1.jpg?type=ogp"
+        "title": "ｱﾝｸﾞﾙ:熱波から命を守る｢最高酷暑責任者｣､世界各都市で奮闘 - ﾛｲﾀｰ (Reuters Japan)",
+        "description": "気候変動による｢地球沸騰化｣の時代を迎え､酷暑によって何万人もの死者が出るのを防ごうと､さまざまな都市で｢最高酷暑責任者(CHO)｣が奮闘している｡",
+        "url": "https://jp.reuters.com/world/europe/M7YOSZJCV5PUPFK4RHJWHYWWEY-2024-05-25/",
+        "image": "https://www.reuters.com/resizer/v2/6QLGF4T5KBNW5I3AZR7CHICYMI.jpg?auth=a7b15ecf04201ca078d7041d3f29cc9695aeed7d6ace4b85ce517d30f2e56c99&height=1005&width=1920&quality=80&smart=true"
       },
       {
-        "title": "『ﾐｽ･ﾀｰｹﾞｯﾄ』第6話で第一章が完結!すみれ(松本まりか)と宗春(上杉柊平)､結ばれてはいけない2人が迎える結末とは - TV LIFE web",
-        "description": "[caption id=",
-        "url": "https://www.tvlife.jp/drama/703245",
-        "image": "https://www.tvlife.jp/wps/wp-content/uploads/2024/05/703245_03.jpg"
+        "title": "陸上自衛隊 実弾を使った大規模な射撃演習 静岡 東富士演習場 | NHK - nhk.or.jp",
+        "description": "実弾を使った陸上自衛隊の大規模な射撃演習が26日､静岡県で行われました｡",
+        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461131000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461131_2405261437_0526143926_01_02.jpg"
       },
       {
-        "title": "死体遺棄容疑男女5人逮捕 多摩川ｽｰﾂｹｰｽ遺体 - 産経ﾆｭｰｽ",
-        "description": "川崎市の多摩川で昨年12月､ｽｰﾂｹｰｽから東京都江戸川区の職業不詳､原唯之さん(46)の遺体が見つかった事件で､神奈川県警は25日､死体遺棄の疑いで､元交際…",
-        "url": "https://www.sankei.com/article/20240526-CDOXC7DNOBICNKDI4OGRYVTGOI/",
-        "image": "https://www.sankei.com/resizer/UTpVaqxO0i1BgLDYGNpbotpTW24=/1200x630/filters:focal(303x309:313x319):quality(50)/cloudfront-ap-northeast-1.images.arcpublishing.com/sankei/SDMYOIVJW5NRLMFROP37K3OOHU.jpg"
+        "title": "木下稜介が3年ぶり3勝目 木下､ｺ･ｸﾞﾝﾃｸ､桂川有人に｢全英｣出場権 - ｺﾞﾙﾌﾀﾞｲｼﾞｪｽﾄ･ｵﾝﾗｲﾝ",
+        "description": "◇国内男子◇~全英への道~ﾐｽﾞﾉｵｰﾌﾟﾝ 最終日(26日)◇JFE瀬戸内海ｺﾞﾙﾌ倶楽部(岡山)◇7461yd(ﾊﾟｰ72)◇晴れ(観衆2246人) 首位から出た木下稜介が3ﾊﾞｰﾃﾞｨ､2ﾎﾞｷﾞｰの｢71｣で回り､通算12ｱﾝﾀﾞｰで今季初優勝を飾った｡2021年｢ﾀﾞﾝﾛｯﾌﾟ･ｽﾘｸｿﾝ福島ｵｰﾌﾟﾝ｣以来3年ぶりとなる通算3勝目｡ 優勝ｲﾝﾀﾋﾞｭｰでは､最後のﾊﾟｰﾊﾟｯﾄを沈めるまで｢手も震えて心臓が口から出そうだった｣と心境を吐露｡2001年のﾒｼﾞｬｰ｢日本ｺﾞﾙﾌﾂｱｰ選手権｣で初優勝｡3週後の次戦｢ﾀﾞﾝﾛｯﾌﾟ･ｽﾘｸｿﾝ…",
+        "url": "https://news.golfdigest.co.jp/news/results/jgto/article/168188/1/",
+        "image": "https://i.gimg.jp/cmsimg/349653.jpg"
       },
       {
-        "title": "【角田裕毅F1第8戦展望】最適化されたｾｯﾄｱｯﾌﾟ｡1ｾｯﾄの新品ｿﾌﾄで全区間自己ﾍﾞｽﾄを更新､前年を上回る8番手 | F1 - ｵｰﾄｽﾎﾟｰﾂweb",
-        "description": "金曜日に続き､F1第8戦ﾓﾅｺGPの土曜日も角田裕毅(RB)は好調だった｡\r\n\r\n｢一晩かけて､金曜日のﾌﾘｰ走行のﾃﾞｰﾀを分析し､ｼﾐｭﾚｰﾀｰ作業を行い､ﾌﾘｰ走行3回目に向けて､ｸﾙﾏのｾｯﾄｱｯﾌﾟはさらに最適化された｣と語るのは､車両ﾊﾟﾌｫｰﾏﾝｽ責任者のｷﾞﾖｰﾑ･ﾃﾞｿﾞﾄｰ｡土曜日のﾌﾘｰ走行3回目は､その変更したｾｯﾄｱｯﾌﾟを確認するとともに､予選で履くｿﾌﾄﾀｲﾔでﾏｼﾝの限界を試す最後の機会｡使用するｿﾌﾄﾀｲﾔは新品2ｾｯﾄが用意された｡",
-        "url": "https://www.as-web.jp/f1/1083478",
-        "image": "https://cdn-image.as-web.jp/2024/05/26104709/asimg_SI202405250576_d16652949cf1695.jpg"
+        "title": "日中韓首脳会談､19年以来の開催へ-日韓関係改善で中国には圧力 - ﾌﾞﾙｰﾑﾊﾞｰｸﾞ",
+        "description": "日本と中国､韓国は2019年以来となる3ｶ国首脳会談を韓国で開く｡日韓関係の緊密化で､安全保障から半導体生産まで幅広い問題で取り残されないよう中国には圧力がかかる｡",
+        "url": "https://www.bloomberg.co.jp/news/articles/2024-05-26/SE2M25T0G1KW00",
+        "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ivPl2O0U.58A/v0/1200x857.jpg"
+      },
+      {
+        "title": "今日26日(日) 日中は広く晴れ 西日本は真夏日も 夜は九州で雨や雷雨に(気象予報士 戸田 よしか 2024年05月26日) - tenki.jp",
+        "description": "今日26日(日)も広い範囲で晴れる｡最高気温は平年並みか高く､西日本では真夏日の所も｡熱中症対策を万全に｡夜は九州で雨や雷雨となり､四国も一部で雨｡",
+        "url": "https://tenki.jp/forecaster/yosh_ika/2024/05/26/28895.html",
+        "image": "https://storage.tenki.jp/storage/static-images/forecaster_diary/image/2/28/288/28895/main/20240526070551/large.jpg"
       },
       {
         "title": "ｲｽﾗｴﾙとﾊﾏｽのｶﾞｻﾞ休戦､交渉再開合意と現地報道 新たな提案協議 - 日本経済新聞",
         "description": "【ｶｲﾛ=時事】ｲｽﾗｴﾙのﾒﾃﾞｨｱは25日､ﾊﾟﾚｽﾁﾅ自治区ｶﾞｻﾞで続くｲｽﾗｴﾙとｲｽﾗﾑ組織ﾊﾏｽの戦闘の停止や人質解放を巡る間接交渉が近く再開される見通しだと報じた｡仲介国ｶﾀｰﾙとｴｼﾞﾌﾟﾄが主導してまとめた｢新たな提案｣について協議するという｡報道によると､ｲｽﾗｴﾙ対外情報機関ﾓｻﾄﾞのﾊﾞﾙﾈｱ長官が､仲介役の米中央情報局(CIA)のﾊﾞｰﾝｽﾞ長官､ｶﾀｰﾙのﾑﾊﾝﾏﾄﾞ首相兼外相とﾊﾟﾘで",
         "url": "https://www.nikkei.com/article/DGXZQOGM260KD0W4A520C2000000/",
         "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO4882370026052024000000-2.jpg?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&bg=FFFFFF&w=1200&h=630&fp-x=0.75&fp-y=0.5&fp-z=1&crop=focalpoint&s=f89a6d448a3352e7d2992c7f39254cd8"
+      },
+      {
+        "title": "励ましの一言 剣道の糧に - 中国新聞ﾃﾞｼﾞﾀﾙ",
+        "description": "高校生 野上菜月 17歳",
+        "url": "https://www.chugoku-np.co.jp/articles/-/469449",
+        "image": "https://chugoku-np.ismcdn.jp/mwimgs/3/f/-/img_3f3a6f2c33846b1856e991b8a4c4611495466.jpg"
+      },
+      {
+        "title": "ｶﾝﾇ映画祭閉幕 ﾊﾟﾙﾑﾄﾞｰﾙは米監督の作品｢ｱﾉｰﾗ｣ | NHK | 映画 - nhk.or.jp",
+        "description": "映画監督の是枝裕和さんが審査員として参加したﾌﾗﾝｽのｶﾝﾇ映画祭は､ｱﾒﾘｶの映画監督の作品を最優秀賞に選び､閉幕しま…",
+        "url": "https://www3.nhk.or.jp/news/html/20240526/k10014461091000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240526/K10014461091_2405261255_0526130209_01_02.jpg"
+      },
+      {
+        "title": "ｵｽﾞﾜﾙﾄﾞ伊藤､相方･畠中&井上咲楽の破局に言及 失恋後の変化明かす - au Webﾎﾟｰﾀﾙ",
+        "description": "au Webﾎﾟｰﾀﾙ",
+        "url": "https://article.auone.jp/detail/1/5/9/81_9_r_20240526_1716689001818048",
+        "image": "https://portal.st-img.jp/thumb/ee92c4fd1542ad8f93129ec7cffe36b9_1716689922_l.jpg"
+      },
+      {
+        "title": "ﾋｸﾞﾏ駆除｢特殊部隊と戦うようなもの｣ 北海道の猟友会が協力辞退 [北海道]:朝日新聞ﾃﾞｼﾞﾀﾙ - 朝日新聞ﾃﾞｼﾞﾀﾙ",
+        "description": "北海道奈井江町の北海道猟友会砂川支部奈井江部会が､条件面で折り合わず､町のﾋｸﾞﾏ駆除への協力要請を辞退したことがわかった｡山岸辰人部会長(72)は｢命がけでやるには､あまりに割に合わない｣と訴えてい…",
+        "url": "https://www.asahi.com/articles/ASS5T42BRS5TIIPE00HM.html",
+        "image": "https://imgopt.asahi.com/ogp/AS20240525003754_comm.jpg"
+      },
+      {
+        "title": "週間天気予報 週前半は大雨警戒 台風の動向にも注意 - ｳｪｻﾞｰﾆｭｰｽ",
+        "description": "この先1週間の天気のﾎﾟｲﾝﾄは｢週前半は広範囲で大雨警戒｣｢一日の気温差に注意｣｢月末月初は再び天気下り坂に｣です｡ｳｪｻﾞｰﾆｭｰｽの最新の天気予報を随時確認してください｡",
+        "url": "https://weathernews.jp/s/topics/202405/260175/",
+        "image": "https://smtgvs.weathernews.jp/s/topics/img/202405/202405260175_top_img_A.png?1716702209"
       }
     ]
   }

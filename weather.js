@@ -28,7 +28,7 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
       "humidity": point.humidity,
       "wind": point.wind_speed,
       "pop": point.pop ? point.pop * 100 : undefined,
-      "rain": point.rain ? point.rain : undefined,
+      "rain": point.rain ? point.rain["1h"] ? point.rain["1h"] : point.rain : undefined,
       "pressure": point.pressure,
       "uvi": point.uvi,
       "clouds": point.clouds,
