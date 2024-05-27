@@ -77,7 +77,7 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
     end.setHours(end.getHours() + 3);
     return h.time <= now && now < end.getTime();
   });
-  if (includeCurrent !== null) {
+  if (includeCurrent !== null && includeCurrent !== undefined) {
     if (openWeather.current.rain === undefined) {
       openWeather.current.rain = includeCurrent.rain;
     }
@@ -233,6 +233,8 @@ function getWeatherIcon(desc, tm) {
       case "09n":
       case "曇一時雨":
       case "曇時々雨":
+      case "弱雨":
+      case "小雨":
         return "09.png";
       case "10d":
       case "10n":
@@ -253,6 +255,7 @@ function getWeatherIcon(desc, tm) {
       case "雪":
         return "13.png";
       default:
+        console.log(`Error: Unsupported weather identifier: "${desc}"`);
         return `${desc}.png`;
     }
   })();
