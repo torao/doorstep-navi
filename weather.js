@@ -227,7 +227,10 @@ function getWeatherIcon(desc, tm) {
       case "04n":
       case "05d":
       case "05n":
+      case "50d":
+      case "50n":
       case "厚い曇":
+      case "霧":
         return "04.png";
       case "09d":
       case "09n":
