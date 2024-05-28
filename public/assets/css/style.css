@@ -154,16 +154,25 @@ body {
 }
 
 #weather #weather-now .weather-title {
-  position: absolute;
-  top: 17rem;
   font-size: 2.4rem;
 }
 
+#weather #weather-now .weather-option-container {
+  height: 3rem;
+  white-space: nowrap;
+}
+
+#weather #weather-now .weather-option-container img {
+  vertical-align: middle;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.3rem;
+}
+
 #weather #weather-now #weather-temp {
-  position: absolute;
-  top: 19rem;
-  right: 0.8rem;
+  text-align: right;
   font-size: 2.8rem;
+  white-space: nowrap;
 }
 
 #weather #weather-now .weather-temp-value {
@@ -171,20 +180,14 @@ body {
 }
 
 #weather #weather-now #weather-humidity {
-  position: absolute;
-  top: 22rem;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
+  white-space: nowrap;
 }
 
-#weather #weather-now .weather-humidity-icon,
-#weather #weather-now .weather-wind-icon {
-  vertical-align: middle;
+#weather #weather-now .weather-humidity-icon {
+  vertical-align: baseline;
   width: 2.2rem;
   height: 2.2rem;
-}
-
-#weather #weather-now .weather-wind-icon {
-  margin-left: 0.8rem;
 }
 
 #weather .weather-time {

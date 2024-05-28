@@ -186,6 +186,11 @@
     return name + "(" + getDayOfWeek(date) + ")";
   }
 
+  // 気温と湿度から不快指数を算出
+  function calculateDiscomfortIndex(temperature, humidity) {
+    return 0.81 * temperature + 0.01 * humidity * (0.99 * temperature - 14.3) + 46.3;
+  }
+
   function updateWeather(w) {
 
     function addSubIcon(div, image, clazz, alt, selectors) {
@@ -220,6 +225,14 @@
       }
     }
 
+    function addOption(parent, id, alt, clazz) {
+      const img = $.createElement("img");
+      img.setAttribute("src", `assets/images/weather/${id}.png`);
+      img.setAttribute("alt", alt);
+      img.setAttribute("class", clazz);
+      parent.querySelector(".weather-option-container").appendChild(img);
+    }
+
     function num(value) {
       if (value === null || value === undefined) {
         return "---";
@@ -242,6 +255,7 @@
         }
         return null;
       })(current.wind);
+      discomfortIndex = calculateDiscomfortIndex(current.temperature, current.humidity);
 
       const div = $.getElementById("weather-now");
       div.querySelector(".weather-icon").setAttribute("src", current.icon);
@@ -252,12 +266,14 @@
       if (current.humidity >= 60) {
         div.querySelector(".weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
       }
+      if (discomfortIndex >= 75 || discomfortIndex <= 55) {
+        addOption(div, "discomfort", `${discomfortIndex}`, "weather-discomfort-index");
+      }
       if (wind !== null) {
-        const w = $.createElement("img");
-        w.setAttribute("src", `assets/images/weather/${wind}.png`);
-        w.setAttribute("alt", `${current.wind} m/s`);
-        w.setAttribute("class", "weather-wind-icon");
-        div.querySelector(".weather-title").appendChild(w);
+        addOption(div, wind, `${current.wind} m/s`, "weather-wind-icon");
+      }
+      if (current.pressure < 1000) {
+        addOption(div, "headache", `${current.pressure} hPa`, "weather-headache-icon");
       }
       addSungrassesIfUVI(div, current.uvi);
       addAmbrellaIfRain(div, current.pop, current.rain);
