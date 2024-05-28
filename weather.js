@@ -215,9 +215,11 @@ function getWeatherIcon(desc, tm) {
       case "02n":
       case "晴時々曇":
       case "曇時々晴":
-      case "曇のち晴":
-      case "晴のち曇":
         return "02.png";
+      case "晴のち曇":
+        return "01-02.png";
+      case "曇のち晴":
+        return "02-01.png";
       case "03d":
       case "03n":
       case "曇り":
@@ -246,11 +248,12 @@ function getWeatherIcon(desc, tm) {
       case "雨":
       case "雨のち曇":
       case "雨のち晴":
-      case "曇のち雨":
       case "晴のち雨":
       case "雨時々曇":
       case "雨時々晴":
         return "10.png";
+        case "曇のち雨":
+          return "02-10.png";
       case "11d":
       case "11n":
       case "雷":
@@ -260,7 +263,7 @@ function getWeatherIcon(desc, tm) {
       case "雪":
         return "13.png";
       default:
-        console.log(`Error: Unsupported weather identifier: "${desc}"`);
+        console.error(`Error: Unsupported weather identifier: "${desc}"`);
         return `${desc}.png`;
     }
   })();
