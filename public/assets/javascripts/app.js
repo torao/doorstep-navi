@@ -234,23 +234,30 @@
       // 風速による表記変更
       const wind = ((wind) => {
         if (wind >= 24.5) {
-          return "・暴風";
+          return "wind24";
         } else if (wind >= 13.9) {
-          return "・強風";
+          return "wind13";
         } else if (wind >= 8.0) {
-          return "・風";
+          return "wind08";
         }
-        return "";
+        return null;
       })(current.wind);
 
       const div = $.getElementById("weather-now");
-      $.getElementById("weather-icon").setAttribute("src", current.icon);
-      $.getElementById("weather-icon").setAttribute("alt", current.description);
-      $.getElementById("weather-title").textContent = current.description + wind;
-      $.getElementById("weather-temp-value").textContent = num(current.temperature);
-      $.getElementById("weather-humidity-value").textContent = num(current.humidity);
+      div.querySelector(".weather-icon").setAttribute("src", current.icon);
+      div.querySelector(".weather-icon").setAttribute("alt", current.description);
+      div.querySelector(".weather-title").textContent = current.description;
+      div.querySelector(".weather-temp-value").textContent = num(current.temperature);
+      div.querySelector(".weather-humidity-value").textContent = num(current.humidity);
       if (current.humidity >= 60) {
-        $.getElementById("weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
+        div.querySelector(".weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
+      }
+      if (wind !== null) {
+        const w = $.createElement("img");
+        w.setAttribute("src", `assets/images/weather/${wind}.png`);
+        w.setAttribute("alt", `${current.wind} m/s`);
+        w.setAttribute("class", "weather-wind-icon");
+        div.querySelector(".weather-title").appendChild(w);
       }
       addSungrassesIfUVI(div, current.uvi);
       addAmbrellaIfRain(div, current.pop, current.rain);
