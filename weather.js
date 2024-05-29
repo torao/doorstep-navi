@@ -252,8 +252,8 @@ function getWeatherIcon(desc, tm) {
       case "雨時々曇":
       case "雨時々晴":
         return "10.png";
-        case "曇のち雨":
-          return "02-10.png";
+      case "曇のち雨":
+        return "02-10.png";
       case "11d":
       case "11n":
       case "雷":
