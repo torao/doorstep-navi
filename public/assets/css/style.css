@@ -147,36 +147,45 @@ body {
   height: 98%;
 }
 
-#weather #weather-icon {
+#weather #weather-now .weather-icon {
   height: 16rem;
+  width: 16rem;
   margin: 0 auto;
 }
 
-#weather #weather-title {
-  position: absolute;
-  top: 17rem;
-  font-size: 2.5rem;
+#weather #weather-now .weather-title {
+  font-size: 2.4rem;
 }
 
-#weather #weather-temp {
-  position: absolute;
-  top: 19rem;
-  right: 0.8rem;
+#weather #weather-now .weather-option-container {
+  height: 3rem;
+  white-space: nowrap;
+}
+
+#weather #weather-now .weather-option-container img {
+  vertical-align: middle;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.3rem;
+}
+
+#weather #weather-now #weather-temp {
+  text-align: right;
   font-size: 2.8rem;
+  white-space: nowrap;
 }
 
-#weather #weather-temp-value {
+#weather #weather-now .weather-temp-value {
   font-size: 5rem;
 }
 
-#weather #weather-humidity {
-  position: absolute;
-  top: 22rem;
-  font-size: 2.5rem;
+#weather #weather-now #weather-humidity {
+  font-size: 2.2rem;
+  white-space: nowrap;
 }
 
-#weather #weather-humidity-icon {
-  vertical-align: middle;
+#weather #weather-now .weather-humidity-icon {
+  vertical-align: baseline;
   width: 2.2rem;
   height: 2.2rem;
 }
@@ -241,6 +250,7 @@ body {
 #news #transit-delayed-lines {
   font-size: 2.6rem;
   margin-left: 0.8rem;
+  line-height: 110%;
 }
 
 #news #transit-delayed-lines dt {
