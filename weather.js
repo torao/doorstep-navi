@@ -200,7 +200,7 @@ async function getWeatherFromTenkiJp() {
 
   function addWeatherIcon(list) {
     return list.map((h) => {
-      h["icon"] = getWeatherIcon(h.description, new Date(h.time));
+      h["icon"] = getWeatherIcon(h.description, h);
       return h;
     })
   }
@@ -215,28 +215,38 @@ function isDaytime(tm) {
   return tm.getHours() >= 4 && tm.getHours() <= 16;
 }
 
-function getWeatherIcon(desc, tm) {
-  const file = (() => {
+// 指定された気温が真夏日/真冬日かどうかを判断する
+function isExtremeTempDay(temp) {
+  return temp >= 30 || temp < 0;
+}
+
+// 指定された日に傘が必要かどうかを判断する
+function isAmbrellaDay(rain) {
+  return rain >= 2.0;
+}
+
+function getWeatherIcon(desc, w) {
+  const tm = new Date(w.time);
+  let extreme = isExtremeTempDay(w.temperature) || isAmbrellaDay(w.rain);
+  const symbol = (() => {
     switch (desc) {
       case "01d":
       case "01n":
       case "晴れ":
       case "晴":
-        return isDaytime(tm) ? "01.png" : "01n.png";
+        return isDaytime(tm) ? "sun" : "moon";
       case "02d":
       case "02n":
       case "晴時々曇":
       case "曇時々晴":
-        return "02.png";
       case "晴のち曇":
-        return "01-02.png";
       case "曇のち晴":
-        return "02-01.png";
+        return isDaytime(tm) ? "cloud-sun" : "cloud-moon";
       case "03d":
       case "03n":
       case "曇り":
       case "曇":
-        return "03.png";
+        return "cloud";
       case "04d":
       case "04n":
       case "05d":
@@ -244,8 +254,9 @@ function getWeatherIcon(desc, tm) {
       case "50d":
       case "50n":
       case "厚い曇":
+        return "clouds";
       case "霧":
-        return "04.png";
+        return "cloud-haze";
       case "09d":
       case "09n":
       case "小雨":
@@ -254,30 +265,34 @@ function getWeatherIcon(desc, tm) {
       case "曇時々雨":
       case "晴一時雨":
       case "晴時々雨":
-        return "09.png";
+        return "cloud-drizzle";
       case "10d":
       case "10n":
       case "雨":
       case "雨のち曇":
       case "雨のち晴":
+      case "曇のち雨":
       case "晴のち雨":
       case "雨時々曇":
       case "雨時々晴":
-        return "10.png";
-      case "曇のち雨":
-        return "02-10.png";
+        extreme = true;
+        return "cloud-rain-heavy";
       case "11d":
       case "11n":
       case "雷":
-        return "11.png";
+        return "cloud-lightning";
+      case "みぞれ":
+        return "cloud-sleet";
+      case "雹":
+        return "cloud-hail";
       case "13d":
       case "13n":
       case "雪":
-        return "13.png";
+        return "cloud-snow-fill";
       default:
-        console.error(`[${new Date().toLocaleString("ja-JP")}] Error: Unsupported weather identifier: "${desc}"`);
-        return `${desc}.png`;
+        console.error(`[${new Date().toLocaleString("ja-JP")}]Error: Unsupported weather identifier: "${desc}"`);
+        return `#${desc}`;
     }
   })();
-  return `assets/images/weather/${file}`;
+  return symbol + (extreme ? "-fill" : "");
 }

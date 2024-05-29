@@ -233,6 +233,16 @@
       parent.querySelector(".weather-option-container").appendChild(img);
     }
 
+    function addWeatherIcon(parent, icon) {
+      const i = parent.querySelector(".weather-icon");
+      if (!icon.startsWith("#")) {
+        i.setAttribute("class", `weather-icon bi bi-${icon}`);
+      } else {
+        i.setAttribute("class", "weather-icon error");
+        i.textContent = icon;
+      }
+    }
+
     function num(value) {
       if (value === null || value === undefined) {
         return "---";
@@ -264,8 +274,7 @@
       discomfortIndex = calculateDiscomfortIndex(current.temperature, current.humidity);
 
       const div = $.getElementById("weather-now");
-      div.querySelector(".weather-icon").setAttribute("src", current.icon);
-      div.querySelector(".weather-icon").setAttribute("alt", current.description);
+      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${current.icon}`);
       div.querySelector(".weather-title").textContent = current.description;
       div.querySelector(".weather-temp-value").textContent = num(current.temperature);
       div.querySelector(".weather-humidity-value").textContent = num(current.humidity);
@@ -292,8 +301,7 @@
       const time = new Date(h.time);
       const div = $.getElementById(`weather-h${j}`);
       div.querySelector(".weather-time").textContent = time.getHours() + ":00"
-      div.querySelector(".weather-icon").setAttribute("src", h.icon);
-      div.querySelector(".weather-icon").setAttribute("alt", h.description);
+      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${h.icon}`);
       div.querySelector(".weather-pop").textContent = num(h.pop) + "%";
       div.querySelector(".weather-temp").textContent = num(h.temperature) + "℃";
       addSungrassesIfUVI(div, h.uvi);
@@ -308,8 +316,7 @@
       const dayTitle = getDateName(today, time);
       const div = $.getElementById(`weather-d${j}`);
       div.querySelector(".weather-time").textContent = dayTitle;
-      div.querySelector(".weather-icon").setAttribute("src", d.icon);
-      div.querySelector(".weather-icon").setAttribute("alt", d.description);
+      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${d.icon}`);
       div.querySelector(".weather-pop").textContent = num(d.pop) + "%";
       div.querySelector(".weather-temp-high").textContent = num(d.temperature.max) + "℃";
       div.querySelector(".weather-temp-low").textContent = num(d.temperature.min) + "℃";
