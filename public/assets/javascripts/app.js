@@ -325,7 +325,8 @@
     const ts = $.getElementById("transit-delayed-lines");
     if (delayedLines.length === 0) {
       const dd = $.createElement("dd");
-      dd.textContent = "鉄道の事故・遅延情報はありません";
+      dd.setAttribute("class", "transit-message");
+      dd.textContent = "◆鉄道の事故・遅延情報はありません。";
       ts.appendChild(dd);
     } else {
       delayedLines.forEach((line) => {
@@ -386,6 +387,16 @@
     } else {
       img.setAttribute("style", "display: none;");
     }
+
+    // ニュースをランダムにシャッフル
+    const keywords = ["速報", "地震"];
+    news.articles.sort((a, b) => {
+      for (let kwd in keywords) {
+        if (a.title.includes(kwd)) return 1;
+        if (b.title.includes(kwd)) return -1;
+      }
+      return Math.random() - 0.5;
+    });
 
     // ニュース見出しの設定
     news.articles.forEach((article) => {

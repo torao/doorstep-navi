@@ -35,9 +35,6 @@ export async function getNews() {
       };
     });
 
-    // ニュースをランダムにシャッフル
-    articles.sort(() => Math.random() - 0.5);
-
     return {
       articles: articles,
     };

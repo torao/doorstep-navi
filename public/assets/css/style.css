@@ -250,7 +250,7 @@ body {
 #news #transit-delayed-lines {
   font-size: 2.6rem;
   margin-left: 0.8rem;
-  line-height: 110%;
+  line-height: 120%;
 }
 
 #news #transit-delayed-lines dt {
@@ -281,9 +281,13 @@ body {
   padding-left: 0.8rem;
 }
 
+#news #transit-delayed-lines dd.transit-message {
+  padding-left: 0;
+}
+
 #news #news-headline-image {
   max-height: 21rem;
-  max-width: 21rem;
+  max-width: 30%;
   float: right;
 }
 
