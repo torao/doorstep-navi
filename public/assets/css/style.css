@@ -242,6 +242,16 @@ body {
   white-space: nowrap;
 }
 
+#weather .weather-pop::after {
+  content: "%";
+}
+
+#weather .weather-temp::after,
+#weather .weather-temp-high::after,
+#weather .weather-temp-low::after {
+  content: "℃";
+}
+
 #weather .weather-extremely-hot-day {
   vertical-align: middle;
   height: 1.8rem;

@@ -274,10 +274,10 @@
       discomfortIndex = calculateDiscomfortIndex(current.temperature, current.humidity);
 
       const div = $.getElementById("weather-now");
-      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${current.icon}`);
       div.querySelector(".weather-title").textContent = current.description;
       div.querySelector(".weather-temp-value").textContent = num(current.temperature);
       div.querySelector(".weather-humidity-value").textContent = num(current.humidity);
+      addWeatherIcon(div, current.icon);
       if (current.humidity >= 60) {
         div.querySelector(".weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
       }
@@ -292,7 +292,9 @@
       }
       addSungrassesIfUVI(div, current.uvi);
       addAmbrellaIfRain(div, current.pop, current.rain);
-      status(new Date(current.time).toLocaleString("ja-JP"));
+      status(new Date(current.time).toLocaleString("ja-JP", {
+        year: "numeric", month: "numeric", day: "numeric", hour: "numeric", "minute": "numeric"
+      }));
     })();
 
     // 0, 3, 6, 9, 12, 15, 18, 21 時の天気を表示する
@@ -301,9 +303,9 @@
       const time = new Date(h.time);
       const div = $.getElementById(`weather-h${j}`);
       div.querySelector(".weather-time").textContent = time.getHours() + ":00"
-      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${h.icon}`);
-      div.querySelector(".weather-pop").textContent = num(h.pop) + "%";
-      div.querySelector(".weather-temp").textContent = num(h.temperature) + "℃";
+      div.querySelector(".weather-pop").textContent = num(h.pop);
+      div.querySelector(".weather-temp").textContent = num(h.temperature);
+      addWeatherIcon(div, h.icon);
       addSungrassesIfUVI(div, h.uvi);
       addAmbrellaIfRain(div, h.pop, h.rain);
       addThermometerIfExtremelyHotDay(div, h.temperature);
@@ -316,10 +318,10 @@
       const dayTitle = getDateName(today, time);
       const div = $.getElementById(`weather-d${j}`);
       div.querySelector(".weather-time").textContent = dayTitle;
-      div.querySelector(".weather-icon").setAttribute("class", `weather-icon bi bi-${d.icon}`);
-      div.querySelector(".weather-pop").textContent = num(d.pop) + "%";
-      div.querySelector(".weather-temp-high").textContent = num(d.temperature.max) + "℃";
-      div.querySelector(".weather-temp-low").textContent = num(d.temperature.min) + "℃";
+      div.querySelector(".weather-pop").textContent = num(d.pop);
+      div.querySelector(".weather-temp-high").textContent = num(d.temperature.max);
+      div.querySelector(".weather-temp-low").textContent = num(d.temperature.min);
+      addWeatherIcon(div, d.icon);
       addSungrassesIfUVI(div, d.uvi);
       addAmbrellaIfRain(div, d.pop, d.rain);
       addThermometerIfExtremelyHotDay(div, d.temperature.max);

@@ -20,6 +20,7 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
 
   // OpenWeatherMap API のレスポンスを doorstep-navi 互換形式に変換
   function openWeatherToDoorStepNavi(point) {
+    const rain = (r => r === undefined || r === null ? undefined : typeof r === "number" ? r : typeof r["1h"] === "number" ? r["1h"] : undefined)(point.rain);
     return {
       "time": point.dt * 1000,
       "date": new Date(point.dt * 1000).toLocaleString("ja-JP"),
@@ -27,12 +28,12 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
       "humidity": point.humidity,
       "wind": point.wind_speed,
       "pop": (p => typeof p === "number" ? p * 100 : undefined)(point.pop),
-      "rain": (r => r === undefined || r === null ? undefined : typeof r === "number" ? r : typeof r["1h"] === "number" ? r["1h"] : undefined)(point.rain),
+      "rain": rain,
       "pressure": point.pressure,
       "uvi": point.uvi,
       "clouds": point.clouds,
       "visibility": point.visibility,
-      "icon": getWeatherIcon(point.weather[0].icon, new Date(point.dt * 1000)),
+      "icon": getWeatherIcon(point.weather[0].icon, new Date(point.dt * 1000), point.temp, rain),
       "description": point.weather[0].description
     };
   }
@@ -200,7 +201,7 @@ async function getWeatherFromTenkiJp() {
 
   function addWeatherIcon(list) {
     return list.map((h) => {
-      h["icon"] = getWeatherIcon(h.description, h);
+      h["icon"] = getWeatherIcon(h.description, new Date(h.time), h.temperature, h.rain);
       return h;
     })
   }
@@ -217,6 +218,9 @@ function isDaytime(tm) {
 
 // 指定された気温が真夏日/真冬日かどうかを判断する
 function isExtremeTempDay(temp) {
+  if (typeof temp === "object") {
+    return temp.max >= 30 || temp.min < 0;
+  }
   return temp >= 30 || temp < 0;
 }
 
@@ -225,9 +229,8 @@ function isAmbrellaDay(rain) {
   return rain >= 2.0;
 }
 
-function getWeatherIcon(desc, w) {
-  const tm = new Date(w.time);
-  let extreme = isExtremeTempDay(w.temperature) || isAmbrellaDay(w.rain);
+function getWeatherIcon(desc, tm, temp, rain) {
+  let extreme = isExtremeTempDay(temp) || isAmbrellaDay(rain);
   const symbol = (() => {
     switch (desc) {
       case "01d":
