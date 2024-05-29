@@ -71,7 +71,7 @@ async function readJsonFile(path) {
     const data = fs.readFileSync(path, "utf8");
     return JSON.parse(data);
   } catch (e) {
-    console.error("Failed to read JSON file:", e);
+    console.error("[" + new Date().toLocaleString("ja-JP") + "] Failed to read JSON file:", e);
     throw e;
   }
 }

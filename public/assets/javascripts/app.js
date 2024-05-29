@@ -237,7 +237,13 @@
       if (value === null || value === undefined) {
         return "---";
       }
-      return value.toFixed();
+      if (typeof value === "string") {
+        value = parseFloat(value);
+      }
+      if (typeof value === "number") {
+        return value.toFixed();
+      }
+      throw new Error("Error: Unsupported value: " + JSON.stringify(value));
     }
 
     // 現在の天候
@@ -277,7 +283,7 @@
       }
       addSungrassesIfUVI(div, current.uvi);
       addAmbrellaIfRain(div, current.pop, current.rain);
-      status(new Date(current.time).toLocaleString());
+      status(new Date(current.time).toLocaleString("ja-JP"));
     })();
 
     // 0, 3, 6, 9, 12, 15, 18, 21 時の天気を表示する
@@ -418,7 +424,7 @@
   if (error !== null) {
     const err = $.createElement("pre");
     err.setAttribute("id", "error");
-    err.textContent = error;
+    err.textContent = error.replace(/:\/\/.*(?=\/public\/assets\/javascripts\/)/g, "://.");
     $.getElementById("news").appendChild(err);
   }
 

@@ -34,7 +34,7 @@ async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
       };
     });
   } catch (e) {
-    console.error("Failed to list events:", e);
+    console.error("[" + new Date().toLocaleString("ja-JP") + "] Failed to list events:", e);
     return [];
   }
 }
@@ -62,7 +62,7 @@ export async function getCalendar(date, apiKey, calendarId) {
       events: await events
     };
   } catch (e) {
-    console.error("Failed to get calendar:", e);
+    console.error("[" + new Date().toLocaleString("ja-JP") + "] Failed to get calendar:", e);
     return {
       holidays: {},
       events: [],

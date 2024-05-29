@@ -1,5 +1,4 @@
 import axios from "axios";
-import fs from "fs";
 import puppeteer from "puppeteer";
 import { getCache } from "./cache.js";
 
@@ -23,7 +22,7 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
   function openWeatherToDoorStepNavi(point) {
     return {
       "time": point.dt * 1000,
-      "date": new Date(point.dt * 1000).toLocaleString(),
+      "date": new Date(point.dt * 1000).toLocaleString("ja-JP"),
       "temperature": point.temp,
       "humidity": point.humidity,
       "wind": point.wind_speed,
@@ -118,7 +117,7 @@ async function getWeatherFromTenkiJp() {
         dateTime.setHours(parseInt(hours[i].textContent), 0, 0, 0);
         hours3.push({
           "time": dateTime.getTime(),               // 時刻
-          "date": dateTime.toLocaleString(),
+          "date": dateTime.toLocaleString("ja-JP"),
           "pop": parseFloat(pops[i].textContent),   // 降水確率 [%]
           "rain": parseFloat(rains[i].textContent),   // 降水量 [mm/h]
           "temperature": parseFloat(temperatures[i].textContent), // 気温 [℃]
@@ -163,15 +162,27 @@ async function getWeatherFromTenkiJp() {
         dateTime.setFullYear(dateTime.getFullYear() + 1);
       }
 
+      function extract(selector, regex, index) {
+        const e = dd.querySelector(selector);
+        if (e !== null) {
+          const value = e.textContent.trim();
+          const m = regex.exec(value);
+          if (m) {
+            return parseFloat(m[index]);
+          }
+        }
+        return unknown;
+      }
+
       const forecast = dd.querySelector(".forecast").textContent.trim();
-      const highTemp = parseFloat(/(\d+)℃/.exec(dd.querySelector(".high-temp").textContent.trim())[1])
-      const lowTemp = parseFloat(/(\d+)℃/.exec(dd.querySelector(".low-temp").textContent.trim())[1])
-      const pop = parseFloat(/(\d+)%/.exec(dd.querySelector(".prob-precip").textContent.trim())[1]);
-      const rain = parseFloat(/(\d+)(mm)?/.exec(dd.querySelector(".precip").textContent.trim())[1]);
+      const highTemp = extract(".high-temp", /(\d+)℃/, 1);
+      const lowTemp = extract(".low-temp", /(\d+)℃/, 1);
+      const pop = extract(".prob-precip", /(\d+)%/, 1);
+      const rain = extract(".precip", /(\d+)(mm)?/, 1);
 
       daily.push({
         "time": dateTime.getTime(),               // 時刻
-        "date": dateTime.toLocaleString(),
+        "date": dateTime.toLocaleString("ja-JP"),
         "pop": pop,   // 降水確率 [%]
         "rain": rain,   // 降水量 [mm/h]
         "temperature": { // 気温 [℃]
@@ -210,6 +221,7 @@ function getWeatherIcon(desc, tm) {
       case "01d":
       case "01n":
       case "晴れ":
+      case "晴":
         return isDaytime(tm) ? "01.png" : "01n.png";
       case "02d":
       case "02n":
@@ -263,7 +275,7 @@ function getWeatherIcon(desc, tm) {
       case "雪":
         return "13.png";
       default:
-        console.error(`Error: Unsupported weather identifier: "${desc}"`);
+        console.error(`[${new Date().toLocaleString("ja-JP")}] Error: Unsupported weather identifier: "${desc}"`);
         return `${desc}.png`;
     }
   })();
