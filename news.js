@@ -1,11 +1,9 @@
 import axios from "axios";
 import { getCache } from "./cache.js";
+import OpenAI from "openai";
 
-// News API キー
-const apiKey = "691484240de04b8685fbda1970760cac";
-const url = `https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=${apiKey}`;
-
-export async function getNews() {
+export async function getNews(apiKey, chatGptApiKey) {
+  const url = `https://newsapi.org/v2/top-headlines?country=jp&category=general&apiKey=${apiKey}`;
   try {
 
     // ニュースデータの取得
@@ -35,8 +33,19 @@ export async function getNews() {
       };
     });
 
+    // ニュースの要約を作成
+    const summary = await getCache("chatgpt-news", async () => {
+      try {
+        return summarize(chatGptApiKey, data.articles);
+      } catch (e) {
+        console.error(new Date().toLocaleString("ja-JP"), e);
+        return undefined;
+      }
+    }, 0, 0, 0, 0, 30);
+
     return {
       articles: articles,
+      summary: summary === undefined ? undefined : toHalfWidth(summary)
     };
   } catch (e) {
     console.log("ERROR: failed to retrieve news articles.");
@@ -51,6 +60,28 @@ export async function getNews() {
       error: `${e}`
     };
   }
+}
+
+// ChatGTP によるニュースの要約
+async function summarize(apiKey, articles) {
+  const openai = new OpenAI({ apiKey: apiKey });
+  const completion = await openai.chat.completions.create({
+    messages: [
+      {
+        role: "system",
+        content: "あなたは著名なニュースキャスターです。" +
+          "次の複数の記事を総括的に要約し、何があったかの文章を160文字程度で作成してください。" +
+          "天気や交通情報、社会的に重要なニュースを優先しなければなりません。スポーツや芸能の優先度は低くしてください。" +
+          "前口上やあなたの意見は不要です。"
+      },
+      {
+        role: "user",
+        content: articles.filter(a => a.description !== null).map(a => a.description.replace("\n", " ")).join("\n")
+      }
+    ],
+    model: "gpt-4o"
+  });
+  return completion.choices[0].message.content.trim();
 }
 
 function toHalfWidth(str) {

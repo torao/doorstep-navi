@@ -31,7 +31,7 @@ async function update() {
   })();
 
   // ニュースを取得
-  const news = getNews();
+  const news = getNews(secrets["api-keys"]["newsapi"], secrets["api-keys"]["chatgpt"]);
 
   // 乗り換えを取得
   const transite = getTransit();

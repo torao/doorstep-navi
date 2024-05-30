@@ -33,7 +33,7 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
       "uvi": point.uvi,
       "clouds": point.clouds,
       "visibility": point.visibility,
-      "icon": getWeatherIcon(point.weather[0].icon, new Date(point.dt * 1000), point.temp, rain),
+      "icon": getWeatherIcon(false, point.weather[0].icon, new Date(point.dt * 1000), point.temp, rain),
       "description": point.weather[0].description
     };
   }
@@ -199,15 +199,15 @@ async function getWeatherFromTenkiJp() {
 
   await browser.close();
 
-  function addWeatherIcon(list) {
+  function addWeatherIcon(daily, list) {
     return list.map((h) => {
-      h["icon"] = getWeatherIcon(h.description, new Date(h.time), h.temperature, h.rain);
+      h["icon"] = getWeatherIcon(daily, h.description, new Date(h.time), h.temperature, h.rain);
       return h;
     })
   }
   return {
-    "3-hourly": addWeatherIcon(threeHourly),
-    "daily": addWeatherIcon(daily)
+    "3-hourly": addWeatherIcon(false, threeHourly),
+    "daily": addWeatherIcon(true, daily)
   };
 }
 
@@ -229,7 +229,7 @@ function isAmbrellaDay(rain) {
   return rain >= 2.0;
 }
 
-function getWeatherIcon(desc, tm, temp, rain) {
+function getWeatherIcon(daily, desc, tm, temp, rain) {
   let extreme = isExtremeTempDay(temp) || isAmbrellaDay(rain);
   const symbol = (() => {
     switch (desc) {
@@ -237,14 +237,14 @@ function getWeatherIcon(desc, tm, temp, rain) {
       case "01n":
       case "晴れ":
       case "晴":
-        return isDaytime(tm) ? "sun" : "moon";
+        return daily || isDaytime(tm) ? "sun" : "moon";
       case "02d":
       case "02n":
       case "晴時々曇":
       case "曇時々晴":
       case "晴のち曇":
       case "曇のち晴":
-        return isDaytime(tm) ? "cloud-sun" : "cloud-moon";
+        return daily || isDaytime(tm) ? "cloud-sun" : "cloud-moon";
       case "03d":
       case "03n":
       case "曇り":
@@ -279,7 +279,7 @@ function getWeatherIcon(desc, tm, temp, rain) {
       case "雨時々曇":
       case "雨時々晴":
         extreme = true;
-        return "cloud-rain-heavy";
+        return rain >= 10 ? "cloud-rain-heavy" : "cloud-rain";
       case "11d":
       case "11n":
       case "雷":

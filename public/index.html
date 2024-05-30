@@ -86,19 +86,16 @@
             <div class="row">
               <div class="col-5">
                 <div class="row">
-                  <div class="col-12 weather-option-container">
+                  <div class="col-12 weather-warnings">
                   </div>
                   <div class="col-12">
-                    <div id="weather-humidity">
-                      <img src="assets/images/weather/humidity00.png" class="weather-humidity-icon" /><span
-                        class="weather-humidity-value">50</span>%
-                    </div>
+                    <i class="bi bi-droplet"></i><span class="weather-humidity">50</span>
                   </div>
                 </div>
               </div>
               <div class="col-7">
                 <div class="col-12">
-                  <div id="weather-temp"><span class="weather-temp-value">20</span>℃</div>
+                  <div class="weather-temp">20</div>
                 </div>
               </div>
             </div>
@@ -114,6 +111,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
           <div id="weather-h2" class="col-2">
             <div class="weather-time">***</div>
@@ -122,6 +120,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
           <div id="weather-h3" class="col-2">
             <div class="weather-time">***</div>
@@ -130,6 +129,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
           <div id="weather-h4" class="col-2">
             <div class="weather-time">***</div>
@@ -138,6 +138,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
           <div id="weather-h5" class="col-2">
             <div class="weather-time">***</div>
@@ -146,6 +147,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
           <div id="weather-h6" class="col-2">
             <div class="weather-time">***</div>
@@ -154,6 +156,7 @@
             </div>
             <div class="weather-pop">***</div>
             <div class="weather-temp">***</div>
+            <div class="weather-warnings"></div>
           </div>
         </div>
         <div class="row weather-daily-container">
@@ -163,8 +166,9 @@
               <i class="weather-icon bi bi-sun"></i>
             </div>
             <div class="weather-pop">***</div>
-            <div class="weather-temp-high">***</div>
-            <div class="weather-temp-low">***</div>
+            <div class="weather-temp-container">
+              <span class="weather-temp-low">***</span><span class="weather-temp-high">***</span>
+            </div>
           </div>
           <div id="weather-d2" class="col-3">
             <div class="weather-time">***</div>
@@ -172,8 +176,9 @@
               <i class="weather-icon bi bi-sun"></i>
             </div>
             <div class="weather-pop">***</div>
-            <div class="weather-temp-high">***</div>
-            <div class="weather-temp-low">***</div>
+            <div class="weather-temp-container">
+              <span class="weather-temp-low">***</span><span class="weather-temp-high">***</span>
+            </div>
           </div>
           <div id="weather-d3" class="col-3">
             <div class="weather-time">***</div>
@@ -181,8 +186,9 @@
               <i class="weather-icon bi bi-sun"></i>
             </div>
             <div class="weather-pop">***</div>
-            <div class="weather-temp-high">***</div>
-            <div class="weather-temp-low">***</div>
+            <div class="weather-temp-container">
+              <span class="weather-temp-low">***</span><span class="weather-temp-high">***</span>
+            </div>
           </div>
           <div id="weather-d4" class="col-3">
             <div class="weather-time">***</div>
@@ -190,25 +196,22 @@
               <i class="weather-icon bi bi-sun"></i>
             </div>
             <div class="weather-pop">***</div>
-            <div class="weather-temp-high">***</div>
-            <div class="weather-temp-low">***</div>
+            <div class="weather-temp-container">
+              <span class="weather-temp-low">***</span><span class="weather-temp-high">***</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div id="news">
-      <div class="row">
+      <div id="transit" class="row">
         <div class="col-12">
           <dl id="transit-delayed-lines">
           </dl>
         </div>
       </div>
       <div class="row">
-        <div class="col-12">
-          <div id="news-image">
-            <img src="about-blank" class="img-fluid" id="news-headline-image" />
-          </div>
-          <ol id="news-headline"></ol>
+        <div id="news-container" class="col-12">
         </div>
       </div>
     </div>

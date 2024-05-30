@@ -186,11 +186,6 @@
     return name + "(" + getDayOfWeek(date) + ")";
   }
 
-  // 気温と湿度から不快指数を算出
-  function calculateDiscomfortIndex(temperature, humidity) {
-    return 0.81 * temperature + 0.01 * humidity * (0.99 * temperature - 14.3) + 46.3;
-  }
-
   function updateWeather(w) {
 
     function addSubIcon(div, image, clazz, alt, selectors) {
@@ -219,18 +214,31 @@
       }
     }
 
-    function addThermometerIfExtremelyHotDay(div, temp) {
-      if (temp !== undefined && temp >= 35.0) {
-        addSubIcon(div, "thermometer", "weather-extremely-hot-day", "Extremely Hot Day", [".weather-temp", ".weather-temp-high"]);
+    function addWindIfStrong(div, wind) {
+      if (wind >= 8.0) {
+        addWarning(div, wind < 13.9 ? "wind" : "tornado");
       }
     }
 
-    function addOption(parent, id, alt, clazz) {
-      const img = $.createElement("img");
-      img.setAttribute("src", `assets/images/weather/${id}.png`);
-      img.setAttribute("alt", alt);
-      img.setAttribute("class", clazz);
-      parent.querySelector(".weather-option-container").appendChild(img);
+    function addDiscomfortIndex(div, temperature, humidity) {
+      // 気温と湿度から不快指数を算出
+      const discomfortIndex = 0.81 * temperature + 0.01 * humidity * (0.99 * temperature - 14.3) + 46.3;
+      if (discomfortIndex >= 75 || discomfortIndex <= 55) {
+        addWarning(div, "emoji-frown");
+      }
+    }
+
+    function addPressure(div, pressure) {
+      addWarning(div, "graph-down-arrow");
+      if (pressure < 1000) {
+        addWarning(div, "graph-down-arrow");
+      }
+    }
+
+    function addWarning(div, id) {
+      const icon = $.createElement("i");
+      icon.setAttribute("class", `bi bi-${id}`);
+      div.querySelector(".weather-warnings").appendChild(icon);
     }
 
     function addWeatherIcon(parent, icon) {
@@ -259,39 +267,16 @@
     // 現在の天候
     (() => {
       const current = w.current;
-
-      // 風速による表記変更
-      const wind = ((wind) => {
-        if (wind >= 24.5) {
-          return "wind24";
-        } else if (wind >= 13.9) {
-          return "wind13";
-        } else if (wind >= 8.0) {
-          return "wind08";
-        }
-        return null;
-      })(current.wind);
-      discomfortIndex = calculateDiscomfortIndex(current.temperature, current.humidity);
-
       const div = $.getElementById("weather-now");
       div.querySelector(".weather-title").textContent = current.description;
-      div.querySelector(".weather-temp-value").textContent = num(current.temperature);
-      div.querySelector(".weather-humidity-value").textContent = num(current.humidity);
+      div.querySelector(".weather-temp").textContent = num(current.temperature);
+      div.querySelector(".weather-humidity").textContent = num(current.humidity);
       addWeatherIcon(div, current.icon);
-      if (current.humidity >= 60) {
-        div.querySelector(".weather-humidity-icon").setAttribute("src", "assets/images/weather/humidity60.png");
-      }
-      if (discomfortIndex >= 75 || discomfortIndex <= 55) {
-        addOption(div, "discomfort", `${discomfortIndex}`, "weather-discomfort-index");
-      }
-      if (wind !== null) {
-        addOption(div, wind, `${current.wind} m/s`, "weather-wind-icon");
-      }
-      if (current.pressure < 1000) {
-        addOption(div, "headache", `${current.pressure} hPa`, "weather-headache-icon");
-      }
       addSungrassesIfUVI(div, current.uvi);
       addAmbrellaIfRain(div, current.pop, current.rain);
+      addDiscomfortIndex(div, current.temperature, current.humidity);
+      addPressure(div, current.pressure);
+      addWindIfStrong(div, current.wind);
       status(new Date(current.time).toLocaleString("ja-JP", {
         year: "numeric", month: "numeric", day: "numeric", hour: "numeric", "minute": "numeric"
       }));
@@ -308,7 +293,9 @@
       addWeatherIcon(div, h.icon);
       addSungrassesIfUVI(div, h.uvi);
       addAmbrellaIfRain(div, h.pop, h.rain);
-      addThermometerIfExtremelyHotDay(div, h.temperature);
+      addDiscomfortIndex(div, h.temperature, h.humidity);
+      addPressure(div, h.pressure);
+      addWindIfStrong(div, h.wind);
     }
 
     const today = new Date(w.current.time);
@@ -324,7 +311,6 @@
       addWeatherIcon(div, d.icon);
       addSungrassesIfUVI(div, d.uvi);
       addAmbrellaIfRain(div, d.pop, d.rain);
-      addThermometerIfExtremelyHotDay(div, d.temperature.max);
     }
   }
 
@@ -374,45 +360,63 @@
 
   // ニュースの更新
   function updateNews(news) {
-    const img = $.getElementById("news-headline-image");
-    const hl = $.getElementById("news-headline");
+    const c = $.getElementById("news-container");
 
     // エラー処理
     if (news.error !== undefined) {
-      img.setAttribute("style", "display: none;");
-      const li = $.createElement("li");
-      li.textContent = news.error;
-      hl.appendChild(li);
+      const pre = $.createElement("pre");
+      pre.textContent = news.error;
+      c.appendChild(pre);
       return;
     }
 
-    // ニュース画像の設定
-    const article = news.articles.find((a) => a.image !== null);
-    if (article !== undefined) {
-      img.onerror = function (event) {
-        event.target.setAttribute("style", "display: none;");
+    // ニュース画像の作成
+    const img = (() => {
+      const article = news.articles.find((a) => a.image !== null);
+      if (article === undefined) {
+        return null;
+      }
+      const img = $.createElement("img");
+      img.setAttribute("class", "news-headline-image rounded");
+      img.onerror = function () {
+        img.setAttribute("style", "display: none;");
       };
       img.setAttribute("src", article.image);
-    } else {
-      img.setAttribute("style", "display: none;");
-    }
+      return img;
+    })();
 
-    // ニュースをランダムにシャッフル
-    const keywords = ["速報", "地震"];
-    news.articles.sort((a, b) => {
-      for (let kwd in keywords) {
-        if (a.title.includes(kwd)) return 1;
-        if (b.title.includes(kwd)) return -1;
+    if (news.summary !== undefined && news.summary !== null) {
+      // 生成 AI による要約が作成されている場合はそれを表示する
+      const p = $.createElement("p");
+      p.setAttribute("class", "news-summary");
+      if (img !== null) {
+        p.appendChild(img);
       }
-      return Math.random() - 0.5;
-    });
+      p.appendChild($.createTextNode(news.summary));
+      c.appendChild(p);
+    } else {
+      // ニュースの要約が存在しない場合は個別のニュースをリスト表示する
 
-    // ニュース見出しの設定
-    news.articles.forEach((article) => {
-      const li = $.createElement("li");
-      li.textContent = article.title;
-      hl.appendChild(li);
-    });
+      // ニュースをランダムにシャッフル
+      const keywords = ["速報", "地震"];
+      news.articles.sort((a, b) => {
+        for (let kwd in keywords) {
+          if (a.title.includes(kwd)) return 1;
+          if (b.title.includes(kwd)) return -1;
+        }
+        return Math.random() - 0.5;
+      });
+
+      // ニュース見出しの設定
+      const hl = $.createElement("ol");
+      hl.setAttribute("class", "news-headlines");
+      news.articles.forEach((article) => {
+        const li = $.createElement("li");
+        li.textContent = article.title;
+        hl.appendChild(li);
+      });
+      c.appendChild(hl);
+    }
   }
 
   let error = null;
