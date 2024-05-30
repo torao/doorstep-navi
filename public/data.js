@@ -71,51 +71,35 @@ const DATA = {
     "location": "35.698/139.8092",
     "current": {
       "sun": {
-        "rise": 1717010828,
-        "set": 1717062589
+        "rise": 1717097206,
+        "set": 1717149028
       },
-      "time": 1717080602000,
-      "date": "2024/5/30 23:50:02",
-      "temperature": 22.39,
-      "humidity": 75,
-      "wind": 3.6,
-      "pop": null,
-      "rain": 0.2,
+      "time": 1717085404000,
+      "date": "2024/5/31 1:10:04",
+      "temperature": 21.38,
+      "humidity": 83,
+      "wind": 2.51,
+      "rain": 0.96,
       "pressure": 1012,
       "uvi": 0,
-      "clouds": 75,
+      "clouds": 100,
       "visibility": 10000,
       "icon": "cloud-rain-fill",
       "description": "小雨"
     },
     "3-hourly": [
       {
-        "wind": 2,
+        "wind": 1,
         "pressure": 1012,
         "uvi": 0,
-        "clouds": 75,
+        "clouds": 100,
         "visibility": 10000,
-        "time": 1717081200000,
-        "date": "2024/5/31 0:00:00",
-        "pop": 60,
-        "rain": 0,
-        "temperature": 20.5,
-        "humidity": 81,
-        "description": "小雨",
-        "icon": "cloud-drizzle"
-      },
-      {
-        "wind": 2,
-        "pressure": 1011,
-        "uvi": 0,
-        "clouds": 90,
-        "visibility": 6806,
         "time": 1717092000000,
         "date": "2024/5/31 3:00:00",
         "pop": 90,
-        "rain": 5,
-        "temperature": 18,
-        "humidity": 84,
+        "rain": 4,
+        "temperature": 18.4,
+        "humidity": 85,
         "description": "雨",
         "icon": "cloud-rain-fill"
       },
@@ -124,28 +108,28 @@ const DATA = {
         "pressure": 1011,
         "uvi": 0.03,
         "clouds": 100,
-        "visibility": 10000,
+        "visibility": 4530,
         "time": 1717102800000,
         "date": "2024/5/31 6:00:00",
         "pop": 90,
-        "rain": 3,
-        "temperature": 17.2,
-        "humidity": 88,
-        "description": "弱雨",
-        "icon": "cloud-drizzle-fill"
+        "rain": 4,
+        "temperature": 17.3,
+        "humidity": 89,
+        "description": "雨",
+        "icon": "cloud-rain-fill"
       },
       {
         "wind": 3,
         "pressure": 1009,
         "uvi": 0.77,
         "clouds": 100,
-        "visibility": 10000,
+        "visibility": 6485,
         "time": 1717113600000,
         "date": "2024/5/31 9:00:00",
         "pop": 90,
         "rain": 5,
-        "temperature": 15.8,
-        "humidity": 89,
+        "temperature": 16.7,
+        "humidity": 88,
         "description": "雨",
         "icon": "cloud-rain-fill"
       },
@@ -159,7 +143,7 @@ const DATA = {
         "date": "2024/5/31 12:00:00",
         "pop": 80,
         "rain": 2,
-        "temperature": 16.8,
+        "temperature": 16.9,
         "humidity": 88,
         "description": "弱雨",
         "icon": "cloud-drizzle-fill"
@@ -181,15 +165,15 @@ const DATA = {
       },
       {
         "wind": 1,
-        "pressure": 1008,
+        "pressure": 1007,
         "uvi": 0.06,
-        "clouds": 97,
+        "clouds": 100,
         "visibility": 10000,
         "time": 1717146000000,
         "date": "2024/5/31 18:00:00",
         "pop": 30,
         "rain": 0,
-        "temperature": 21.3,
+        "temperature": 20.6,
         "humidity": 72,
         "description": "曇り",
         "icon": "cloud"
@@ -198,14 +182,14 @@ const DATA = {
         "wind": 1,
         "pressure": 1009,
         "uvi": 0,
-        "clouds": 98,
+        "clouds": 100,
         "visibility": 10000,
         "time": 1717156800000,
         "date": "2024/5/31 21:00:00",
         "pop": 60,
         "rain": 0,
         "temperature": 19.3,
-        "humidity": 84,
+        "humidity": 83,
         "description": "小雨",
         "icon": "cloud-drizzle"
       },
@@ -219,53 +203,161 @@ const DATA = {
         "date": "2024/6/1 0:00:00",
         "pop": 70,
         "rain": 1,
-        "temperature": 18.3,
-        "humidity": 89,
+        "temperature": 18.2,
+        "humidity": 88,
         "description": "弱雨",
         "icon": "cloud-drizzle"
+      },
+      {
+        "wind": 1,
+        "pressure": 1009,
+        "uvi": 0,
+        "clouds": 100,
+        "visibility": 10000,
+        "time": 1717178400000,
+        "date": "2024/6/1 3:00:00",
+        "pop": 60,
+        "rain": 0,
+        "temperature": 17.8,
+        "humidity": 87,
+        "description": "小雨",
+        "icon": "cloud-drizzle"
+      },
+      {
+        "wind": 1,
+        "pressure": 1010,
+        "uvi": 0.49,
+        "clouds": 100,
+        "visibility": 10000,
+        "time": 1717189200000,
+        "date": "2024/6/1 6:00:00",
+        "pop": 30,
+        "rain": 0,
+        "temperature": 18.7,
+        "humidity": 83,
+        "description": "曇り",
+        "icon": "cloud"
+      },
+      {
+        "wind": 1,
+        "pressure": 1010,
+        "uvi": 5.4,
+        "clouds": 89,
+        "visibility": 10000,
+        "time": 1717200000000,
+        "date": "2024/6/1 9:00:00",
+        "pop": 20,
+        "rain": 0,
+        "temperature": 21.3,
+        "humidity": 67,
+        "description": "晴れ",
+        "icon": "sun"
+      },
+      {
+        "wind": 2,
+        "pressure": 1009,
+        "uvi": 9.47,
+        "clouds": 49,
+        "visibility": 10000,
+        "time": 1717210800000,
+        "date": "2024/6/1 12:00:00",
+        "pop": 0,
+        "rain": 0,
+        "temperature": 24.5,
+        "humidity": 55,
+        "description": "晴れ",
+        "icon": "sun"
+      },
+      {
+        "wind": 3,
+        "pressure": 1008,
+        "uvi": 3.62,
+        "clouds": 35,
+        "visibility": 10000,
+        "time": 1717221600000,
+        "date": "2024/6/1 15:00:00",
+        "pop": 0,
+        "rain": 0,
+        "temperature": 25.8,
+        "humidity": 52,
+        "description": "晴れ",
+        "icon": "sun"
+      },
+      {
+        "wind": 2,
+        "pressure": 1009,
+        "uvi": 0.06,
+        "clouds": 25,
+        "visibility": 10000,
+        "time": 1717232400000,
+        "date": "2024/6/1 18:00:00",
+        "pop": 20,
+        "rain": 0,
+        "temperature": 22.3,
+        "humidity": 64,
+        "description": "曇り",
+        "icon": "cloud"
+      },
+      {
+        "wind": 2,
+        "pressure": 1011,
+        "uvi": 0,
+        "clouds": 52,
+        "visibility": 10000,
+        "time": 1717243200000,
+        "date": "2024/6/1 21:00:00",
+        "pop": 20,
+        "rain": 0,
+        "temperature": 20,
+        "humidity": 76,
+        "description": "曇り",
+        "icon": "cloud"
+      },
+      {
+        "wind": 2,
+        "pressure": 1010,
+        "uvi": 0,
+        "clouds": 78,
+        "visibility": 10000,
+        "time": 1717254000000,
+        "date": "2024/6/2 0:00:00",
+        "pop": 30,
+        "rain": 0,
+        "temperature": 18.6,
+        "humidity": 82,
+        "description": "曇り",
+        "icon": "cloud"
       }
     ],
     "daily": [
       {
-        "time": 1716994800000,
-        "date": "2024/5/30 0:00:00",
-        "pop": 60,
-        "rain": 2,
-        "temperature": {
-          "min": 18,
-          "max": 27
-        },
-        "description": "雨",
-        "icon": "cloud-rain-fill"
-      },
-      {
         "time": 1717081200000,
         "date": "2024/5/31 0:00:00",
         "pop": 100,
-        "rain": 48,
+        "rain": 51,
         "temperature": {
-          "min": 16,
-          "max": 22
+          "min": 17,
+          "max": 21
         },
         "description": "雨時々曇",
         "icon": "cloud-rain-heavy-fill"
       },
       {
-        "time": 1717167600000,
-        "date": "2024/6/1 0:00:00",
-        "pop": 70,
-        "rain": 2,
+        "time": 1719759600000,
+        "date": "2024/7/1 0:00:00",
+        "pop": 60,
+        "rain": 1,
         "temperature": {
           "min": 18,
-          "max": 27
+          "max": 26
         },
-        "description": "雨のち晴",
-        "icon": "cloud-rain-fill"
+        "description": "晴一時雨",
+        "icon": "cloud-drizzle"
       },
       {
-        "time": 1717254000000,
-        "date": "2024/6/2 0:00:00",
-        "pop": 70,
+        "time": 1719846000000,
+        "date": "2024/7/2 0:00:00",
+        "pop": 60,
         "rain": 1,
         "temperature": {
           "min": 18,
@@ -275,8 +367,8 @@ const DATA = {
         "icon": "cloud-rain-fill"
       },
       {
-        "time": 1717340400000,
-        "date": "2024/6/3 0:00:00",
+        "time": 1719932400000,
+        "date": "2024/7/3 0:00:00",
         "pop": 70,
         "rain": 3,
         "temperature": {
@@ -287,20 +379,20 @@ const DATA = {
         "icon": "cloud-rain-fill"
       },
       {
-        "time": 1717426800000,
-        "date": "2024/6/4 0:00:00",
+        "time": 1720018800000,
+        "date": "2024/7/4 0:00:00",
         "pop": 60,
         "rain": 3,
         "temperature": {
           "min": 16,
           "max": 24
         },
-        "description": "曇時々雨",
-        "icon": "cloud-drizzle-fill"
+        "description": "曇のち雨",
+        "icon": "cloud-rain-fill"
       },
       {
-        "time": 1717513200000,
-        "date": "2024/6/5 0:00:00",
+        "time": 1720105200000,
+        "date": "2024/7/5 0:00:00",
         "pop": 40,
         "rain": 0,
         "temperature": {
@@ -311,8 +403,8 @@ const DATA = {
         "icon": "cloud-sun"
       },
       {
-        "time": 1717599600000,
-        "date": "2024/6/6 0:00:00",
+        "time": 1720191600000,
+        "date": "2024/7/6 0:00:00",
         "pop": 20,
         "rain": 0,
         "temperature": {
@@ -323,8 +415,8 @@ const DATA = {
         "icon": "cloud-sun"
       },
       {
-        "time": 1717686000000,
-        "date": "2024/6/7 0:00:00",
+        "time": 1720278000000,
+        "date": "2024/7/7 0:00:00",
         "pop": 20,
         "rain": 0,
         "temperature": {
@@ -335,8 +427,8 @@ const DATA = {
         "icon": "cloud-sun"
       },
       {
-        "time": 1717772400000,
-        "date": "2024/6/8 0:00:00",
+        "time": 1720364400000,
+        "date": "2024/7/8 0:00:00",
         "pop": 20,
         "rain": 0,
         "temperature": {
@@ -347,13 +439,25 @@ const DATA = {
         "icon": "cloud-sun"
       },
       {
-        "time": 1717858800000,
-        "date": "2024/6/9 0:00:00",
+        "time": 1720450800000,
+        "date": "2024/7/9 0:00:00",
         "pop": 20,
         "rain": 0,
         "temperature": {
           "min": 19,
           "max": 28
+        },
+        "description": "曇時々晴",
+        "icon": "cloud-sun"
+      },
+      {
+        "time": 1720537200000,
+        "date": "2024/7/10 0:00:00",
+        "pop": 30,
+        "rain": 0,
+        "temperature": {
+          "min": 19,
+          "max": 27
         },
         "description": "曇時々晴",
         "icon": "cloud-sun"
@@ -366,10 +470,40 @@ const DATA = {
   "news": {
     "articles": [
       {
-        "title": "覚えておいて損はないGoogle Chromeの便利なｼｮｰﾄｶｯﾄ8選 - GIZMODO JAPAN",
-        "description": "私たちの多くはPCの前に座っては､ﾌﾞﾗｳｻﾞでの作業に長い時間を費やしています｡そしてそんなｳｪﾌﾞﾌﾞﾗｳｻﾞの中でも約3分の2のｼｪｱを占めるのがGoogle Chromeです｡もしChromeのｷｰﾎﾞｰﾄﾞ･ｼｮｰﾄｶｯﾄを使いこなせたら､多くのﾕｰｻﾞｰは時間をかなり短縮できるようになるでしょう｡Chromeのｼｮｰﾄｶｯﾄはごまんとあって､Google Chrome ﾍﾙﾌﾟにすべて掲載されています",
-        "url": "https://www.gizmodo.jp/2024/05/google-chrome-keyboard-shortcuts.html",
-        "image": "https://media.loom-app.com/gizmodo/dist/images/2024/05/29/shutterstock_315184076.jpg?w=1280&h=630&f=jpg"
+        "title": "ｲﾝﾄﾞ首都で過去最高気温 連日の酷暑､50度超えの誤計測も:時事ﾄﾞｯﾄｺﾑ - 時事通信ﾆｭｰｽ",
+        "description": "【ﾆｭｰﾃﾞﾘｰ時事】ｲﾝﾄﾞ気象局は､首都ﾆｭｰﾃﾞﾘｰの28日の最高気温が観測史上最高の49.9度に達したと発表した｡29日は52.9度が観測されたが､機器の問題などによる誤計測の可能性があるとしている｡ｲﾝﾄﾞは5月に入り北西部を中心に熱波に見舞われ､50度に達する地域が出ている｡同局は熱中症への警戒を呼び掛けている｡",
+        "url": "https://www.jiji.com/jc/article?k=2024052901027&g=int",
+        "image": "https://www.jiji.com/news2/kiji_photos/202405/20240529at61S_o.jpg"
+      },
+      {
+        "title": "円が対ﾄﾞﾙで下げ拡大､一時157円57銭-急騰前の水準に戻る - ﾌﾞﾙｰﾑﾊﾞｰｸﾞ",
+        "description": "29日のﾆｭｰﾖｰｸ外国為替市場の円相場は1ﾄﾞﾙ=157円57銭まで下落｡日本時間2日早朝の円急騰前の水準まで戻った｡",
+        "url": "https://www.bloomberg.co.jp/news/articles/2024-05-29/SE96CBT0G1KW00",
+        "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iBjLn20BUEQU/v0/1200x800.jpg"
+      },
+      {
+        "title": "｢控えめに言っても不可解｣ ｢雪だるま｣の衛星を持つ小惑星を発見:朝日新聞ﾃﾞｼﾞﾀﾙ - 朝日新聞ﾃﾞｼﾞﾀﾙ",
+        "description": "雪だるまのように二つの衛星がくっついて回っている小惑星を､米航空宇宙局(NASA)の探査機が初めて発見した｡｢控えめに言っても不可解だ｣と研究者も驚くほど｡探査機の研究ﾁｰﾑが29日､英科学誌ﾈｲﾁ…",
+        "url": "https://www.asahi.com/articles/ASS5Y0HJ9S5YPLBJ004M.html",
+        "image": "https://imgopt.asahi.com/ogp/AS20240529001414_comm.jpg"
+      },
+      {
+        "title": "岡宮来夢ら出演｢『進撃の巨人』-the Musical-｣10月にﾆｭｰﾖｰｸで上演(ｺﾒﾝﾄあり / 動画あり) - ｽﾃｰｼﾞﾅﾀﾘｰ",
+        "description": "諫山創のﾏﾝｶﾞ｢進撃の巨人｣(講談社)を原作とした｢『進撃の巨人』-the Musical-｣の海外公演が決定｡｢ATTACK on TITAN: The Musical｣のﾀｲﾄﾙで､10月11日から13日までｱﾒﾘｶ･ﾆｭｰﾖｰｸのNew York City Centerで上演される｡",
+        "url": "https://natalie.mu/stage/news/575459",
+        "image": "https://ogre.natalie.mu/media/news/stage/2024/0529/NY_shingeki_mv.jpg?impolicy=twitter_card_feature_crop"
+      },
+      {
+        "title": "苦肉の緒方理貢の一塁起用｢点が入らない後悔の方が…｣ 小久保監督のｺﾒﾝﾄ全文 - Full-Count",
+        "description": "ｿﾌﾄﾊﾞﾝｸは29日､敵地･東京ﾄﾞｰﾑでの巨人戦に0-1で延長12回ｻﾖﾅﾗ負けを喫した｡先発の大関友久投手は7回2安打無失点と好投したものの､打線が先発の堀田ら巨人投手陣を最後まで打ち崩せず｡ﾘﾘｰﾌ陣もﾀﾞｰｳｨﾝｿﾞﾝ･ﾍﾙﾅﾝﾃﾞｽ投手､松本裕樹投手､津森宥紀投手､藤井皓哉投手が無失点で繋いだものの､守護神のﾛﾍﾞﾙﾄ･ｵｽﾅ投手が吉川にｻﾖﾅﾗ打を浴びた｡試合後の小久保裕紀監督のｺﾒﾝﾄ全文は以下の通り｡",
+        "url": "https://taka.full-count.jp/2024/05/29/post1251310/",
+        "image": "https://taka.full-count.jp/wp-content/uploads/2024/05/29224702/20240529_kokubo2_yt-560x373.jpg"
+      },
+      {
+        "title": "中国 共産党の部長 台湾めぐり｢日本側は問題の敏感さ認識を｣ | NHK | 中国･台湾 - nhk.or.jp",
+        "description": "中国共産党で対外交流を担当する中央対外連絡部のﾄｯﾌﾟが､都内で講演し､日本との関係強化に意欲を示す一方で､台湾について｢…",
+        "url": "https://www3.nhk.or.jp/news/html/20240529/k10014465241000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240529/K10014465241_2405292221_0529224015_01_02.jpg"
       },
       {
         "title": "【日本ﾊﾑ】新庄監督､罰金覚悟で阪神ﾕﾆ姿｢明日めっちゃ怒られます｡でも…｣完全極秘で遂行 - ﾌﾟﾛ野球 - ﾆｯｶﾝｽﾎﾟｰﾂ",
@@ -378,22 +512,16 @@ const DATA = {
         "image": "https://www.nikkansports.com/baseball/news/img/202405290001650-w500_0.jpg"
       },
       {
+        "title": "\"北朝鮮 ごみなど大型風船で韓国に\"北朝鮮は対抗措置と発表 | NHK - nhk.or.jp",
+        "description": "韓国軍は､北朝鮮がごみや汚物を大型の風船で韓国側に大量に飛ばしたと発表しました｡北朝鮮は､韓国の団体がｷﾑ･ｼﾞｮﾝｳﾝ(…",
+        "url": "https://www3.nhk.or.jp/news/html/20240529/k10014464471000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240529/K10014464471_2405291532_0529160141_01_02.jpg"
+      },
+      {
         "title": "【解説】ﾄﾗﾝﾌﾟ氏裁判どうなる?大統領選挙への影響は? | NHK | WEB特集 - nhk.or.jp",
         "description": "ｱﾒﾘｶの大統領経験者として初めて刑事事件の被告となったﾄﾗﾝﾌﾟ氏｡その裁判の1つ､不倫の口止め料を不正に処理した罪に問…",
         "url": "https://www3.nhk.or.jp/news/html/20240529/k10014465201000.html",
         "image": "https://www3.nhk.or.jp/news/html/20240529/K10014465201_2405292051_0529210345_01_02.jpg"
-      },
-      {
-        "title": "LUNA SEA､14年ぶり東京ﾄﾞｰﾑ公演開催決定 - 音楽ﾅﾀﾘｰ",
-        "description": "LUNA SEAの約14年ぶりとなる東京･東京ﾄﾞｰﾑ公演｢LUNA SEA 35th ANNIVERSARY TOUR ERA TO ERA -THE FINAL EPISODE- LUNATIC TOKYO 2025 -黒服限定GIG-｣が2025年2月23日に開催される｡",
-        "url": "https://natalie.mu/music/news/575479",
-        "image": "https://ogre.natalie.mu/media/news/music/2024/0529/LUNASEA_art202405.jpg?impolicy=twitter_card_face_crop"
-      },
-      {
-        "title": "岸田首相 中国共産党の部長と面会 \"懸案は対話通じ進展図る\" | NHK - nhk.or.jp",
-        "description": "岸田総理大臣は､日本を訪れている中国共産党の中央対外連絡部のﾄｯﾌﾟと面会し｢戦略的互恵関係｣の方針に沿って､両国間の課題…",
-        "url": "https://www3.nhk.or.jp/news/html/20240529/k10014464321000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240529/K10014464321_2405291255_0529130718_01_02.jpg"
       },
       {
         "title": "池袋暴走遺族の松永拓也さん､ｱｸﾘﾙ板越しに飯塚幸三受刑者と面会…｢立場超え対話を重ねたい｣ - 読売新聞ｵﾝﾗｲﾝ",
@@ -408,10 +536,10 @@ const DATA = {
         "image": "https://f.image.geki.jp/data/image/news/2560/409000/408174/news_408174_1.jpg?time=20240529230809"
       },
       {
-        "title": "｢お前らが下げてこい｣井上尚弥､即時のﾌｪｻﾞｰ級昇級を望む声に反論 - ｻﾝｽﾎﾟ",
-        "description": "ﾌﾟﾛﾎﾞｸｼﾝｸﾞの4団体世界ｽｰﾊﾟｰﾊﾞﾝﾀﾑ級統一王者の井上尚弥(31)=大橋=が29日､横浜市の大橋ｼﾞﾑで本格的なｼﾞﾑﾜｰｸを再開した｡井上は練習前に会見｡井上が強すぎて､もうｽｰﾊﾟｰﾊﾞﾝﾀﾑ級には対戦相手がいないのではないかという声について｢それに関しては言いたいことはいろいろあります｣と語気を強めた｡#ﾎﾞｸｼ...",
-        "url": "https://www.youtube.com/watch?v=EfTas5FPe-4",
-        "image": "https://i.ytimg.com/vi/EfTas5FPe-4/maxresdefault.jpg"
+        "title": "名義貸し容疑の弁護士､相談ほぼ対応せず? 1800人の依頼受け - 毎日新聞",
+        "description": "恋愛感情を抱かせて金銭をだまし取る｢ﾛﾏﾝｽ詐欺｣の被害金回収をうたい､広告会社役員らに弁護士名義を貸して法律事務をさせたとして､大阪地検特捜部は29日､大阪弁護士会所属の弁護士､川口正輝容疑者(38)=大阪市=と広告会社役員ら計5人を弁護士法違反の疑いで逮捕した｡",
+        "url": "https://mainichi.jp/articles/20240529/k00/00m/040/248000c",
+        "image": "https://cdn.mainichi.jp/vol1/2024/05/29/20240529k0000m040185000p/0c10.jpg?2"
       },
       {
         "title": "小池百合子都知事に出馬要請｢しなかった｣一部の首長に理由を聞いた 62区市町村長のうち52人が連名で要請:東京新聞 TOKYO Web - 東京新聞",
@@ -420,10 +548,10 @@ const DATA = {
         "image": "https://static.tokyo-np.co.jp/image/article/size1/f/1/8/0/f1801a90cb56a72ddb8b9f9ad9956bca_1.jpg"
       },
       {
-        "title": "ごみ･汚物風船が韓国に飛来､｢北朝鮮が散布｣と非難 - ﾛｲﾀｰ (Reuters Japan)",
-        "description": "韓国は29日､北朝鮮が大量の風船でごみや汚物とみられるものを韓国側に飛ばしたと非難した｡",
-        "url": "https://jp.reuters.com/world/security/6XCVMQCAXBP5NHT3B5MBKEJ6UI-2024-05-29/",
-        "image": "https://www.reuters.com/resizer/v2/XS2CGEPF5RKU3HOJC7M3HOLQAY.jpg?auth=fc1cf70dbb5760921f1d0d44d39236c9901bcd007954d34bbfd5d94597296af4&height=1005&width=1920&quality=80&smart=true"
+        "title": "鉄道8社が切符廃止を発表 2026年度以降は\"環境にやさしい\"QRｺｰﾄﾞに【Nｽﾀ解説】|TBS NEWS DIG - TBS NEWS DIG Powered by JNN",
+        "description": "電車の乗り方が大きく変わります｡JR東日本など鉄道8社が､今使っている切符を2026年度以降に順次廃止すると発表しました｡変わりに使うのはQRｺｰﾄﾞです｡■JR東日本など発表 今の切符は廃止 環境にやさしいQRｺｰﾄﾞ式へJR東日本や西武鉄道､東武鉄道などの鉄道事業者8社は｢磁気乗車券｣と呼ばれる現在使われている裏...",
+        "url": "https://www.youtube.com/watch?v=DFHt-hxFmi4",
+        "image": "https://i.ytimg.com/vi/DFHt-hxFmi4/maxresdefault.jpg"
       },
       {
         "title": "定額減税､政権浮揚の起爆剤になるか ｢効果を最大限発揮｣と岸田首相 - 産経ﾆｭｰｽ",
@@ -450,12 +578,6 @@ const DATA = {
         "image": null
       },
       {
-        "title": "日銀 安達審議委員｢拙速な利上げは避けなければならない｣ | NHK - nhk.or.jp",
-        "description": "日銀の金融政策を決めるﾒﾝﾊﾞｰの1人､安達誠司審議委員が熊本市内で講演し､円安が長期化して想定以上に物価が上昇する場合に…",
-        "url": "https://www3.nhk.or.jp/news/html/20240529/k10014464961000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240529/K10014464961_2405291857_0529190444_01_02.jpg"
-      },
-      {
         "title": "『ﾏｯﾄﾞﾏｯｸｽ :ﾌｭﾘｵｻ』が､生成AIではない\"本物のｱｸｼｮﾝ\"にこだわる理由 - GIZMODO JAPAN",
         "description": "日本では5月31日(金)劇場公開の映画『ﾏｯﾄﾞﾏｯｸｽ:ﾌｭﾘｵｻ』｡世界崩壊から45年後を舞台に､人生のすべてを奪ったﾃﾞｨﾒﾝﾀｽ将軍への復讐を誓う若きﾌｭﾘｵｻの物語が展開されています｡これが『ﾏｯﾄﾞﾏｯｸｽ 怒りのﾃﾞｽﾛｰﾄﾞ』を初めて劇場で見たときと同じくらい興奮してしまって､ｱｸｼｮﾝｼｰﾝも含め最初から最後までたっぷり楽しむことができました｡｢ﾏｯﾄﾞﾏｯｸｽ｣ｼﾘｰｽﾞといえば､激しいｶ",
         "url": "https://www.gizmodo.jp/2024/05/madmax_interview_ai.html",
@@ -466,26 +588,8 @@ const DATA = {
         "description": "大阪市に本社がある小林製薬の｢紅麹｣の成分を含むｻﾌﾟﾘﾒﾝﾄを摂取した人が腎臓の病気などを発症した問題で､大阪市は29日…",
         "url": "https://www3.nhk.or.jp/news/html/20240529/k10014464831000.html",
         "image": "https://www3.nhk.or.jp/news/html/20240529/K10014464831_2405291804_0529180856_01_02.jpg"
-      },
-      {
-        "title": "外為17時 円相場､3日ぶり反落 157円台前半 一時1ｶ月ぶり安値 - 日本経済新聞",
-        "description": "29日の東京外国為替市場で､円相場は3営業日ぶりに反落した｡17時時点では前日の同時点に比べ22銭の円安･ﾄﾞﾙ高の1ﾄﾞﾙ=157円10~11銭で推移している｡前日の米長期金利が上昇し､日米金利差を意識した円売り･ﾄﾞﾙ買いが優勢だった｡円は一時､157円41銭近辺と1日以来およそ1ｶ月ぶりの円安･ﾄﾞﾙ高水準をつけた｡米ﾐﾈｱﾎﾟﾘｽ連銀のｶｼｭｶﾘ総裁は28日､米連邦準備理事会(FRB)が利下げ",
-        "url": "https://www.nikkei.com/article/DGXZQOFL296FE0Z20C24A5000000/",
-        "image": "https://www.nikkei.com/.resources/k-components/rectangle.rev-d54ea30.png"
-      },
-      {
-        "title": "｢監査結果に基づき知事等が講じた措置｣を報告|東京都 - 東京都",
-        "description": "･ｽﾄ搾ｿｽ･ｽﾏ茨ｿｽ･ｽﾍ､･ｽ･ｽ･ｽ･ｽs･ｽc･ｽ･ｽ･ｽ･ｽ･ｽﾉ｢･ｽﾟ和6･ｽN･ｽ@･ｽﾄ搾ｿｽ･ｽ･ｽ･ｽﾊに奇ｿｽﾃゑｿｽ･ｽm･ｽ･ｽ･ｽ･ｽ･ｽ･ｽ･ｽu･ｽ･ｽ･ｽ･ｽ･ｽ[･ｽu･ｽi･ｽ･ｽ1･ｽ･ｽj･ｽv･ｽ･ｽ垂･ｽ･ｽﾜゑｿｽ･ｽ･ｽ･ｽB ･ｽ･ｽ･ｽ･ｽﾍ､･ｽ･ｽ･ｽ･ｽﾜでに行･ｽ･ｽ･ｽ･ｽ･ｽw･ｽE･ｽ･ｽ･ｽ･ｽ･ｽA･ｽﾓ鯉ｿｽ･ｽE･ｽv･ｽ]･ｽ･ｽ･ｽ･ｽ･ｽﾉつゑｿｽ･ｽﾄ､･ｽN2･ｽ･ｽA･ｽm･ｽ･ｽ･ｽ･ｽ･ｽﾖ係･ｽ@･ｽﾖゑｿｽ･ｽ･…",
-        "url": "https://www.metro.tokyo.lg.jp/mobile/tosei/hodohappyo/press/2024/05/29/01.html",
-        "image": null
-      },
-      {
-        "title": "【台風1号 最新情報】午後に大東島地方へ最接近 月末に関東の南を通過し雨風強まる可能性 - ｳｪｻﾞｰﾆｭｰｽ",
-        "description": "強い勢力の台風1号(ｲｰｳｨﾆｬ)は今日5月29日､南大東島の南を北北東に進んでいるとみられます｡今後も北東方向に進み､午後には大東島地方に最接近する見込みです｡31日(金)頃には伊豆諸島に接近し､関東でも雨や風の強まる可能性があります｡▼No.1お天気ｱﾌﾟﾘ｢ｳｪｻﾞｰﾆｭｰｽ｣https://weatherne...",
-        "url": "https://www.youtube.com/watch?v=5nuPY-5wtVg",
-        "image": "https://i.ytimg.com/vi/5nuPY-5wtVg/maxresdefault.jpg"
       }
     ],
-    "summary": "29日､岸田総理大臣が中国共産党の幹部と面会し､両国の｢戦略的互恵関係｣を再確認しました｡大阪市の小林製薬のｻﾌﾟﾘﾒﾝﾄにより腎臓病が発症した問題が浮上｡池袋暴走事故の遺族が加害者と面会｡円相場は円安傾向にあり､台風1号が伊豆諸島に接近中です｡政治･経済の動向が注目される一方で､社会問題や台風の影響に警戒が必要です｡"
+    "summary": "ｲﾝﾄﾞの首都ﾆｭｰﾃﾞﾘｰで過去最高気温49.9度を記録､熱波の影響で50度に達する地域もあり､当局は熱中症への警戒を促しています｡日本では円相場が1ﾄﾞﾙ=157円57銭まで下落｡北朝鮮が韓国にごみや汚物を風船で送り込む挑発行動を行いました｡東京ではJR東日本など8社が今後QRｺｰﾄﾞに切り替えるため､現在の切符を2026年度以降に廃止すると発表しました｡一方､東京都知事選候補として現職の小池百合子知事が3選出馬を確実視されています｡"
   }
 };

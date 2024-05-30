@@ -1,6 +1,7 @@
 import axios from "axios";
 import puppeteer from "puppeteer";
 import { getCache } from "./cache.js";
+import e from "express";
 
 // 天気予報を取得する関数
 export async function getWeatherForecast(apiKey, latitude, longitude) {
@@ -104,6 +105,32 @@ async function getWeatherFromTenkiJp() {
     return page.evaluate((tableId, date) => {
       const hours3 = [];
       const table = document.querySelector(`#${tableId}`);
+
+      // 表示されている日付を決定
+      const base = table.querySelector(".head > td").textContent;
+      const m = base.match(/(\d+)月(\d+)日/);
+      if (m) {
+        const month = parseInt(m[1]);
+        const day = parseInt(m[2]);
+        // 指定された基準日から最も近い月日となる日付を取得する
+        function getNearestDate(base, month, date) {
+          base = new Date(base);
+          base.setHours(0, 0, 0, 0);
+          if (base.getMonth() === month - 1 && base.getDate() === date) {
+            return new Date(base);
+          }
+          return [-1, 0, +1]
+            .map(dy => base.getFullYear() + dy)
+            .map(year => new Date(year, month - 1, date))
+            .map(dt => [Math.abs(dt.getTime() - base.getTime()), dt])
+            .sort((a, b) => {
+              if (a[0] < b[0]) return 1;
+              if (a[0] > b[0]) return -1;
+              return 0;
+            })[0][1];
+        }
+        date = getNearestDate(date, month, day);
+      }
 
       const hours = table.querySelectorAll(".hour > td");
       const weathers = table.querySelectorAll(".weather > td");
