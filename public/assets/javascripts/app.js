@@ -223,7 +223,7 @@
     function addDiscomfortIndex(div, temperature, humidity) {
       // 気温と湿度から不快指数を算出
       const discomfortIndex = 0.81 * temperature + 0.01 * humidity * (0.99 * temperature - 14.3) + 46.3;
-      if (discomfortIndex >= 75 || discomfortIndex <= 55) {
+      if (discomfortIndex >= 80 || discomfortIndex <= 50) {
         addWarning(div, "emoji-frown");
       }
     }
