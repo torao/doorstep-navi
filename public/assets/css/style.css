@@ -102,24 +102,34 @@ body {
   border-bottom: solid 2px black;
 }
 
-#calendar .calendar-today {
-  border: solid 3px #333;
+#calendar .calendar-today span {
+  display: inline-block;
+  min-width: 1.3em;
+  color: white;
+  background-color: #333;
+  border-radius: 20%;
   font-weight: bold;
 }
 
-#calendar .calendar-holiday {
+#calendar .calendar-holiday span {
+  display: inline-block;
+  min-width: 1.3em;
   border-radius: 50%;
-  background-color: #D8D8D8;
+  background-color: #DDD;
 }
 
 #calendar .calendar-empty {
   color: lightgray;
 }
 
+#calendar .calendar-event-exists span {
+  border-bottom: solid 3px #333;
+}
+
 #calendar #calendar-events {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0.4rem 0 0 0;
   word-break: break-all;
   height: 100%;
   overflow: ellipsis;
@@ -133,12 +143,12 @@ body {
 
 #calendar #calendar-events .calendar-event-start {
   padding: 0 0.6rem;
-  border-radius: 0.4rem;
-  border-bottom: solid 2px black;
+  border-bottom: solid 2px #333;
 }
 
 #calendar #calendar-events .calendar-event-start.alert {
-  background-color: #666;
+  border-radius: 0.4rem;
+  background-color: #333;
   color: white;
   font-weight: bold;
 }

@@ -99,6 +99,11 @@ async function getWeatherFromTenkiJp() {
   });
   const page = await browser.newPage();
 
+  // console に出力されるエラーをマッピング
+  page.on("pageerror", error => {
+    console.error(`[weather ${new Date().toLocaleString("ja-JP")}]:`, error);
+  });
+
   // tenki.jp 墨田区 3時間天気
   await page.goto("https://tenki.jp/forecast/3/16/4410/13107/3hours.html");
   async function getByThreeHours(tableId, date) {
@@ -106,13 +111,12 @@ async function getWeatherFromTenkiJp() {
       const hours3 = [];
       const table = document.querySelector(`#${tableId}`);
 
-      // 表示されている日付を決定
+      // 表示されている日付から基準日に基づいて最も近い月日となる日付を取得する
       const base = table.querySelector(".head > td").textContent;
       const m = base.match(/(\d+)月(\d+)日/);
       if (m) {
         const month = parseInt(m[1]);
         const day = parseInt(m[2]);
-        // 指定された基準日から最も近い月日となる日付を取得する
         function getNearestDate(base, month, date) {
           base = new Date(base);
           base.setHours(0, 0, 0, 0);
@@ -121,13 +125,11 @@ async function getWeatherFromTenkiJp() {
           }
           return [-1, 0, +1]
             .map(dy => base.getFullYear() + dy)
-            .map(year => new Date(year, month - 1, date))
+            .map(year => new Date(year, month - 1, date, 0, 0, 0, 0))
             .map(dt => [Math.abs(dt.getTime() - base.getTime()), dt])
-            .sort((a, b) => {
-              if (a[0] < b[0]) return 1;
-              if (a[0] > b[0]) return -1;
-              return 0;
-            })[0][1];
+            .reduce((closest, dt) => {
+              return closest === undefined || dt[0] < closest[0] ? dt : closest;
+            })[1];
         }
         date = getNearestDate(date, month, day);
       }
@@ -182,13 +184,21 @@ async function getWeatherFromTenkiJp() {
       const parse = /(\d+)月(\d+)日.*/.exec(date.trim());
       const m = parseInt(parse[1]);
       const d = parseInt(parse[2]);
-      const dateTime = new Date(today);
-      dateTime.setMonth(m - 1);
-      dateTime.setDate(d);
-      dateTime.setHours(0, 0, 0, 0);
-      if (dateTime.getTime() < today.getTime()) {
-        dateTime.setFullYear(dateTime.getFullYear() + 1);
+      function getNearestDate(base, month, date) {
+        base = new Date(base);
+        base.setHours(0, 0, 0, 0);
+        if (base.getMonth() === month - 1 && base.getDate() === date) {
+          return new Date(base);
+        }
+        return [-1, 0, +1]
+          .map(dy => base.getFullYear() + dy)
+          .map(year => new Date(year, month - 1, date, 0, 0, 0, 0))
+          .map(dt => [Math.abs(dt.getTime() - base.getTime()), dt])
+          .reduce((closest, dt) => {
+            return closest === undefined || dt[0] < closest[0] ? dt : closest;
+          })[1];
       }
+      const dateTime = getNearestDate(today, m, d);
 
       function extract(selector, regex, index) {
         const e = dd.querySelector(selector);
@@ -199,7 +209,7 @@ async function getWeatherFromTenkiJp() {
             return parseFloat(m[index]);
           }
         }
-        return unknown;
+        return undefined;
       }
 
       const forecast = dd.querySelector(".forecast").textContent.trim();

@@ -2,12 +2,12 @@ import { google } from "googleapis";
 import { getCache } from "./cache.js"
 
 async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
-  if(apiKey === undefined || calendarId === undefined) {
+  if (apiKey === undefined || calendarId === undefined) {
     return [];
   }
   const startOfDay = today.toISOString();
   const end = new Date(today);
-  end.setDate(end.getDate() + 6);
+  end.setDate(end.getDate() + 31 * 2);
   end.setHours(23, 59, 59, 999);
   const endOfDay = end.toISOString();
   try {
@@ -19,18 +19,20 @@ async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
         ["https://www.googleapis.com/auth/calendar.readonly"]
       )
     });
-    const response = await calendar.events.list({
-      calendarId: calendarId,
-      timeMin: startOfDay,
-      timeMax: endOfDay,
-      singleEvents: true,
-      orderBy: 'startTime'
-    });
+    const response = await getCache("google-calendar-events", async () => {
+      return calendar.events.list({
+        calendarId: calendarId,
+        timeMin: startOfDay,
+        timeMax: endOfDay,
+        singleEvents: true,
+        orderBy: 'startTime'
+      });
+    }, 0, 0, 0, 0, 10);
     return response.data.items.map((event) => {
       return {
         summary: event.summary,
         start: event.start.dateTime || event.start.date,
-        end: event.end.dateTime,
+        end: event.end.dateTime || event.end.date,
       };
     });
   } catch (e) {
@@ -42,7 +44,7 @@ async function fetchGoogleCalendarEvents(apiKey, calendarId, today) {
 export async function getCalendar(date, apiKey, calendarId) {
 
   try {
-      // 日本の祝日を取得する
+    // 日本の祝日を取得する
     const holidays = getCache("holidays", async () => {
       const url = "https://holidays-jp.github.io/api/v1/datetime.json";
       const response = await fetch(url);
@@ -53,9 +55,7 @@ export async function getCalendar(date, apiKey, calendarId) {
     }, 0, 1);
 
     // Google Calendar からイベントを取得する
-    const events = getCache("google-calendar-events", async () => {
-      return await fetchGoogleCalendarEvents(apiKey, calendarId, date);
-    }, 0, 0, 0, 0, 10);
+    const events = await fetchGoogleCalendarEvents(apiKey, calendarId, date);
 
     return {
       holidays: await holidays,

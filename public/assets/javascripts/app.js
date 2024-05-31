@@ -47,27 +47,27 @@
       $.getElementById("calendar-date-holiday").classList.add("holiday");
     }
 
+    // 今月と来月のカレンダーを作成
+    const dateId = (y, m, d) => "date" + y + String(m).padStart(2, "0") + String(d).padStart(2, "0");
     function setCalendar(year, month, target) {
       generateCalendar(year, month).forEach((week, i) => {
         const tr = $.createElement("tr");
         week.forEach((day) => {
           const td = $.createElement("td");
+          const dc = $.createElement("span");
+          td.appendChild(dc);
           if (day === null) {
             td.setAttribute("class", "calendar-empty");
-            td.textContent = "・";
+            dc.textContent = "・";
           } else {
-            let clazz = "";
+            td.setAttribute("id", dateId(year, month, day));
             if (month === now.getMonth() + 1 && day === now.getDate()) {
-              clazz = "calendar-today";
+              td.classList.add("calendar-today");
             }
             if (getHoliday(new Date(year, month - 1, day), calendar.holidays)) {
-              clazz += " calendar-holiday";
+              td.classList.add("calendar-holiday");
             }
-            if (clazz.length > 0) {
-              td.setAttribute("class", clazz.trim());
-            }
-
-            td.textContent = day;
+            dc.textContent = day;
           }
           tr.appendChild(td);
         });
@@ -80,23 +80,46 @@
     setCalendar(year, month, "calendar-this-month");
     setCalendar(year, month + 1, "calendar-next-month");
 
-    // スケジュールの表示
-    calendar.events.forEach((event) => {
-      const start = $.createElement("span");
-      start.classList.add("calendar-event-start");
-      if (new Date(event.start).getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
-        start.classList.add("alert");
-      }
-      const prefix = getDateDiffName(now, new Date(event.start));
-      if (event.start === undefined || event.start.length === 10) {
-        start.textContent = prefix + "終日";
-      } else {
-        start.textContent = prefix + event.start.slice(11, 16);
-      }
-      const li = $.createElement("li");
-      li.appendChild(start);
-      li.appendChild($.createTextNode(" " + event.summary));
-      $.getElementById("calendar-events").appendChild(li);
+    // 7日以内のスケジュールを表示
+    const limit = new Date();
+    limit.setDate(limit.getDate() + 7);
+    calendar.events
+      .filter(event => {
+        const start = new Date(event.start);
+        const end = new Date(event.end === undefined ? event.start : event.end);
+        return start.getTime() <= limit.getTime() && now.getTime() <= end.getTime();
+      })
+      .forEach(event => {
+        const diffText = $.createElement("span");
+        diffText.classList.add("calendar-event-start");
+        if (new Date(event.start).getTime() - now.getTime() <= 24 * 60 * 60 * 1000) {
+          diffText.classList.add("alert");
+        }
+        const prefix = getDateDiffName(now, new Date(event.start));
+        if (event.start === undefined || event.start.length === 10) {
+          diffText.textContent = prefix === "" ? "終日" : prefix;
+        } else {
+          diffText.textContent = prefix + event.start.slice(11, 16);
+        }
+        const li = $.createElement("li");
+        li.appendChild(diffText);
+        li.appendChild($.createTextNode(" " + event.summary));
+        $.getElementById("calendar-events").appendChild(li);
+      });
+
+    // 2ヶ月以内のスケジュールをマーク
+    calendar.events.forEach(event => {
+      const t = new Date(event.start);
+      t.setHours(0, 0, 0, 0);
+      const end = new Date(event.end === undefined ? event.start : event.end);
+      end.setHours(0, 0, 0, 0);
+      do {
+        const date = $.getElementById(dateId(t.getFullYear(), t.getMonth() + 1, t.getDate()));
+        if (date !== null) {
+          date.classList.add("calendar-event-exists");
+        }
+        t.setDate(t.getDate() + 1);
+      } while (t.getTime() < end.getTime());
     });
   }
 
@@ -155,16 +178,7 @@
 
   function getDateDiffName(t0, t1) {
     const diff = getDateDiff(t0, t1);
-    switch (diff) {
-      case 0:
-        return "";
-      case 1:
-        return "明日";
-      case 2:
-        return "明後日";
-      default:
-        return diff + "日後";
-    }
+    return diff <= 0 ? "" : diff === 1 ? "明日" : diff === 2 ? "明後日" : diff + "日後";
   }
 
   function getDateName(today, date) {

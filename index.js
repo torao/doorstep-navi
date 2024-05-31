@@ -57,6 +57,9 @@ async function update() {
     headless: 'new'
   });
   const page = await browser.newPage();
+  page.on("pageerror", error => {
+    console.log(`[app ${new Date().toLocaleString("ja-JP")}]:`, error);
+  });
   await page.setViewport({ width: 1072, height: 1448 });
   await page.goto(pathToFileURL(path.resolve(`${docroot}/index.html`)), {
     waitUntil: "networkidle2",
