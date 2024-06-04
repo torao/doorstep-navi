@@ -18,7 +18,7 @@ export async function getNews(apiKey, chatGptApiKey) {
         }
         throw e;
       }
-    }, 0, 0, 0, 0, 30);
+    }, 0, 0, 0, 1, 0);
     if (data.status !== "ok") {
       throw new Error(`${data.message}`);
     }
@@ -41,11 +41,11 @@ export async function getNews(apiKey, chatGptApiKey) {
         console.error(new Date().toLocaleString("ja-JP"), e);
         return undefined;
       }
-    }, 0, 0, 0, 0, 30);
+    }, 0, 0, 0, 1, 0);
 
     return {
       articles: articles,
-      summary: summary === undefined ? undefined : toHalfWidth(summary)
+      summary: summary === undefined ? undefined : summary
     };
   } catch (e) {
     console.log("ERROR: failed to retrieve news articles.");
@@ -70,7 +70,7 @@ async function summarize(apiKey, articles) {
       {
         role: "system",
         content: "あなたは著名なニュースキャスターです。" +
-          "次の複数の記事を総括的に要約し、何があったかの文章を160文字程度で作成してください。" +
+          "次の複数の記事を総括的に要約し、何があったかの文章を150文字程度で作成してください。" +
           "天気や交通情報、社会的に重要なニュースを優先しなければなりません。スポーツや芸能の優先度は低くしてください。" +
           "前口上やあなたの意見は不要です。"
       },
