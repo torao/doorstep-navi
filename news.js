@@ -45,7 +45,7 @@ export async function getNews(apiKey, chatGptApiKey) {
 
     return {
       articles: articles,
-      summary: summary === undefined ? undefined : summary
+      summary: summary === undefined ? undefined : toHalfWidth(summary)
     };
   } catch (e) {
     console.log("ERROR: failed to retrieve news articles.");
