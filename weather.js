@@ -1,7 +1,7 @@
 import axios from "axios";
 import puppeteer from "puppeteer";
+import { setTimeout } from "timers/promises";
 import { getCache } from "./cache.js";
-import e from "express";
 
 // 天気予報を取得する関数
 export async function getWeatherForecast(apiKey, latitude, longitude) {
@@ -9,9 +9,25 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
   // OpenWeather の情報を取得
   // 仕様: https://openweathermap.org/api/one-call-3
   const data = await getCache("openweather", async () => {
-    const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&lang=ja&units=metric`;
-    const response = await axios.get(url);
-    return response.data;
+    for (var i = 0; i < 10; i++) {
+      try {
+        const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&lang=ja&units=metric`;
+        const response = await axios.get(url);
+        return response.data;
+      } catch (e) {
+        if (e.response) {
+          switch (e.response.status) {
+            case 502: // BAD_GATEWAY
+              console.error(`[${new Date().toLocaleString("ja-JP")}] openweathermap: ${e.response.status} ${e.response.statusText}`);
+              await setTimeout(750);
+              continue;
+            default: break;
+          }
+        }
+        throw e;
+      }
+    }
+    throw new Error("The communication situation was not restored.");
   }, 0, 0, 0, 0, 10);
 
   // tenki.jp の情報を取得
