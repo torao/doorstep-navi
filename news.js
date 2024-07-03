@@ -35,17 +35,12 @@ export async function getNews(apiKey, chatGptApiKey) {
 
     // ニュースの要約を作成
     const summary = await getCache("chatgpt-news", async () => {
-      try {
-        return summarize(chatGptApiKey, data.articles);
-      } catch (e) {
-        console.error(new Date().toLocaleString("ja-JP"), e);
-        return undefined;
-      }
+      return summarize(chatGptApiKey, data.articles);
     }, 0, 0, 0, 1, 0);
 
     return {
       articles: articles,
-      summary: summary === undefined ? undefined : toHalfWidth(summary)
+      summary: summary === null ? undefined : toHalfWidth(summary)
     };
   } catch (e) {
     console.log("ERROR: failed to retrieve news articles.");
@@ -65,23 +60,32 @@ export async function getNews(apiKey, chatGptApiKey) {
 // ChatGTP によるニュースの要約
 async function summarize(apiKey, articles) {
   const openai = new OpenAI({ apiKey: apiKey });
-  const completion = await openai.chat.completions.create({
-    messages: [
-      {
-        role: "system",
-        content: "あなたは著名なニュースキャスターです。" +
-          "次の複数の記事を総括的に要約し、何があったかの文章を150文字程度で作成してください。" +
-          "天気や交通情報、社会的に重要なニュースを優先しなければなりません。スポーツや芸能の優先度は低くしてください。" +
-          "前口上やあなたの意見は不要です。"
-      },
-      {
-        role: "user",
-        content: articles.filter(a => a.description !== null).map(a => a.description.replace("\n", " ")).join("\n")
-      }
-    ],
-    model: "gpt-4o"
-  });
-  return completion.choices[0].message.content.trim();
+  try {
+    const completion = await openai.chat.completions.create({
+      messages: [
+        {
+          role: "system",
+          content: "あなたは著名な小説家です。" +
+            "次の複数の記事を総括的に要約し、何があったかの文章を150文字程度で作成してください。" +
+            "天気や交通情報、社会的に重要なニュースを優先しなければなりません。スポーツや芸能の優先度は低くしてください。" +
+            "前口上やあなたの意見は不要です。"
+        },
+        {
+          role: "user",
+          content: articles.filter(a => a.description !== null).map(a => a.description.replace("\n", " ")).join("\n")
+        }
+      ],
+      model: "gpt-4o"
+    });
+    return completion.choices[0].message.content.trim();
+  } catch (e) {
+    if (typeof e.code !== undefined && e.code === "insufficient_quota") {
+      console.error(new Date().toLocaleString("ja-JP") + " WARN: " + e);
+    } else {
+      console.error(new Date().toLocaleString("ja-JP") + " OpenAI", e);
+    }
+    return null;
+  }
 }
 
 function toHalfWidth(str) {
