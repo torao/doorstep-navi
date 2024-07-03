@@ -15,16 +15,8 @@ export async function getWeatherForecast(apiKey, latitude, longitude) {
         const response = await axios.get(url);
         return response.data;
       } catch (e) {
-        if (e.response) {
-          switch (e.response.status) {
-            case 502: // BAD_GATEWAY
-              console.error(`[${new Date().toLocaleString("ja-JP")}] openweathermap: ${e.response.status} ${e.response.statusText}`);
-              await setTimeout(750);
-              continue;
-            default: break;
-          }
-        }
-        throw e;
+        console.error(`[${new Date().toLocaleString("ja-JP")}] openweathermap: ${e.toString()}`);
+        await setTimeout(750);
       }
     }
     throw new Error("The communication situation was not restored.");
@@ -325,6 +317,7 @@ function getWeatherIcon(daily, desc, tm, temp, rain) {
       case "10d":
       case "10n":
       case "雨":
+      case "強雨":
       case "雨のち曇":
       case "雨のち晴":
       case "曇のち雨":
