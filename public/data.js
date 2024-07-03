@@ -61,14 +61,9 @@ const DATA = {
     },
     "events": [
       {
-        "summary": "Google記念日",
-        "start": "2024-06-07",
-        "end": "2024-06-14"
-      },
-      {
-        "summary": "韓国",
-        "start": "2024-06-28",
-        "end": "2024-07-02"
+        "summary": "エレベーター点検",
+        "start": "2024-07-05T14:30:00+09:00",
+        "end": "2024-07-05T16:00:00+09:00"
       },
       {
         "summary": "新規イベント",
@@ -81,289 +76,289 @@ const DATA = {
     "location": "35.698/139.8092",
     "current": {
       "sun": {
-        "rise": 1717961072,
-        "set": 1718013365
+        "rise": 1719948556,
+        "set": 1720000822
       },
-      "time": 1718024416000,
-      "date": "2024/6/10 22:00:16",
-      "temperature": 22.4,
-      "humidity": 76,
-      "wind": 3.09,
+      "time": 1720017602000,
+      "date": "2024/7/3 23:40:02",
+      "temperature": 26.86,
+      "humidity": 84,
+      "wind": 6.69,
       "pop": null,
       "rain": 0,
-      "pressure": 1009,
+      "pressure": 1008,
       "uvi": 0,
       "clouds": 75,
-      "visibility": 10000,
+      "visibility": 8000,
       "icon": "clouds",
       "description": "曇りがち"
     },
     "3-hourly": [
       {
         "wind": 1,
-        "pressure": 1009,
+        "pressure": 1008,
+        "uvi": 0,
+        "clouds": 75,
+        "visibility": 10000,
+        "time": 1720018800000,
+        "date": "2024/7/4 0:00:00",
+        "pop": 10,
+        "rain": 0,
+        "temperature": 26.2,
+        "humidity": 92,
+        "description": "晴れ",
+        "icon": "moon"
+      },
+      {
+        "wind": 1,
+        "pressure": 1007,
         "uvi": 0,
         "clouds": 85,
         "visibility": 10000,
-        "time": 1718031600000,
-        "date": "2024/6/11 0:00:00",
+        "time": 1720029600000,
+        "date": "2024/7/4 3:00:00",
         "pop": 20,
         "rain": 0,
-        "temperature": 20.9,
-        "humidity": 85,
-        "description": "晴れ",
-        "icon": "moon"
+        "temperature": 25.1,
+        "humidity": 95,
+        "description": "曇り",
+        "icon": "cloud"
       },
       {
         "wind": 1,
-        "pressure": 1010,
-        "uvi": 0,
-        "clouds": 85,
+        "pressure": 1007,
+        "uvi": 0.56,
+        "clouds": 99,
         "visibility": 10000,
-        "time": 1718042400000,
-        "date": "2024/6/11 3:00:00",
-        "pop": 10,
+        "time": 1720040400000,
+        "date": "2024/7/4 6:00:00",
+        "pop": 20,
         "rain": 0,
-        "temperature": 19.6,
-        "humidity": 90,
-        "description": "晴れ",
-        "icon": "moon"
-      },
-      {
-        "wind": 1,
-        "pressure": 1010,
-        "uvi": 0.27,
-        "clouds": 32,
-        "visibility": 10000,
-        "time": 1718053200000,
-        "date": "2024/6/11 6:00:00",
-        "pop": 10,
-        "rain": 0,
-        "temperature": 21.4,
-        "humidity": 87,
+        "temperature": 26.2,
+        "humidity": 92,
         "description": "晴れ",
         "icon": "sun"
       },
       {
         "wind": 1,
-        "pressure": 1010,
-        "uvi": 2.77,
-        "clouds": 52,
+        "pressure": 1007,
+        "uvi": 6.39,
+        "clouds": 59,
         "visibility": 10000,
-        "time": 1718064000000,
-        "date": "2024/6/11 9:00:00",
+        "time": 1720051200000,
+        "date": "2024/7/4 9:00:00",
         "pop": 10,
         "rain": 0,
-        "temperature": 24.3,
-        "humidity": 70,
+        "temperature": 29.9,
+        "humidity": 73,
         "description": "晴れ",
         "icon": "sun"
       },
       {
-        "wind": 3,
-        "pressure": 1009,
-        "uvi": 7.75,
-        "clouds": 37,
+        "wind": 1,
+        "pressure": 1006,
+        "uvi": 10.7,
+        "clouds": 8,
         "visibility": 10000,
-        "time": 1718074800000,
-        "date": "2024/6/11 12:00:00",
-        "pop": 0,
+        "time": 1720062000000,
+        "date": "2024/7/4 12:00:00",
+        "pop": 10,
         "rain": 0,
-        "temperature": 26.9,
-        "humidity": 59,
+        "temperature": 32.8,
+        "humidity": 63,
         "description": "晴れ",
-        "icon": "sun"
-      },
-      {
-        "wind": 3,
-        "pressure": 1009,
-        "uvi": 3.66,
-        "clouds": 54,
-        "visibility": 10000,
-        "time": 1718085600000,
-        "date": "2024/6/11 15:00:00",
-        "pop": 0,
-        "rain": 0,
-        "temperature": 28.3,
-        "humidity": 59,
-        "description": "晴れ",
-        "icon": "sun"
-      },
-      {
-        "wind": 4,
-        "pressure": 1009,
-        "uvi": 0.19,
-        "clouds": 89,
-        "visibility": 10000,
-        "time": 1718096400000,
-        "date": "2024/6/11 18:00:00",
-        "pop": 0,
-        "rain": 0,
-        "temperature": 24.4,
-        "humidity": 69,
-        "description": "晴れ",
-        "icon": "moon"
-      },
-      {
-        "wind": 3,
-        "pressure": 1010,
-        "uvi": 0,
-        "clouds": 86,
-        "visibility": 10000,
-        "time": 1718107200000,
-        "date": "2024/6/11 21:00:00",
-        "pop": 0,
-        "rain": 0,
-        "temperature": 22.6,
-        "humidity": 80,
-        "description": "晴れ",
-        "icon": "moon"
+        "icon": "sun-fill"
       },
       {
         "wind": 2,
-        "pressure": 1010,
-        "uvi": 0,
-        "clouds": 83,
+        "pressure": 1005,
+        "uvi": 4.4,
+        "clouds": 8,
         "visibility": 10000,
-        "time": 1718118000000,
-        "date": "2024/6/12 0:00:00",
+        "time": 1720072800000,
+        "date": "2024/7/4 15:00:00",
         "pop": 0,
         "rain": 0,
-        "temperature": 21.9,
-        "humidity": 86,
+        "temperature": 34.3,
+        "humidity": 58,
+        "description": "晴れ",
+        "icon": "sun-fill"
+      },
+      {
+        "wind": 2,
+        "pressure": 1005,
+        "uvi": 0.09,
+        "clouds": 16,
+        "visibility": 10000,
+        "time": 1720083600000,
+        "date": "2024/7/4 18:00:00",
+        "pop": 0,
+        "rain": 0,
+        "temperature": 30.9,
+        "humidity": 69,
+        "description": "晴れ",
+        "icon": "moon-fill"
+      },
+      {
+        "wind": 1,
+        "pressure": 1006,
+        "uvi": 0,
+        "clouds": 14,
+        "visibility": 10000,
+        "time": 1720094400000,
+        "date": "2024/7/4 21:00:00",
+        "pop": 0,
+        "rain": 0,
+        "temperature": 28.6,
+        "humidity": 77,
+        "description": "晴れ",
+        "icon": "moon"
+      },
+      {
+        "wind": 1,
+        "pressure": 1006,
+        "uvi": 0,
+        "clouds": 7,
+        "visibility": 10000,
+        "time": 1720105200000,
+        "date": "2024/7/5 0:00:00",
+        "pop": 0,
+        "rain": 0,
+        "temperature": 27.3,
+        "humidity": 82,
         "description": "晴れ",
         "icon": "moon"
       }
     ],
     "daily": [
       {
-        "time": 1717945200000,
-        "date": "2024/6/10 0:00:00",
-        "pop": 20,
-        "rain": 13,
+        "time": 1719932400000,
+        "date": "2024/7/3 0:00:00",
+        "pop": 10,
+        "rain": 1,
         "temperature": {
-          "min": 18,
-          "max": 24
+          "min": 24,
+          "max": 33
         },
-        "description": "曇時々晴",
+        "description": "曇のち晴",
         "icon": "cloud-sun-fill"
       },
       {
-        "time": 1718031600000,
-        "date": "2024/6/11 0:00:00",
-        "pop": 20,
-        "rain": 0,
-        "temperature": {
-          "min": 20,
-          "max": 29
-        },
-        "description": "晴",
-        "icon": "sun"
-      },
-      {
-        "time": 1718118000000,
-        "date": "2024/6/12 0:00:00",
-        "pop": 20,
-        "rain": 0,
-        "temperature": {
-          "min": 20,
-          "max": 29
-        },
-        "description": "晴時々曇",
-        "icon": "cloud-sun"
-      },
-      {
-        "time": 1718204400000,
-        "date": "2024/6/13 0:00:00",
-        "pop": 20,
-        "rain": 0,
-        "temperature": {
-          "min": 20,
-          "max": 31
-        },
-        "description": "晴",
-        "icon": "sun-fill"
-      },
-      {
-        "time": 1718290800000,
-        "date": "2024/6/14 0:00:00",
-        "pop": 10,
-        "rain": 0,
-        "temperature": {
-          "min": 21,
-          "max": 31
-        },
-        "description": "晴",
-        "icon": "sun-fill"
-      },
-      {
-        "time": 1718377200000,
-        "date": "2024/6/15 0:00:00",
+        "time": 1720018800000,
+        "date": "2024/7/4 0:00:00",
         "pop": 40,
         "rain": 0,
         "temperature": {
-          "min": 20,
-          "max": 29
+          "min": 25,
+          "max": 35
         },
-        "description": "晴時々曇",
-        "icon": "cloud-sun"
+        "description": "曇のち晴",
+        "icon": "cloud-sun-fill"
       },
       {
-        "time": 1718463600000,
-        "date": "2024/6/16 0:00:00",
-        "pop": 90,
-        "rain": 37,
+        "time": 1720105200000,
+        "date": "2024/7/5 0:00:00",
+        "pop": 20,
+        "rain": 0,
         "temperature": {
-          "min": 21,
-          "max": 27
+          "min": 25,
+          "max": 34
+        },
+        "description": "晴",
+        "icon": "sun-fill"
+      },
+      {
+        "time": 1720191600000,
+        "date": "2024/7/6 0:00:00",
+        "pop": 50,
+        "rain": 1,
+        "temperature": {
+          "min": 26,
+          "max": 32
         },
         "description": "曇時々雨",
         "icon": "cloud-drizzle-fill"
       },
       {
-        "time": 1718550000000,
-        "date": "2024/6/17 0:00:00",
-        "pop": 30,
+        "time": 1720278000000,
+        "date": "2024/7/7 0:00:00",
+        "pop": 20,
         "rain": 0,
         "temperature": {
-          "min": 22,
+          "min": 26,
+          "max": 33
+        },
+        "description": "晴時々曇",
+        "icon": "cloud-sun-fill"
+      },
+      {
+        "time": 1720364400000,
+        "date": "2024/7/8 0:00:00",
+        "pop": 50,
+        "rain": 1,
+        "temperature": {
+          "min": 26,
+          "max": 32
+        },
+        "description": "曇時々雨",
+        "icon": "cloud-drizzle-fill"
+      },
+      {
+        "time": 1720450800000,
+        "date": "2024/7/9 0:00:00",
+        "pop": 40,
+        "rain": 0,
+        "temperature": {
+          "min": 26,
+          "max": 33
+        },
+        "description": "曇",
+        "icon": "cloud-fill"
+      },
+      {
+        "time": 1720537200000,
+        "date": "2024/7/10 0:00:00",
+        "pop": 40,
+        "rain": 0,
+        "temperature": {
+          "min": 25,
+          "max": 32
+        },
+        "description": "曇時々晴",
+        "icon": "cloud-sun-fill"
+      },
+      {
+        "time": 1720623600000,
+        "date": "2024/7/11 0:00:00",
+        "pop": 50,
+        "rain": 1,
+        "temperature": {
+          "min": 26,
+          "max": 30
+        },
+        "description": "曇時々雨",
+        "icon": "cloud-drizzle-fill"
+      },
+      {
+        "time": 1720710000000,
+        "date": "2024/7/12 0:00:00",
+        "pop": 40,
+        "rain": 0,
+        "temperature": {
+          "min": 25,
           "max": 30
         },
         "description": "曇",
         "icon": "cloud-fill"
       },
       {
-        "time": 1718636400000,
-        "date": "2024/6/18 0:00:00",
-        "pop": 60,
-        "rain": 5,
-        "temperature": {
-          "min": 22,
-          "max": 30
-        },
-        "description": "曇時々雨",
-        "icon": "cloud-drizzle-fill"
-      },
-      {
-        "time": 1718722800000,
-        "date": "2024/6/19 0:00:00",
+        "time": 1720796400000,
+        "date": "2024/7/13 0:00:00",
         "pop": 50,
-        "rain": 5,
+        "rain": 0,
         "temperature": {
-          "min": 22,
-          "max": 29
-        },
-        "description": "曇時々雨",
-        "icon": "cloud-drizzle-fill"
-      },
-      {
-        "time": 1718809200000,
-        "date": "2024/6/20 0:00:00",
-        "pop": 80,
-        "rain": 10,
-        "temperature": {
-          "min": 21,
-          "max": 28
+          "min": 25,
+          "max": 31
         },
         "description": "曇時々雨",
         "icon": "cloud-drizzle-fill"
@@ -373,160 +368,145 @@ const DATA = {
   "transite": {
     "delayed-line": [
       {
-        "line-name": "中央本線[高尾～大月]",
+        "line-name": "京浜東北根岸線",
         "status": "列車遅延",
-        "description": "山梨市〜春日居町駅間での線路内点..."
+        "description": "鶴見〜新子安駅間での踏切内点検の..."
       },
       {
-        "line-name": "常磐線(快速)[品川～取手]",
+        "line-name": "湘南新宿ライン",
         "status": "列車遅延",
-        "description": "14:14頃、常磐線内で発生した..."
+        "description": "京浜東北根岸線内での踏切内点検の..."
       },
       {
-        "line-name": "常磐線[品川～水戸]",
+        "line-name": "東海道本線[東京～熱海]",
         "status": "列車遅延",
-        "description": "14:14頃、取手〜藤代駅間で発..."
-      },
-      {
-        "line-name": "常磐線[水戸～いわき]",
-        "status": "列車遅延",
-        "description": "14:14頃、取手〜藤代駅間で発..."
-      },
-      {
-        "line-name": "総武線(快速)[東京～千葉]",
-        "status": "列車遅延",
-        "description": "外房線内での線路内点検の影響で、..."
-      },
-      {
-        "line-name": "外房線",
-        "status": "列車遅延",
-        "description": "鎌取〜誉田駅間での線路内点検の影..."
+        "description": "二宮駅での安全確認の影響で、一部..."
       }
     ]
   },
   "news": {
     "articles": [
       {
-        "title": "鹿児島 保育士が男児を切りつけ 殺人未遂の疑いで逮捕 | NHK - nhk.or.jp",
-        "description": "7日､鹿児島市の認定こども園で､21歳の保育士が男の子を刃物のようなもので切りつけたとして､殺人未遂の疑いで逮捕されまし…",
-        "url": "https://www3.nhk.or.jp/news/html/20240609/k10014475741000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240609/K10014475741_2406092109_0609211253_01_02.jpg"
+        "title": "中2凍死 見えた｢いじめの姿｣ (2024年7月2日掲載) - ﾗｲﾌﾞﾄﾞｱﾆｭｰｽ - livedoor",
+        "description": "北海道旭川市で2021年にいじめを受けていた中学2年の広瀬爽彩(さあや)さん(当時14歳)が自殺した問題で6月30日に市の再調査委員会が｢いじめが主たる原因であった可能性が高い｣とする報告書の概要版を今津寛介",
+        "url": "https://news.livedoor.com/topics/detail/26714946/",
+        "image": "https://image.news.livedoor.com/newsimage/stf/2/4/24cf9_1715_1893c290_7b15ad2d.jpg"
       },
       {
-        "title": "｢知らんかったわ｣｢これは便利｣ \"PCでのYouTube視聴\"が快適になるｼｮｰﾄｶｯﾄ一覧が\"あまりにも便利そう\"だと話題(2024年6月9日)|BIGLOBEﾆｭｰｽ - BIGLOBEﾆｭｰｽ",
-        "description": "PCでのYouTube視聴を快適にしてくれそうなｷｰﾎﾞｰﾄﾞｼｮｰﾄｶｯﾄ一覧が便利そうだと話題です｡X(Twitter)の投稿には｢知らんかったわ｣｢これは便利｣といった反応…|BIGLOBEﾆｭｰｽ",
-        "url": "https://news.biglobe.ne.jp/it/0609/nlb_240609_8023975845.html",
-        "image": "https://news.biglobe.ne.jp/it/0609/8023975845/ry230601keyboard2_thum800.jpg"
+        "title": "ｲﾝﾄﾞ 宗教行事で折り重なるように転倒し50人超死亡 現地報道 | NHK - nhk.or.jp",
+        "description": "ｲﾝﾄﾞ北部のｳｯﾀﾙﾌﾟﾗﾃﾞｼｭ州で2日､ﾋﾝﾄﾞｩｰ教の宗教行事に集まった人たちが折り重なるように転倒する事故があり､ｲﾝ…",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499801000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499801_2407022243_0702224437_01_02.jpg"
       },
       {
-        "title": "前沢友作氏がﾚｰｽ事故 命に別条なし､宮城 - 日本経済新聞",
-        "description": "9日午後､宮城県村田町の｢ｽﾎﾟｰﾂﾗﾝﾄﾞSUGO｣で開催されていたｶｰﾚｰｽ中に事故が発生し､出場していた衣料品通販大手ZOZO(ｿﾞｿﾞ)創業者の前沢友作氏(48)が病院に搬送された｡精密検査を受け､命に別条はないという｡ﾚｰｽ関係者らが明らかにした｡事故の詳しい状況は分かっていない",
-        "url": "https://www.nikkei.com/article/DGXZQOUE092870Z00C24A6000000/",
-        "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO4942959009062024000000-2.jpg?ixlib=js-3.8.0&auto=format%2Ccompress&fit=fill&bg=FFFFFF&w=1200&h=630&fp-x=0.48&fp-y=0.42&fp-z=1&fill=blur&s=94c81aec5078d6819bb8a3f32b910c8e"
+        "title": "新紙幣発行に便乗の特殊詐欺 すでに被害も 警察が注意呼びかけ | NHK - nhk.or.jp",
+        "description": "20年ぶりとなる新紙幣が3日に発行されますが､各地の警察は､新しい紙幣の発行に便乗した特殊詐欺などに注意するよう呼びかけ…",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499791000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499791_2407022215_0702221847_01_02.jpg"
       },
       {
-        "title": "GLAY､ﾆｭｰｱﾙﾊﾞﾑ&ﾗｲﾌﾞ映像作品発売 全国8ｶ所回るｱﾘｰﾅﾂｱｰ開催(ｺﾒﾝﾄあり) - 音楽ﾅﾀﾘｰ",
-        "description": "今年ﾃﾞﾋﾞｭｰ30周年を迎えたGLAYが､2024年後半部分の周年ｽｹｼﾞｭｰﾙを発表した｡",
-        "url": "https://natalie.mu/music/news/576962",
-        "image": "https://ogre.natalie.mu/media/news/music/2024/0609/GLAY_art202406.jpg?impolicy=twitter_card_face_crop"
+        "title": "【めちゃﾕﾙ密着】岡村隆史､板野友美&野添義弘との異色3ｼｮｯﾄに喜び - ORICON NEWS",
+        "description": "1996年~2018年まで放送されたﾌｼﾞﾃﾚﾋﾞ系人気ﾊﾞﾗｴﾃｨｰ番組『めちゃ×2ｲｹてる』のｽﾋﾟﾝｵﾌ配信番組『めちゃ×2ﾕﾙんでるｯ!』(以下『めちゃﾕﾙ』)が､昨年の秋に続いて､きょう2日の午後9時頃から生配信を実施｡昨年の秋から9ヶ月ぶりの復活となったが､3日に誕生日を迎える 岡村隆史 のもとに､同じ誕生日の 板野友美 ､ 野添義弘 が駆けつけた｡   野添が姿を現すと､岡村は遠くから距離をはかりながら｢あの…ｸﾄﾞｶﾝさんの?違う!｣などと少しずつ答えに近づいていき､最終的には見事に正解｡同じ誕生日という縁…",
+        "url": "https://www.oricon.co.jp/news/2334465/full/",
+        "image": "https://contents.oricon.co.jp/upimg/news/2335000/2334465/20240702_222509_o_14722432.jpg"
       },
       {
-        "title": "鹿沼市長選､投票率は52.72% 前回を2.87ﾎﾟｲﾝﾄ下回る|下野新聞 SOON - 下野新聞",
-        "description": "任期満了に伴う鹿沼市長選は9日､投票が行われ､午後7時に締め切られた｡投票率は52･72%で､2020年の前回(55･59%)を2･87ﾎﾟｲﾝﾄ下回った｡ 開票は同8時に鹿沼総合体育館で始まり､同10時ごろ大勢が判明する見通し｡",
-        "url": "https://www.shimotsuke.co.jp/articles/-/907694",
-        "image": "https://soon.ismcdn.jp/mwimgs/0/7/1200wm/img_07c92db96be8b9098074f78b81a869391583163.jpg"
+        "title": "中日･福永裕基､信州の夜空切り裂く逆転弾! \"地方の鬼\"巨人･山崎伊織の直球を完璧に捉えた:中日ｽﾎﾟｰﾂ･東京中日ｽﾎﾟｰﾂ - 中日新聞",
+        "description": "◇2日 巨人―中日(松本) 中日の福永裕基内野手が､1点を追う5回に逆転の2号2ﾗﾝを放った｡ 1点を追う5回､先頭のﾛﾄﾞﾘｹﾞｽが中前...",
+        "url": "https://www.chunichi.co.jp/article/921897",
+        "image": "https://static.chunichi.co.jp/image/article/size1/f/d/8/0/fd8097d61ba31b8157f8aae5e34a9a81_1.jpg"
       },
       {
-        "title": "AIの覇権を握るのは誰? 来週開催のWWDCの裏でうごめく思惑 - GIZMODO JAPAN",
-        "description": "ｱｯﾌﾟﾙ､ｸﾞｰｸﾞﾙ､OpenAIなど､WWDCを前にして巨大ﾃｯｸたちが目論むAIの覇権争い状況を整理｡",
-        "url": "https://www.gizmodo.jp/2024/06/who-will-be-the-winner-in-ai-industry.html",
-        "image": "https://media.loom-app.com/gizmodo/dist/images/2024/06/07/shutterstock_2425536391.jpg?w=1280&h=630&f=jpg"
+        "title": "ﾊﾞﾚｰ男子､ﾄﾞｲﾂと初戦 - 岩手日報",
+        "description": "岩手日報社の公式ﾎｰﾑぺｰｼﾞです｡県内ﾆｭｰｽやｽﾎﾟｰﾂを中心に旬の話題を伝えます｡",
+        "url": "https://www.iwate-np.co.jp/article/kyodo/2024/7/2/1343590",
+        "image": "https://www.iwate-np.co.jp/assets/img/og-image.png?1519181706"
       },
       {
-        "title": "吉本ひかる､岩井千怜ら5人が全英女子出場権を獲得 - ｺﾞﾙﾌﾀﾞｲｼﾞｪｽﾄ･ｵﾝﾗｲﾝ",
-        "description": "◇国内女子◇宮里藍 ｻﾝﾄﾘｰﾚﾃﾞｨｽｵｰﾌﾟﾝ最終日(9日)◇六甲国際ｺﾞﾙﾌ倶楽部(兵庫)◇6526yd(ﾊﾟｰ72)◇曇り時々雨(観衆4434人) 岩井千怜､小祝さくら､竹田麗央､大里桃子､吉本ひかるの5人が今季ﾒｼﾞｬｰ最終戦｢AIG女子ｵｰﾌﾟﾝ(全英女子)｣(8月22日開幕/ｽｺｯﾄﾗﾝﾄﾞ･ｾﾝﾄｱﾝﾄﾞﾘｭｰｽ ｵｰﾙﾄﾞｺｰｽ)の出場権を獲得した｡今大会は\"全英予選\"の側面があり｢大会終了時のﾒﾙｾﾃﾞｽﾗﾝｷﾝｸﾞ(MR)上位3人｣｢大会上位2人｣が対象で､昨年MR1位で有資格者の山下美夢有が今季MR2位､今大会…",
-        "url": "https://news.golfdigest.co.jp/news/jlpga/article/168786/1/",
-        "image": "https://i.gimg.jp/cmsimg/352069.jpg"
+        "title": "｢大統領は今や法の上に立つ王だ｣…連邦最高裁のﾘﾍﾞﾗﾙ派判事､ﾄﾗﾝﾌﾟ氏の免責特権を一部認めた多数派批判 - 読売新聞ｵﾝﾗｲﾝ",
+        "description": "【ﾜｼﾝﾄﾝ=田島大志】米連邦最高裁が､2021年の議会占拠事件に関連して共和党のﾄﾗﾝﾌﾟ前大統領に｢免責｣特権が認められるかどうかを争った事件を下級審に差し戻したことで､11月の大統領選前にﾄﾗﾝﾌﾟ氏が同事件で裁かれ",
+        "url": "https://www.yomiuri.co.jp/world/uspresident/20240702-OYT1T50118/",
+        "image": "https://www.yomiuri.co.jp/media/2024/07/20240702-OYT1I50114-1.jpg?type=ogp"
       },
       {
-        "title": "ﾖｰﾛｯﾊﾟ議会選挙 投票最終日 極右政党などの議席が焦点に | NHK - nhk.or.jp",
-        "description": "EU=ﾖｰﾛｯﾊﾟ連合の重要な政策を左右するﾖｰﾛｯﾊﾟ議会選挙は､9日､最終日を迎え､ﾌﾗﾝｽやﾄﾞｲﾂなどの主要国で投票が…",
-        "url": "https://www3.nhk.or.jp/news/html/20240609/k10014475611000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240609/K10014475611_2406091846_0609192107_01_02.jpg"
+        "title": "ﾛｼｱ寄りのﾊﾝｶﾞﾘｰ首相 ｾﾞﾚﾝｽｷｰ大統領と会談 | NHK - nhk.or.jp",
+        "description": "ﾛｼｱ寄りの姿勢で知られるﾊﾝｶﾞﾘｰのｵﾙﾊﾞﾝ首相が2日､ﾛｼｱによる軍事侵攻後初めてｳｸﾗｲﾅを訪問し､ｾﾞﾚﾝｽｷｰ大…",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499471000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499471_2407021809_0702182035_01_02.jpg"
       },
       {
-        "title": "ｲｽﾗｴﾙ軍､人質4人救出 奪還作戦で210人死亡とｶﾞｻﾞ当局 - ﾛｲﾀｰ (Reuters Japan)",
-        "description": "ｲｽﾗｴﾙ軍は8日､ﾊﾟﾚｽﾁﾅ自治区ｶﾞｻﾞでｲｽﾗﾑ組織ﾊﾏｽに拘束されていた人質4人を救出したと発表した｡中部ﾇｾｲﾗﾄで人質奪還作戦を実行した｡ﾊﾟﾚｽﾁﾅ当局はこの作戦で200人以上が死亡したとしている｡",
-        "url": "https://jp.reuters.com/world/us/PNQCVNH4BNJNTCHLNGVBUWEW4Q-2024-06-09/",
-        "image": "https://www.reuters.com/resizer/v2/7QLRF7K6UNJSRPN6O756LFSDTQ.jpg?auth=43410051f4eaf8c0911a710e9a08a000c6ba819c0dbec54f59935e1d04c56e1b&height=1005&width=1920&quality=80&smart=true"
+        "title": "【日本ﾊﾑ】連敗5で止め､借金の危機回避 貯金でｼｰｽﾞﾝ折り返しは新庄監督就任3年目で初 - ﾌﾟﾛ野球 - ﾆｯｶﾝｽﾎﾟｰﾂ",
+        "description": "日本ﾊﾑが\"借金の危機\"で踏みとどまった｡5連敗で勝率5割に戻って迎えた一戦｡2回に先制されたものの､4回に今季初めて4番で起用された郡司裕也捕手(26)の2… - 日刊ｽﾎﾟｰﾂ新聞社のﾆｭｰｽｻｲﾄ､ﾆｯｶﾝｽﾎﾟｰﾂ･ｺﾑ(nikkansports.com)｡",
+        "url": "https://www.nikkansports.com/baseball/news/202407020001273.html",
+        "image": "https://www.nikkansports.com/baseball/news/img/202407020001273-w500_0.jpg"
       },
       {
-        "title": "2024年F1第9戦ｶﾅﾀﾞGP予選ﾄｯﾌﾟ10ﾄﾞﾗｲﾊﾞｰｺﾒﾝﾄ(2) | F1 - ｵｰﾄｽﾎﾟｰﾂweb",
-        "description": "2024年F1第9戦ｶﾅﾀﾞGPの予選が行われ､ﾎﾟｰﾙﾎﾟｼﾞｼｮﾝ~5番手に入ったﾄﾞﾗｲﾊﾞｰたちが土曜日を振り返った｡ﾎﾟｰﾙﾎﾟｼﾞｼｮﾝ~5番手に入ったﾄﾞﾗｲﾊﾞｰはｼﾞｮｰｼﾞ･ﾗｯｾﾙ(ﾒﾙｾﾃﾞｽ)､ﾏｯｸｽ･ﾌｪﾙｽﾀｯﾍﾟﾝ(ﾚｯﾄﾞﾌﾞﾙ)､ﾗﾝﾄﾞ･ﾉﾘｽ(ﾏｸﾗｰﾚﾝ)､ｵｽｶｰ･ﾋﾟｱｽﾄﾘ(ﾏｸﾗｰﾚﾝ)､ﾀﾞﾆｴﾙ･ﾘｶﾙﾄﾞ(RB)だ｡",
-        "url": "https://www.as-web.jp/f1/1089521",
-        "image": "https://cdn-image.as-web.jp/2024/06/09185919/asimg_XPB_1284117_HiRes_8566657cf680917.jpg"
+        "title": "札幌でおむつはいた女児がﾋﾞﾙから転落か､搬送先で死亡…通報者｢『どさっ』という音がした｣ - 読売新聞ｵﾝﾗｲﾝ",
+        "description": "2日午後4時40分頃､札幌市豊平区中の島のﾋﾞﾙの駐車場で､｢女児が倒れている｣と通行人から119番があった｡女児は搬送先の病院で死亡が確認された｡  札幌豊平署によると､女児は鼻から出血があり､おむつをはいていた｡通報",
+        "url": "https://www.yomiuri.co.jp/national/20240702-OYT1T50153/",
+        "image": "https://www.yomiuri.co.jp/media/2024/07/20240702-OYT1I50148-1.jpg?type=ogp"
       },
       {
-        "title": "｢そういうそぶりはなかった｣小芝風花の独立報道に関係者も驚き 気になる今後は? - au Webﾎﾟｰﾀﾙ",
-        "description": "au Webﾎﾟｰﾀﾙ",
-        "url": "https://article.auone.jp/detail/1/5/9/100_9_r_20240609_1717927601894419",
-        "image": "https://portal.st-img.jp/thumb/fb86f272da8844532417f737d6aea547_1717927601_l.jpg"
+        "title": "ｼｶｺﾞ連銀総裁､当局者は利下げに備える必要-ｲﾝﾌﾚ減速続けば - ﾌﾞﾙｰﾑﾊﾞｰｸﾞ",
+        "description": "米ｼｶｺﾞ連銀のｸﾞｰﾙｽﾞﾋﾞｰ総裁は､米国のｲﾝﾌﾚ率が目標の2%に向かって低下を続ければ､政策当局者は利下げする必要があるとの見方を示した｡",
+        "url": "https://www.bloomberg.co.jp/news/articles/2024-07-02/SFZLM7T0G1KW00",
+        "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/icMM3R.J4T7U/v0/1200x800.jpg"
       },
       {
-        "title": "【阪神】岡田監督､才木浩人ﾉｰﾉｰ予兆を感じていた｢3回にﾌｫｱﾎﾞｰﾙ出た時に｣/一問一答 - ﾌﾟﾛ野球 - ﾆｯｶﾝｽﾎﾟｰﾂ",
-        "description": "阪神才木浩人投手(25)がﾉｰﾋｯﾄﾉｰﾗﾝ目前の快投を見せ､12球団ﾄｯﾌﾟの7勝目を挙げた｡ﾁｰﾑはこれで交流戦初の3連勝｡同一ｶｰﾄﾞ3連勝は4月19~21… - 日刊ｽﾎﾟｰﾂ新聞社のﾆｭｰｽｻｲﾄ､ﾆｯｶﾝｽﾎﾟｰﾂ･ｺﾑ(nikkansports.com)｡",
-        "url": "https://www.nikkansports.com/baseball/news/202406090001168.html",
-        "image": "https://www.nikkansports.com/baseball/news/img/202406090001168-w500_0.jpg"
+        "title": "ｲｽﾗｴﾙがｶﾞｻﾞ南北を攻撃､ﾊﾟﾚｽﾁﾅ人25人死亡か 避難者も - ﾛｲﾀｰ (Reuters Japan)",
+        "description": "ｲｽﾗｴﾙ軍が2日にﾊﾟﾚｽﾁﾅ自治区ｶﾞｻﾞ南部のいくつかの地区を攻撃し､数千人のﾊﾟﾚｽﾁﾅ人が自宅から避難した｡",
+        "url": "https://jp.reuters.com/world/us/JOYOYO3UTVLKZCXABJMLV2VFBA-2024-07-02/",
+        "image": "https://www.reuters.com/resizer/v2/LKJXDRXEYVPOFJ5DTG7LEBRUTA.jpg?auth=931913aa13cf1f8f18531085cdc3aa52843e7b15aad30fb08145ef5c11bcc916&height=1005&width=1920&quality=80&smart=true"
       },
       {
-        "title": "田中道子とｻｯｶｰ元日本代表･川又堅碁の入籍 気になる｢収入格差｣ (2024年6月9日掲載) - livedoor",
-        "description": "田中道子と川又堅碁の入籍について週刊女性PRIMEが取り上げた｡川又はｻｯｶｰ元日本代表で､現在はｹｶﾞの影響もありJ3ﾁｰﾑに所属｡田中は人気に火がつきだした印象で｢収入格差｣が心配だと筆者はつづった",
-        "url": "https://news.livedoor.com/topics/detail/26567848/",
-        "image": "https://image.news.livedoor.com/newsimage/stf/3/8/3874d_1462_fc6eee4a_2373875f.jpg"
+        "title": "ｺﾝｸﾘｰﾄはがれ､屋根にへこみ 万博会場の爆発現場を報道公開 - 毎日新聞",
+        "description": "2025年大阪･関西万博の建設工事現場で3月に発生した爆発事故で､日本国際博覧会協会は2日､現場を報道陣に公開した｡事故のあった建設中のﾄｲﾚ1階では､厚さ18ｾﾝﾁのｺﾝｸﾘｰﾄ製の床が幅約60ｾﾝﾁ､長さ約6ﾒｰﾄﾙにわたってはがれ､鉄筋があらわになっていた｡",
+        "url": "https://mainichi.jp/articles/20240702/k00/00m/040/210000c",
+        "image": "https://cdn.mainichi.jp/vol1/2024/07/02/20240702k0000m040215000p/0c10.jpg?1"
       },
       {
-        "title": "遅れる梅雨入り 今週は広く晴れて30℃以上の真夏日続出 湿度ｱｯﾌﾟ 食中毒に注意(気象予報士 福冨 里香 2024年06月09日) - tenki.jp",
-        "description": "各地で梅雨入りが遅れていますが､15日(土)以降は前線が本州付近まで北上する見込み｡それまでは広い範囲で晴れて､今週は最高気温30℃以上の真夏日が続出となりそうです｡湿度もｱｯﾌﾟするため､熱中症や食品の管理など十分な注意が必要です｡",
-        "url": "https://tenki.jp/forecaster/r_fukutomi/2024/06/09/29087.html",
-        "image": "https://storage.tenki.jp/storage/static-images/forecaster_diary/image/2/29/290/29087/main/20240609173604/large.jpg"
+        "title": "北海道 苫小牧 ﾌｪﾘｰ座礁 運輸安全委が調査官派遣 | NHK - nhk.or.jp",
+        "description": "2日未明､乗客乗員あわせて140人を乗せたﾌｪﾘｰが､北海道の苫小牧港の入り口付近で座礁しました｡ﾌｪﾘｰはﾀｸﾞﾎﾞｰﾄに…",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499041000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499041_2407021049_0702110937_01_03.jpg"
       },
       {
-        "title": "ﾖｯﾄで24歳会社員 単独無寄港無補給で世界一周 日本人最年少 | NHK - nhk.or.jp",
-        "description": "兵庫県西宮市の24歳の会社員が日本人最年少でのﾖｯﾄによる単独無寄港､無補給での世界一周を達成し､9日､西宮市で記念のｾ…",
-        "url": "https://www3.nhk.or.jp/news/html/20240609/k10014475531000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240609/K10014475531_2406091703_0609171256_01_02.jpg"
+        "title": "橋\"崩落の恐れ\"24時間で250mm超の雨 ｢ﾄﾞｽﾝと音｣大分･日田市[2024/07/02 19:02] - ﾃﾚﾋﾞ朝日",
+        "description": "大分県日田市で橋が崩落する恐れが高まり､全面通行止めとなっています｡\n\n■｢ﾄﾞｽﾝと音｣橋\"崩落の恐れ\"\n\n 崩れそうな橋脚｡道路はくの字に落ち込んでいます｡橋が折れそうな､目を疑うような光景です｡\n\n近くに勤務する人\n｢かなり大きな音がした｡ﾄﾞｽﾝという音｡もしかすると大型車が事故起こしたのかなと思って確認に外を見たら､そうではなかったので｡よく見ると橋が落ちている状態｣\n\n 場所は日田市｡三郎丸橋が架かっているのは花月川｡今も濁流が流れています｡\n\n近隣住民\n｢大きなﾄﾗｯｸが止まっていて､事故かなと思った｡…",
+        "url": "https://news.tv-asahi.co.jp/news_society/articles/000357758.html",
+        "image": "https://news.tv-asahi.co.jp/articles_img/000357758_1920.jpg"
       },
       {
-        "title": "保護司殺害､容疑者就労巡りﾄﾗﾌﾞﾙか 一時行方不明に - 日本経済新聞",
-        "description": "大津市の住宅で5月､保護司のﾚｽﾄﾗﾝ経営､新庄博志さん(60)の遺体が見つかった事件で､殺人の疑いで再逮捕された飯塚紘平容疑者(35)=強盗罪で保護観察付き有罪確定=に関し､新庄さんが｢(容疑者の)仕事が続かない｣と周囲に相談していたことが9日､分かった｡滋賀県警は､保護司が更生支援の一環として行う就労指導でﾄﾗﾌﾞﾙがなかったか調べる｡県警は10日､容疑者を送検する｡また､新庄さんが死亡した",
-        "url": "https://www.nikkei.com/article/DGXZQOUE091NH0Z00C24A6000000/",
-        "image": "https://article-image-ix.nikkei.com/https%3A%2F%2Fimgix-proxy.n8s.jp%2FDSXZQO4942779009062024000000-1.jpg?ixlib=js-3.8.0&auto=format%2Ccompress&fit=crop&bg=FFFFFF&w=1200&h=630&fp-x=0.5&fp-y=0.5&fp-z=1&crop=focalpoint&s=c4a4c0ab2cccf24f663045693a327132"
+        "title": "選挙で過半数目指すのがなぜ罪に?香港の街頭で訴える妻 | NHK | WEB特集 - nhk.or.jp",
+        "description": "長年連れ添っていた夫が有罪判決｡女性は香港で街頭に立ち､政府に説明を求めています｡その思いとは?",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499391000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499391_2407021603_0702161513_01_02.jpg"
       },
       {
-        "title": "茨城 ひたちなか市付近 釣り船が転覆 3人を救助 | NHK - nhk.or.jp",
-        "description": "9日正午すぎ､茨城県ひたちなか市付近で釣り船が転覆しました｡乗っていた男性3人は救助されましたが､60代の男性が意識不明…",
-        "url": "https://www3.nhk.or.jp/news/html/20240609/k10014475471000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240609/K10014475471_2406091525_0609153822_01_02.jpg"
+        "title": "個人株主､初の7000万人超え 10年連続増加､取引活発化 | 共同通信 - 共同通信",
+        "description": "東京証券取引所など全国の4証取は2日､2023年度の上場会社の個人株主が延べ人数で前年度比462万人...",
+        "url": "https://nordot.app/1180771666164187772",
+        "image": "https://nordot-res.cloudinary.com/c_fill,w_400,h_210,g_faces,q_auto:eco/ch/images/1180824046484226901/origin_1.jpg"
       },
       {
-        "title": "韓国 宣伝放送を9日中に再開へ 北朝鮮のごみ風船への対抗措置 | NHK | 韓国 - nhk.or.jp",
-        "description": "韓国軍は､北朝鮮が韓国に向けてごみをぶら下げた風船を飛ばしたことへの対抗措置として､南北の軍事境界線付近で大音量のｽﾋﾟｰ…",
-        "url": "https://www3.nhk.or.jp/news/html/20240609/k10014475481000.html",
-        "image": "https://www3.nhk.or.jp/news/html/20240609/K10014475481_2406091508_0609154958_01_02.jpg"
+        "title": "地球の｢内核の自転｣2010年頃から減速中 研究で明確な証拠 - Forbes JAPAN",
+        "description": "地球の中心にある内核の自転が､14年前の2010年頃から減速しており､その結果として1日の長さがわずかに長くなっている可能性があるとの最新の研究結果が発表された｡科学誌Natureで6月に発表された今回の研究は､内核が地球の表面よりも速く自...",
+        "url": "https://forbesjapan.com/articles/detail/72106",
+        "image": "https://images.forbesjapan.com/media/article/72106/images/main_image_1da0fab520e996b4b79af87fa75cbe74d0bdd3c3.jpg"
       },
       {
-        "title": "ｻｲﾊﾞｰ攻撃の可能性とｶﾄﾞｶﾜ､｢ﾆｺﾆｺ動画｣は週末復旧が困難 - ﾌﾞﾙｰﾑﾊﾞｰｸﾞ",
-        "description": "出版事業や動画ｻｲﾄを手掛けるKADOKAWAで動画配信ｻｲﾄ｢ﾆｺﾆｺ動画｣を含む複数のｻｲﾄがｻｰﾋﾞｽを停止している｡ｻｲﾊﾞｰ攻撃の可能性があるとしている｡",
-        "url": "https://www.bloomberg.co.jp/news/articles/2024-06-09/SESSX9T0AFB4",
-        "image": "https://assets.bwbx.io/s3/javelin/public/javelin/images/social-default-a4f15fa7ee.jpg"
+        "title": "ｺﾗﾑ:｢ﾕｰﾛ危機｣再来ﾘｽｸ､財政赤字と低成長 極右も台頭 - ﾛｲﾀｰ (Reuters Japan)",
+        "description": "",
+        "url": "https://news.google.com/rss/articles/CBMiUWh0dHBzOi8vanAucmV1dGVycy5jb20vb3Bpbmlvbi9mb3JleC1mb3J1bS9PWlNPT1JOUU5GSURSTFE0M05UWklLUTZGTS0yMDI0LTA3LTAyL9IBAA?oc=5",
+        "image": null
       },
       {
-        "title": "米仏首脳､中東の緊張激化回避へ取り組み強化 ｳｸﾗｲﾅ情勢協議 - ﾛｲﾀｰ (Reuters Japan)",
-        "description": "ﾊﾞｲﾃﾞﾝ米大統領は8日､ﾌﾗﾝｽのﾏｸﾛﾝ大統領とﾊﾟﾘで会談し､中東やｳｸﾗｲﾅを巡る情勢について協議した｡",
-        "url": "https://jp.reuters.com/world/ukraine/SURVRR4CCJP3LOVGEKOFOWHQPI-2024-06-09/",
-        "image": "https://www.reuters.com/resizer/v2/4ZIECL5MNRK3BETM7WNNNRICVA.jpg?auth=fc741d52b6c59ab0945a5a2eb1bd29c929c4b98c88440ee0312b38c2c826825f&height=1005&width=1920&quality=80&smart=true"
+        "title": "【一覧掲載】仮設住宅42% 浸水や土砂災害ﾘｽｸ 能登半島地震 | NHK - nhk.or.jp",
+        "description": "能登半島地震の被災地の仮設住宅について､建設予定を含む4割あまりがﾊｻﾞｰﾄﾞﾏｯﾌﾟなどの浸水や土砂災害のﾘｽｸがある場所に…",
+        "url": "https://www3.nhk.or.jp/news/html/20240702/k10014499091000.html",
+        "image": "https://www3.nhk.or.jp/news/html/20240702/K10014499091_2407021401_0702143817_01_02.jpg"
       }
     ],
-    "summary": "鹿児島市の認定こども園で21歳の保育士が男児を刃物で切りつけ逮捕されました｡宮城県村田町でZOZO創業者の前沢友作氏がｶｰﾚｰｽ事故で病院に搬送されましたが､命に別状はありません｡ｲｽﾗｴﾙ軍がｶﾞｻﾞで人質を救出する作戦を実行し､多数が死亡しました｡各地で梅雨入りが遅れる中､今週は真夏日の予報で熱中症に注意が必要です｡また､KADOKAWAの複数のｻｲﾄがｻｲﾊﾞｰ攻撃の可能性で停止しています｡"
+    "summary": "2021年に中学生の広瀬爽彩さんが自殺した問題で旭川市の再調査委員会がいじめ原因の報告書を発表しました｡ｲﾝﾄﾞ北部で宗教行事中に転倒事故が発生｡日本では新紙幣発行に伴い詐欺注意喚起が行われています｡日田市で橋が崩落寸前となり､交通が止められました｡米ｼｶｺﾞ連銀はｲﾝﾌﾚ低下で利下げの可能性を示唆｡大阪･関西万博では建設現場の爆発事故の現場が公開されました｡北海道ではﾌｪﾘｰが座礁しました｡"
   }
 };
