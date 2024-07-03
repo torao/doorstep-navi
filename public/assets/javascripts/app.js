@@ -43,7 +43,7 @@
     $.getElementById("calendar-day-of-week").textContent = getDayOfWeek(now);
     $.getElementById("calendar-wareki").textContent = getJapaneseYear(year) + " " + getEto(year);
     $.getElementById("calendar-today-event").textContent = holiday !== undefined ? holiday : "";
-    if (holiday !== undefined || now.getDay() === 0) {
+    if (holiday !== undefined) {
       $.getElementById("calendar-date-holiday").classList.add("holiday");
     }
 
