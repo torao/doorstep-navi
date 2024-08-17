@@ -113,6 +113,7 @@ async function getWeatherFromTenkiJp() {
   });
 
   // tenki.jp 墨田区 3時間天気
+  page.setDefaultNavigationTimeout(60 * 1000);
   await page.goto("https://tenki.jp/forecast/3/16/4410/13107/3hours.html");
   async function getByThreeHours(tableId, date) {
     return page.evaluate((tableId, date) => {

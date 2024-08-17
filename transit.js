@@ -14,8 +14,9 @@ async function fetch() {
     headless: 'new'
   });
   const page = await browser.newPage();
-  const url = "https://transit.yahoo.co.jp/traininfo/area/4/"; // Yahoo! Japan 路線情報(関東)のURL
+  const url = "https://transit.yahoo.co.jp/traininfo/area/4"; // Yahoo! Japan 路線情報(関東)のURL
 
+  page.setDefaultNavigationTimeout(60 * 1000);
   await page.goto(url, { waitUntil: "networkidle2" });
 
   // 遅延情報を取得
