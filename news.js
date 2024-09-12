@@ -59,6 +59,9 @@ export async function getNews(apiKey, chatGptApiKey) {
 
 // ChatGTP によるニュースの要約
 async function summarize(apiKey, articles) {
+  if (articles.length === 0) {
+    return "ニュース記事を取得できませんでした。";
+  }
   const openai = new OpenAI({ apiKey: apiKey });
   try {
     const completion = await openai.chat.completions.create({
